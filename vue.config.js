@@ -38,10 +38,11 @@ module.exports = defineConfig({
     // 生产环境需要考虑是否开启，开发环境推荐使用source-map或者eval-cheap-module-source-map
     devtool: isProd ? false : 'eval-cheap-module-source-map',
     plugins: [
+      // todo 与element-plus的自动导入有冲突，会导致打包后没有样式
       // 删除没有用到的css（需要安装glob包）
-      new PurgeCSSPlugin({
-        paths: purgeFiles,
-      }),
+      // new PurgeCSSPlugin({
+      //   paths: purgeFiles,
+      // }),
       // start 按需导入element-plus
       AutoImport({
         resolvers: [ElementPlusResolver()],
