@@ -13,7 +13,7 @@ function window_it(f: any, time = 50) {
       // 以请求url和参数拼接成的字符串作为key缓存起来
       if (!w[hash(params)]) {
         w[hash(params)] = {
-          func: f,
+          axios: f,
           args: {...params},
           resolvers: [],
           rejecters: [],
@@ -25,8 +25,10 @@ function window_it(f: any, time = 50) {
         // 然后遍历相同时间内的所有resolvers，将请求结果resolve回去
         setTimeout(() => {
           Object.keys(w).forEach((key) => {
-            const { func, args, resolvers, rejecters } = w[key];
-            func(args)
+            // 获取请求方法、请求参数、resolvers、rejecters
+            const { axios, args, resolvers, rejecters } = w[key];
+            // 发起请求，传入的参数会跟axiosConfig合并
+            axios(args)
               .then((response: any) => {
                 resolvers.forEach((r: any) => {
                   r(response);

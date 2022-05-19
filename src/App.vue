@@ -4,7 +4,8 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-// import { getOrderList } from "./request/modules/order";
+// import { getOrderList } from "./request/modules/demo";
+import request from "./request";
 
 export default defineComponent({
   name: "App",
@@ -16,6 +17,18 @@ export default defineComponent({
     getOrderList().then(({data}: any) => {
       console.log(data)
     }) */
+    // axios.get('/auth/oauth/token').then(res => {
+    //   console.log(res)
+    // })
+
+    // 测试mock功能
+    request({
+      url: '/auth/oauth/token'
+    }).then(({data}: any) => {
+      return data.data;
+    }).then(d => {
+      console.log(d)
+    })
   },
 });
 </script>

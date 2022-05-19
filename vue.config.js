@@ -84,7 +84,7 @@ module.exports = defineConfig({
         '@img': resolve(__dirname, 'src/assets/images'),
         '@components': resolve(__dirname, 'src/components'),
         '@utils': resolve(__dirname, 'src/utils'),
-        '@api': resolve(__dirname, 'src/api'),
+        '@request': resolve(__dirname, 'src/request'),
         '@store': resolve(__dirname, 'src/store'),
       },
       /**

@@ -1,7 +1,7 @@
 <template>
-  <el-main>Main
-    <router-view></router-view>
-  </el-main>
+  <div>
+
+  </div>
 </template>
 
 <script lang="ts">
@@ -17,7 +17,5 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.el-main {
-  background-color: #666;
-}
+
 </style>

@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from 'vue-router';
+import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
 import Login from '../views/Login.vue';
 import Home from '../views/Home.vue';
 import Layout from '../layout/index.vue';
@@ -12,7 +12,7 @@ requireContext.keys().forEach((name) => {
   allRouterModules.push(...(requireContext(name).default || []));
 });
 
-const routes = [
+const routes: Array<RouteRecordRaw> = [
   {
     path: '/login',
     name: 'Login',
