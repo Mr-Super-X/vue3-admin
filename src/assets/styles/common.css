@@ -1,0 +1,12 @@
+/* 测试未使用的css被purge删除 */
+.a {
+  font-size: 20px;
+}
+
+body {
+  height: 100%;
+}
+
+#app {
+  height: 100%;
+}
