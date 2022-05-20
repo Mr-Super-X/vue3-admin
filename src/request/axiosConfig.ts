@@ -11,6 +11,8 @@ const baseURL = () => {
     : process.env.VUE_APP_API_PATH;
 };
 
+// axios配置
+// 文档：http://www.axios-js.com/zh-cn/docs/#%E8%AF%B7%E6%B1%82%E9%85%8D%E7%BD%AE
 const config: any = {
   // `url` 是用于请求的服务器 URL
   url: '',

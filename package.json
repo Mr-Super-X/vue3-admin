@@ -2,6 +2,7 @@
   "name": "vue3-admin",
   "version": "0.1.0",
   "private": true,
+  "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
     "dev": "vue-cli-service serve",

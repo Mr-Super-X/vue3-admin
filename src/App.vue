@@ -1,11 +1,11 @@
 <template>
-  <router-view></router-view>
+  <router-view />
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 // import { getOrderList } from "./request/modules/demo";
-import request from "./request";
+// import request from "./request";
 
 export default defineComponent({
   name: "App",
@@ -22,13 +22,13 @@ export default defineComponent({
     // })
 
     // 测试mock功能
-    request({
-      url: '/auth/oauth/token'
-    }).then(({data}: any) => {
-      return data.data;
-    }).then(d => {
-      console.log(d)
-    })
+    // request({
+    //   url: '/auth/oauth/token'
+    // }).then(({data}: any) => {
+    //   return data.data;
+    // }).then(d => {
+    //   console.log(d)
+    // })
   },
 });
 </script>
