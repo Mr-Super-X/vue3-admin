@@ -1,29 +1,33 @@
-import { createStore } from 'vuex';
+import { createStore } from 'vuex'
+
+interface IModules {
+  [key: string]: object
+}
 
 // 加载所有子模块
-const modules = {};
-/* const requireContext = require.context('./', true, /index\.js$/);
+const modules: IModules = {}
+const requireContext = require.context('./modules', false, /\.ts|.js$/)
 requireContext.keys().forEach((name) => {
-  let _matchRes = name.match(/^\.\/(.*)\/index\.js$/);
-  if (_matchRes && _matchRes.length > 0) {
-    if (_matchRes[1]) {
-      modules[_matchRes[1]] = requireContext(name).default;
-    }
+  const match = name.match(/^\.\/(.*)\.ts|.js$/)
+  const moduleName = match && match[1]
+  if (moduleName) {
+    modules[moduleName] = requireContext(name).default
   }
-}); */
+})
+console.log(modules)
 
-const state = {};
+const state = {}
 
-const getters = {};
+const getters = {}
 
-const mutations = {};
+const mutations = {}
 
-const actions = {};
+const actions = {}
 
 export default createStore({
   modules,
   state,
   getters,
   mutations,
-  actions,
-});
+  actions
+})

@@ -1,39 +1,40 @@
-const PurgeCSSPlugin = require('purgecss-webpack-plugin');
+// const PurgeCSSPlugin = require('purgecss-webpack-plugin');
 // start 按需导入element-plus
-const AutoImport = require('unplugin-auto-import/webpack');
-const Components = require('unplugin-vue-components/webpack');
-const { ElementPlusResolver } = require('unplugin-vue-components/resolvers');
+const AutoImport = require('unplugin-auto-import/webpack')
+const Components = require('unplugin-vue-components/webpack')
+const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
 // end 按需导入element-plus
-const glob = require('glob');
-const { defineConfig } = require('@vue/cli-service');
-const { resolve, join } = require('path');
-const isProd = ['production'].includes(process.env.NODE_ENV);
+const glob = require('glob')
+const { defineConfig } = require('@vue/cli-service')
+const { resolve, join } = require('path')
+const isProd = ['production'].includes(process.env.NODE_ENV)
 
 // 获取匹配文件
 const purgeFiles = glob.sync(`${join(__dirname, 'public')}/**/*`, {
-  nodir: true,
-});
-purgeFiles.push(resolve(__dirname, 'public/index.html'));
+  nodir: true
+})
+purgeFiles.push(resolve(__dirname, 'public/index.html'))
 
 // 所有的webpack配置均可通过vue inspect > output.js命令来查看
 // https://cli.vuejs.org/zh/guide/webpack.html#%E5%AE%A1%E6%9F%A5%E9%A1%B9%E7%9B%AE%E7%9A%84-webpack-%E9%85%8D%E7%BD%AE
 module.exports = defineConfig({
   transpileDependencies: true, // 如果设置为 true，node_modules 中的所有依赖项都将由 Babel 转译 // 参考：https://zhuanlan.zhihu.com/p/374101233
+  lintOnSave: false, // 设置为true时保存代码会触发eslint
   css: {
     loaderOptions: {
       // 配置全局scss变量支持
       // 文档：https://cli.vuejs.org/zh/guide/css.html#%E5%90%91%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8-loader-%E4%BC%A0%E9%80%92%E9%80%89%E9%A1%B9
       scss: {
         additionalData: '@import "~@css/scss/common.scss";'
-      },
-    },
+      }
+    }
   },
   // 配置对象写法
   configureWebpack: {
     output: {
       // 可以覆盖vue默认的output配置
       filename: 'js/[name].[contenthash:8].bundle.js', // 对打包后的bundle进行命名，[name]会取entry中的文件名
-      chunkFilename: 'js/[name].[contenthash:8].chunk.js', // 对打包后的chunk进行命名，[name]会取webpackChunkName
+      chunkFilename: 'js/[name].[contenthash:8].chunk.js' // 对打包后的chunk进行命名，[name]会取webpackChunkName
     },
     // 生产环境需要考虑是否开启，开发环境推荐使用source-map或者eval-cheap-module-source-map
     devtool: isProd ? false : 'eval-cheap-module-source-map',
@@ -45,11 +46,11 @@ module.exports = defineConfig({
       // }),
       // start 按需导入element-plus
       AutoImport({
-        resolvers: [ElementPlusResolver()],
+        resolvers: [ElementPlusResolver()]
       }),
       Components({
-        resolvers: [ElementPlusResolver()],
-      }),
+        resolvers: [ElementPlusResolver()]
+      })
       // end 按需导入element-plus
     ],
     optimization: {
@@ -64,8 +65,8 @@ module.exports = defineConfig({
        * 其中属性值可以是名称或者返回名称的函数，用于为 runtime chunks 命名。
        */
       runtimeChunk: {
-        name: (entrypoint) => `runtimechunk~${entrypoint.name}`,
-      },
+        name: (entrypoint) => `runtimechunk~${entrypoint.name}`
+      }
     },
     /**
      * 解析模块的规则
@@ -85,7 +86,7 @@ module.exports = defineConfig({
         '@components': resolve(__dirname, 'src/components'),
         '@utils': resolve(__dirname, 'src/utils'),
         '@request': resolve(__dirname, 'src/request'),
-        '@store': resolve(__dirname, 'src/store'),
+        '@store': resolve(__dirname, 'src/store')
       },
       /**
        * 配置省略文件名的后缀规则
@@ -101,25 +102,26 @@ module.exports = defineConfig({
        * 1.后缀尝试列表要尽可能的小，不要把项目中不可能存在的情况写到后缀尝试列表中。
        * 2.频率出现最高的文件后缀要优先放在最前面，以做到尽快的退出寻找过程。
        * 3.在源码中写导入语句时，要尽可能的带上后缀，从而可以避免寻找过程。例如在你确定的情况下把
-       *   require('./data') 写成 require('./data.json')
+       * require('./data') 写成 require('./data.json')
        */
-      extensions: ['.ts', '.tsx', '.js', '.jsx', '.vue', '.json'],
+      extensions: ['.ts', '.tsx', '.js', '.jsx', '.vue', '.json']
     },
     /**
      * 防止将某些import的包打包到最终的bundle中，例如jquery
      *
-     * 做法：1.在webpack配置中设置externals，配置规则为【忽略的库名: npm项目包名】
-     *      2.将如jquery之类的包放在cdn，在index.html中通过script引入
+     * 做法：
+     * 1.在webpack配置中设置externals，配置规则为【忽略的库名: npm项目包名】
+     * 2.将如jquery之类的包放在cdn，在index.html中通过script引入
      *
      * 这样在代码中import $ from 'jquery'时就不会再打包jquery，
      * 并且能够正常使用jquery
      */
     externals: {
       // jquery: 'jQuery', // 拒绝jQuery被打包
-    },
+    }
   },
   // 链式写法
-  chainWebpack: (config) => {},
+  // chainWebpack: (config) => {},
   /**
    * 开发服务器devServer：用来自动化编译、自动刷新、自动打开浏览器等
    * 启动命令：webpack serve （webpack-cli推荐）
@@ -129,48 +131,48 @@ module.exports = defineConfig({
     // 代理url 请求/api时代理到http://localhost:3000
     proxy: {
       '/api': {
-        target: 'http://localhost:3000',
-      },
+        target: 'http://localhost:3000'
+      }
     },
     compress: true, // 启动gzip压缩
     host: 'localhost', // 主机地址
     port: 8080, // 端口号
-    hot: true, // 热更新
-  },
-});
+    hot: true // 热更新
+  }
+})
 
 // 控制台输出当前构建信息
-function consoleEnvInfo() {
-  const arg = process.argv[2];
+function consoleEnvInfo () {
+  const arg = process.argv[2]
   // 配置信息，对应根目录下的.env.xxx文件配置
   const params = {
     title: process.env.VUE_APP_TITLE,
     path: process.env.VUE_APP_PATH,
     apiPath: process.env.VUE_APP_API_PATH,
-    NODE_ENV: process.env.NODE_ENV,
+    NODE_ENV: process.env.NODE_ENV
   }
   // 只需将package.json中对应的命令加入配置即可
   const strategy = {
-    serve() {
-      global.console.log('开始运行' + process.env.VUE_APP_TITLE + '...');
+    serve () {
+      global.console.log('开始运行' + process.env.VUE_APP_TITLE + '...')
     },
-    dev() {
-      global.console.log('开始运行' + process.env.VUE_APP_TITLE + '...');
+    dev () {
+      global.console.log('开始运行' + process.env.VUE_APP_TITLE + '...')
     },
-    lint() {
-      global.console.log('开始检查代码规范...');
+    lint () {
+      global.console.log('开始检查代码规范...')
     },
-    build() {
-      global.console.log('开始构建' + process.env.VUE_APP_TITLE + '...');
+    build () {
+      global.console.log('开始构建' + process.env.VUE_APP_TITLE + '...')
     },
-    run(arg) {
-      this[arg]();
-      global.console.log('当前环境配置信息如下...');
-      global.console.table(params);
+    run (arg) {
+      this[arg]()
+      global.console.log('当前环境配置信息如下...')
+      global.console.table(params)
     }
   }
 
-  strategy.run(arg);
+  strategy.run(arg)
 }
 
-consoleEnvInfo();
+consoleEnvInfo()
