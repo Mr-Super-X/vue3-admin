@@ -131,7 +131,16 @@ module.exports = defineConfig({
     // 代理url 请求/api时代理到http://localhost:3000
     proxy: {
       '/api': {
-        target: 'http://localhost:3000'
+        target: 'http://localhost:3000',
+        secure: false, // 如果是https接口，需要配置这个参数
+        changeOrigin: true // 设置为true, 本地就会虚拟一个服务器接收你的请求并代你发送该请求
+      },
+      // 例如将'localhost:8080/img/xxx'代理到'https://cdn.wangyaxing.cn/xxx'
+      '/img': {
+        target: 'https://cdn.wangyaxing.cn', // 接口的域名
+        secure: false,
+        changeOrigin: true,
+        pathRewrite: { '^/img': '' } // pathRewrite 来重写地址，将前缀 '/img' 转为 '/'
       }
     },
     compress: true, // 启动gzip压缩
