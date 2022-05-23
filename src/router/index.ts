@@ -56,7 +56,7 @@ const routes: Array<RouteRecordRaw> = [
           title: '404'
         }
       },
-      ...allRouterModules // 将所有路由注入到layout中
+      ...allRouterModules // 将所有路由注入到layout下
     ]
   }
 ]

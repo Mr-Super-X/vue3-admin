@@ -14,7 +14,8 @@
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
     "lint:fix": "vue-cli-service lint --fix",
-    "commit": "cz"
+    "commit": "cz",
+    "release": "release-it"
   },
   "dependencies": {
     "axios": "^0.27.2",
@@ -53,6 +54,7 @@
     "lint-staged": "^11.1.2",
     "mockjs": "^1.1.0",
     "purgecss-webpack-plugin": "^4.1.3",
+    "release-it": "^15.0.0",
     "sass": "^1.32.7",
     "sass-loader": "^12.0.0",
     "ts-jest": "^27.0.4",
