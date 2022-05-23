@@ -4,5 +4,5 @@
  * 配置的命令可以填多个，规则与package.json中的scripts保持一致
  */
 module.exports = {
-  '*.{js,jsx,vue,ts,tsx}': 'npm run lint'
+  '*.{js,jsx,vue,ts,tsx}': ['npm run lint', 'npm run release']
 }
