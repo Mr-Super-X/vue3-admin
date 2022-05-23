@@ -1,6 +1,6 @@
 {
   "name": "vue3-test",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -64,8 +64,7 @@
     "webpack": "^5.72.1"
   },
   "gitHooks": {
-    "pre-commit": "lint-staged",
-    "pre-push": "npm run release"
+    "pre-commit": "lint-staged"
   },
   "sideEffects": [
     "*.css",
