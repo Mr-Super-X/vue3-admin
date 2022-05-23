@@ -68,11 +68,10 @@
     "unplugin-vue-components": "^0.19.5",
     "webpack": "^5.72.1"
   },
-  "gitHooks": {
-    "pre-commit": "lint-staged"
-  },
+  
   "husky": {
     "hooks": {
+      "pre-commit": "lint-staged",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
