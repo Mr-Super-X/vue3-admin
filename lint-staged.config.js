@@ -4,5 +4,5 @@
  * 配置的命令可以填多个，使用数组即可
  */
 module.exports = {
-  '*.{js,jsx,vue,ts,tsx}': 'npm run lint'
+  '*.{js,jsx,vue,ts,tsx}': ['prettier --ignore-unknown --write', 'eslint --fix', 'npm run lint']
 }
