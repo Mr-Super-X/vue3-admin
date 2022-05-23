@@ -5,7 +5,7 @@ import Login from '../views/Login.vue'
 import Home from '../views/Home.vue'
 import Error from '../views/Error.vue'
 import debugRouters from './debugRouters'
-const isDev = ['development'].includes(process.env.NODE_ENV)
+const isDev = ['development'].includes(process.env.NODE_ENV as string)
 
 // 加载所有子路由
 const allRouterModules: Array<any> = []

@@ -29,13 +29,14 @@ module.exports = {
   ],
   // scope 类型（定义之后，可通过上下键选择）
   scopes: [
-    ['components', '组件相关'],
-    ['hooks', 'hook 相关'],
+    ['assets', '样式/图片/媒体资源 相关'],
+    ['components', '公共组件 相关'],
+    ['mock', 'mock 相关'],
+    ['request', 'request 请求相关'],
+    ['router', 'router 相关'],
+    ['store', 'store 相关'],
     ['utils', 'utils 相关'],
-    ['element-ui', '对 element-ui 的调整'],
-    ['styles', '样式相关'],
-    ['deps', '项目依赖'],
-    ['auth', '对 auth 修改'],
+    ['views', 'views 相关'],
     ['other', '其他修改'],
     // 如果选择 custom，后面会让你再输入一个自定义的 scope。也可以不设置此项，把后面的 allowCustomScopes 设置为 true
     ['custom', '以上都不是？我要自定义']
@@ -55,7 +56,7 @@ module.exports = {
 
   // 交互提示信息
   messages: {
-    type: '确保本次提交遵循 Angular 规范！\n选择你要提交的类型：',
+    type: '确保本次提交遵循 Angular 规范！文档：https://github.com/angular/angular/blob/main/CONTRIBUTING.md \n选择你要提交的类型：',
     scope: '\n选择一个 scope（可选）：', // 选择 scope: custom 时会出下面的提示 customScope: '请输入自定义的 scope：',
     subject: '填写简短精炼的变更描述：\n',
     body: '填写更加详细的变更描述（可选）。使用 "|" 换行：\n',
