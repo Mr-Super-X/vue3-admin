@@ -68,12 +68,8 @@
     "webpack": "^5.72.1"
   },
   "gitHooks": {
-    "pre-commit": "lint-staged"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
+    "pre-commit": "lint-staged",
+    "commit-msg": "commitlint --from HEAD --to HEAD --verbose"
   },
   "sideEffects": [
     "*.css",
