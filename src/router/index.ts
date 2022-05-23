@@ -1,34 +1,41 @@
-import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
-import Login from '../views/Login.vue';
-import Home from '../views/Home.vue';
-import Layout from '../layout/index.vue';
-// 引入调试路由列表
-import debugRouters from './debugRouters';
+import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
+import { getToken } from '../utils/index'
+import Layout from '../layout/index.vue'
+import Login from '../views/Login.vue'
+import Home from '../views/Home.vue'
+import Error from '../views/Error.vue'
+import debugRouters from './debugRouters'
+const isDev = ['development'].includes(process.env.NODE_ENV)
 
 // 加载所有子路由
-const allRouterModules: Array<any> = [];
-const requireContext = require.context('./modules', false, /\.ts|.js$/);
-requireContext.keys().forEach((name) => {
-  allRouterModules.push(...(requireContext(name).default || []));
-});
+const allRouterModules: Array<any> = []
+const requireContext = require.context('./modules', false, /\.ts|.js$/)
+requireContext.keys().forEach(name => {
+  allRouterModules.push(...(requireContext(name).default || []))
+})
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/login',
     name: 'Login',
-    component: Login,
+    component: Login
   },
   {
     path: '/',
-    name: '',
+    name: 'Layout',
     component: Layout,
     /* beforeEnter(to, from, next) {
 
     }, */
     children: [
+      // 匹配不到的路由重定向到Error
+      {
+        path: '/:pathMatch(.*)*',
+        redirect: '/error'
+      },
       {
         path: '/',
-        redirect: '/home',
+        redirect: '/home'
       },
       {
         path: '/home',
@@ -37,44 +44,54 @@ const routes: Array<RouteRecordRaw> = [
         component: Home,
         meta: {
           keepAlive: false,
-          title: '首页',
-        },
+          title: '首页'
+        }
       },
       {
-        path: '/errorPage',
-        name: 'errorPage',
-        component: () =>
-          import(/* webpackChunkName: "errorPage" */ '@/views/Error.vue'),
+        path: '/error',
+        name: 'Error',
+        component: Error,
         meta: {
           keepAlive: false,
-          title: '404',
-        },
+          title: '404'
+        }
       },
-      ...allRouterModules, // 将所有路由注入到layout中
-    ],
-  },
-];
+      ...allRouterModules // 将所有路由注入到layout中
+    ]
+  }
+]
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes,
-});
+  routes
+})
 
-// 不用校验登陆的页面
-const filterRoutes = ['login'];
-// 全局钩子，可以在这里做校验（登录和权限）
+// 不用校验的路由，默认不做校验的列表如下
+const filterRoutes = ['Login', 'Error']
+// 开发模式下把调试路由列表路由添加进去
+if (isDev) {
+  filterRoutes.push(...debugRouters)
+}
+// 全局钩子，可以在这里做校验（登录鉴权）
 router.beforeEach((to, from, next) => {
-  console.log(to.name);
-  if (filterRoutes.includes('login')) {
-    next();
-  } else {
-    // const list: Array<any> = [];
-    // // 如果是开发环境才拼接上调试页面数组，保证安全性
-    // if (['development'].includes(process.env.NODE_ENV)) {
-    //   list.concat(debugRouters);
-    // }
-    next('/login');
+  // 获取当前跳转的路由name
+  const routeName: any = to.name
+  // 不用校验的路由直接跳转即可
+  if (filterRoutes.includes(routeName)) {
+    next()
+    return
   }
-});
 
-export default router;
+  // 找到layout组件
+  const isLayout: any = to.matched.length && to.matched[0].name === 'Layout'
+  // 获取权限
+  const havePermission = getToken() // 以token作为示例
+  // 如果是layout下的路由并且有权限才可以正常跳转，否则重定向到login页面
+  if (isLayout && havePermission) {
+    next()
+  } else {
+    next('/login')
+  }
+})
+
+export default router

@@ -14,7 +14,6 @@ requireContext.keys().forEach((name) => {
     modules[moduleName] = requireContext(name).default
   }
 })
-console.log(modules)
 
 const state = {}
 
