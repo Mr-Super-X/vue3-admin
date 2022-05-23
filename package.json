@@ -87,9 +87,6 @@
     },
     "cz-customizable": {
       "config": "./.cz-config.js"
-    },
-    "commitlint": {
-      "config": "./.commitlintrc.js"
     }
   }
 }
