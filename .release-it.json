@@ -1,0 +1,51 @@
+{
+  "hooks": {
+    "after:bump": "auto-changelog -p"
+  },
+  "git": {
+    "changelog": "auto-changelog --stdout --commit-limit false",
+    "requireCleanWorkingDir": false,
+    "requireUpstream": true,
+    "requireCommits": false,
+    "addUntrackedFiles": false,
+    "commit": true,
+    "commitMessage": "version：release ${version}",
+    "commitArgs": "",
+    "tag": true,
+    "tagName": "${version}",
+    "tagAnnotation": "Release ${version}",
+    "tagArgs": "",
+    "push": true,
+    "pushArgs": "--follow-tags",
+    "pushRepo": "origin"
+  },
+  "npm": {
+    "publish": false,
+    "publishPath": "",
+    "access": null,
+    "otp": null
+  },
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "infile": "CHANGELOG.md",
+      "preset": {
+        "name": "conventionalcommits",
+        "header": "# 📋 更新历史 \n\n",
+        "types": [
+          { "type": "feat", "section": "✨ Features | 新性能" },
+          { "type": "fix", "section": "🐛 Bug Fixes | Bug 修复" },
+          { "type": "perf", "section": "⚡ Performance Improvements | 性能优化" },
+          { "type": "revert", "section": "⏪ Reverts | 回退" },
+          { "type": "chore", "section": "📦 Chores | 其余更新" },
+          { "type": "docs", "section": "📝 Documentation | 文档" },
+          { "type": "style", "section": "💄 Styles | 代码格式调整", "hidden": true },
+          { "type": "refactor", "section": "♻ Code Refactoring | 代码重构" },
+          { "type": "test", "section": "✅ Tests | 测试" },
+          { "type": "build", "section": "👷‍ Build System | 构建" },
+          { "type": "ci", "section": "🔧 Continuous Integration | CI 配置" }
+        ],
+        "commitUrlFormat": "https://github.com/lpreterite/datagent/commit/{{hash}}"
+      }
+    }
+  }
+}
