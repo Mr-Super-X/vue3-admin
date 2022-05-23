@@ -27,6 +27,7 @@
     "vuex": "^4.0.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.0.0",
     "@release-it/conventional-changelog": "^5.0.0",
     "@types/jest": "^27.0.1",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
@@ -66,7 +67,8 @@
     "webpack": "^5.72.1"
   },
   "gitHooks": {
-    "pre-commit": "lint-staged"
+    "pre-commit": "lint-staged",
+    "commit-msg": "commitlint -e"
   },
   "sideEffects": [
     "*.css",
@@ -79,6 +81,9 @@
     },
     "cz-customizable": {
       "config": "./.cz-config.js"
+    },
+    "commitlint": {
+      "config": "./.commitlintrc.js"
     }
   }
 }

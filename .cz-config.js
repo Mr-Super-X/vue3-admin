@@ -7,6 +7,10 @@ module.exports = {
     { value: 'fix', name: 'fix: 修复 bug' },
     { value: 'docs', name: 'docs: 文档变更' },
     {
+      value: 'chore',
+      name: 'chore: 对构建过程或辅助工具和库的更改（不影响源文件、测试用例）'
+    },
+    {
       value: 'style',
       name: 'style: 代码格式（不影响功能，例如空格、分号等格式修正）'
     },
@@ -22,8 +26,8 @@ module.exports = {
     },
     { value: 'ci', name: 'ci: 修改 CI 配置、脚本' },
     {
-      value: 'chore',
-      name: 'chore: 对构建过程或辅助工具和库的更改（不影响源文件、测试用例）'
+      value: 'test',
+      name: 'test: 添加缺失的测试或纠正现有的测试'
     },
     { value: 'revert', name: 'revert: 回滚 commit' }
   ],
