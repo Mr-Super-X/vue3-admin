@@ -65,7 +65,7 @@ module.exports = defineConfig({
        * 其中属性值可以是名称或者返回名称的函数，用于为 runtime chunks 命名。
        */
       runtimeChunk: {
-        name: (entrypoint) => `runtimechunk~${entrypoint.name}`
+        name: entrypoint => `runtimechunk~${entrypoint.name}`
       }
     },
     /**
@@ -175,6 +175,7 @@ function consoleEnvInfo () {
       global.console.log('开始构建' + process.env.VUE_APP_TITLE + '...')
     },
     run (arg) {
+      console.log(this, '------------')
       this[arg]()
       global.console.log('当前环境配置信息如下...')
       global.console.table(params)
