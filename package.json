@@ -69,7 +69,7 @@
   },
   "gitHooks": {
     "pre-commit": "lint-staged",
-    "commit-msg": "commitlint --from HEAD --to HEAD --verbose"
+    "commit-msg": "commitlint -E GIT_PARAMS"
   },
   "sideEffects": [
     "*.css",
