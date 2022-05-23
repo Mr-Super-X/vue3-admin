@@ -175,7 +175,6 @@ function consoleEnvInfo () {
       global.console.log('开始构建' + process.env.VUE_APP_TITLE + '...')
     },
     run (arg) {
-      console.log(this, '------------')
       this[arg]()
       global.console.log('当前环境配置信息如下...')
       global.console.table(params)
