@@ -54,7 +54,6 @@
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-vue": "^8.0.3",
     "glob": "^8.0.3",
-    "husky": "^8.0.1",
     "jest": "^27.0.5",
     "lint-staged": "^11.1.2",
     "mockjs": "^1.1.0",
@@ -68,10 +67,11 @@
     "unplugin-vue-components": "^0.19.5",
     "webpack": "^5.72.1"
   },
-  
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
