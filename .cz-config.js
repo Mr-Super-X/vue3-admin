@@ -1,5 +1,6 @@
 'use strict'
 
+// 官方示例：https://github.com/leoforfree/cz-customizable/blob/master/cz-config-EXAMPLE.js
 module.exports = {
   // type 类型（定义之后，可通过上下键选择）
   types: [
@@ -49,10 +50,13 @@ module.exports = {
     return { value, name: `${value.padEnd(30)} (${description})` }
   }),
   // 是否允许自定义填写 scope，在 scope 选择的时候，会有 empty 和 custom 可以选择。
+  // allowCustomScopes: true,
+
   allowTicketNumber: false,
   isTicketNumberRequired: false,
   ticketNumberPrefix: 'TICKET-',
   ticketNumberRegExp: '\\d{1,5}',
+
   // 针对每一个 type 去定义对应的 scopes，例如 fix /*
   // scopeOverrides: {
   //   fix: [{ name: 'merge' }, { name: 'style' }, { name: 'e2eTest' }, { name: 'unitTest' }]
@@ -61,12 +65,14 @@ module.exports = {
   // 交互提示信息
   messages: {
     type: '确保本次提交遵循 Angular 规范！文档：https://github.com/angular/angular/blob/main/CONTRIBUTING.md \n选择你要提交的类型：',
-    scope: '\n选择一个 scope（可选）：', // 选择 scope: custom 时会出下面的提示 customScope: '请输入自定义的 scope：',
+    scope: '\n选择一个scope（可选）：',
+    // 选择 scope: custom 时会出下面的提示 customScope: '请输入自定义的 scope：',
+    customScope: '表示此更改的范围：',
     subject: '填写简短精炼的变更描述：\n',
     body: '填写更加详细的变更描述（可选）。使用 "|" 换行：\n',
     breaking: '列举非兼容性重大的变更（可选）：\n',
     footer: '列举出所有变更的 ISSUES CLOSED（可选）。 例如: #31, #34：\n',
-    confirmCommit: '确认提交？'
+    confirmCommit: '确认提交? (y/n)'
   },
   // 设置只有 type 选择了 feat 或 fix，才询问 breaking message
   allowBreakingChanges: ['feat', 'fix'],
