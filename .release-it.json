@@ -44,7 +44,7 @@
           { "type": "build", "section": "👷‍ Build System | 构建" },
           { "type": "ci", "section": "🔧 Continuous Integration | CI 配置" }
         ],
-        "commitUrlFormat": "https://github.com/lpreterite/datagent/commit/{{hash}}"
+        "commitUrlFormat": "{{host}}/{{owner}}/{{repository}}/commit/{{hash}}"
       }
     }
   }
