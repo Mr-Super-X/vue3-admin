@@ -4,33 +4,12 @@
 
 ## 简介
 
-[vue3-admin](https://vue3-admin-beta.vercel.app/#/home)是一个后台前端解决方案，基于[Vue3](https://v3.cn.vuejs.org/) + [Element-plus](https://element-plus.gitee.io/zh-CN/) + [Webpack5](https://www.webpackjs.com/concepts/) + [Typescript](https://www.tslang.cn/) + [Axios](http://www.axios-js.com/zh-cn/docs/)搭建。
+[vue3-admin](https://vue3-admin-beta.vercel.app/#/home)是一个后台前端解决方案，基于[Vue3](https://v3.cn.vuejs.org/) + [Element-plus](https://element-plus.gitee.io/zh-CN/) + [Webpack5](https://www.webpackjs.com/concepts/) + [Typescript](https://www.tslang.cn/) + [Axios](http://www.axios-js.com/zh-cn/docs/)搭建。使用[EditorConfig](https://editorconfig.org) + [Prettier](https://www.prettier.cn/) + [ESLint](http://eslint.cn/)搭建项目中统一的代码规范，并集成在[githooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)中。
 
 
 ## 在线预览
 
 - [demo](https://vue3-admin-beta.vercel.app/#/home)
-
-
-## 功能
-
-```
-- 多环境发布
-  - development
-  - test
-  - production
-
-- 全局功能
-  - 支持eslint，使用standard规范
-  - 支持githooks（vue-cli创建项目默认安装yorkie）
-  - 支持lint-staged
-  - 支持mock功能
-  - 支持commitizen
-  - 支持commitlint
-  - 支持release-it
-  - 支持auto-changelog
-  - 支持时间窗口内的重复请求过滤
-```
 
 
 ## 开发
@@ -48,6 +27,34 @@ npm install --registry=https://registry.npm.taobao.org
 npm run dev
 ```
 
+
+## 功能
+
+```
+- 多环境发布
+  - development
+  - test
+  - production
+
+- 全局功能
+  - 支持githooks（vue-cli创建项目默认安装yorkie，比husky使用更简单）
+  - 支持pre-commit自动执行prettier统一代码格式
+  - 支持eslint，使用standard规范，支持pre-commit自动进行eslint修复
+  - 支持lint-staged只对commit的文件做lint校验
+  - 支持mock功能
+  - 支持commitizen，可在终端选择符合Angular规范的提交信息（可自定义汉化）
+  - 支持commitlint，使用git commit命令也会触发commit校验
+  - 支持release-it自动化发布符合Semantic Versioning规范的版本
+  - 支持auto-changelog，自动生成changelog文档
+
+- 请求
+  - 支持时间窗口内的重复请求过滤
+  - 支持错误拦截
+
+- 路由
+  - 支持路由拦截
+  - 支持开发环境配置调试路由（可绕过权限限制）
+```
 
 ## npm scripts说明（以下命令使用npm run或yarn均可）
 ```bash
@@ -90,7 +97,7 @@ yarn lint:fix
 # 运行commitizen在终端选择Angular规范的提交类型
 yarn commit
 
-# 运行release-it配置
+# 运行release-it配置，自动化发布Semantic规范版本和自动生成changelog文件
 yarn release
 
 # 运行release-it配置并列出release-it详细运行步骤

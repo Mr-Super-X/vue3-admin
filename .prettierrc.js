@@ -1,3 +1,5 @@
+// https://www.prettier.cn/
+
 module.exports = {
   printWidth: 120, // 超过最大值换行
   tabWidth: 2, // 缩进字节数

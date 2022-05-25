@@ -1,3 +1,5 @@
+// http://eslint.cn/
+
 module.exports = {
   root: true,
   env: {
