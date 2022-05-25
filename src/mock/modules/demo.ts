@@ -2,7 +2,7 @@
  * 使用方法：
  *    1. import request from '@request/index'
  *    2. request({
-          url: '/auth/oauth/token'
+          url: '/demo/tokens'
         }).then(({data}: any) => {
           return data.data;
         }).then(d => {
@@ -15,7 +15,7 @@ export default [
   {
     url: '/auth/oauth/token',
     method: 'get',
-    response() {
+    response () {
       return {
         code: 200,
         msg: '成功',

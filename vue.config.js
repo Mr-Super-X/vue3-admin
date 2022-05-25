@@ -4,16 +4,16 @@ const AutoImport = require('unplugin-auto-import/webpack')
 const Components = require('unplugin-vue-components/webpack')
 const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
 // end 按需导入element-plus
-const glob = require('glob')
+// const glob = require('glob')
 const { defineConfig } = require('@vue/cli-service')
-const { resolve, join } = require('path')
+const { resolve } = require('path')
 const isProd = ['production'].includes(process.env.NODE_ENV)
 
 // 获取匹配文件
-const purgeFiles = glob.sync(`${join(__dirname, 'public')}/**/*`, {
-  nodir: true
-})
-purgeFiles.push(resolve(__dirname, 'public/index.html'))
+// const purgeFiles = glob.sync(`${join(__dirname, 'public')}/**/*`, {
+//   nodir: true
+// })
+// purgeFiles.push(resolve(__dirname, 'public/index.html'))
 
 // 所有的webpack配置均可通过vue inspect > output.js命令来查看
 // https://cli.vuejs.org/zh/guide/webpack.html#%E5%AE%A1%E6%9F%A5%E9%A1%B9%E7%9B%AE%E7%9A%84-webpack-%E9%85%8D%E7%BD%AE
@@ -184,4 +184,4 @@ function consoleEnvInfo () {
   strategy.run(arg)
 }
 
-consoleEnvInfo()
+// consoleEnvInfo()
