@@ -184,4 +184,4 @@ function consoleEnvInfo () {
   strategy.run(arg)
 }
 
-// consoleEnvInfo()
+consoleEnvInfo()
