@@ -1,6 +1,8 @@
-import { createStore } from 'vuex'
+export interface IState {
+  test?: string
+}
 
-const state = {}
+const state: IState = {}
 
 const getters = {}
 
@@ -8,9 +10,10 @@ const mutations = {}
 
 const actions = {}
 
-export default createStore({
+export default {
+  namespaced: true,
   state,
   getters,
   mutations,
   actions
-})
+}

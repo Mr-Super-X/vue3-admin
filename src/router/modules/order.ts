@@ -1,7 +1,9 @@
 // 模块路径
+import type { RouteRecordRaw } from 'vue-router'
+
 const modulePath = '/order'
 
-export default [
+const order: Array<RouteRecordRaw> = [
   {
     path: modulePath + '/orderList', // 路由访问路径（'/' + '模块名' + '/' + '路由名'）
     name: 'OrderList', // 路由组件名称
@@ -23,3 +25,5 @@ export default [
     }
   }
 ]
+
+export default order

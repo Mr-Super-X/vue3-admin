@@ -7,7 +7,7 @@ interface IModules {
 // 加载所有子模块
 const modules: IModules = {}
 const requireContext = require.context('./modules', false, /\.ts|.js$/)
-requireContext.keys().forEach((name) => {
+requireContext.keys().forEach(name => {
   const match = name.match(/^\.\/(.*)\.ts|.js$/)
   const moduleName = match && match[1]
   if (moduleName) {
