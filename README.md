@@ -9,7 +9,7 @@
 
 ## 在线预览
 
-- [demo](https://vue3-admin-beta.vercel.app/#/home)
+- [在线demo演示](https://vue3-admin-beta.vercel.app/#/home)
 
 
 ## 开发
@@ -24,15 +24,17 @@ npm install
 # 建议不要直接使用 cnpm 安装依赖，会有各种诡异的 bug。可以通过如下操作解决 npm 下载速度慢的问题
 npm install --registry=https://registry.npm.taobao.org
 # 启动服务
-npm run dev
+yarn dev
 ```
 
 
 ## 功能
 
 ```
-- 多环境发布
+- 多环境构建
   - development
+  - debug
+  - mock
   - test
   - production
 
@@ -56,6 +58,54 @@ npm run dev
   - 支持开发环境配置调试路由（可绕过权限限制）
 ```
 
+### 目录结构
+
+```
+vue3-admin
+├─ mock                    # mock服务
+├─ public                  # 静态资源
+├─ src                     # 源码
+│  ├─ assets               # 媒体资源（图片、样式、icon、medio等）
+│  ├─ components           # 公共组件
+│  ├─ directives           # 全局指令
+│  ├─ layout               # 全局Layout
+│  ├─ request              # 接口请求
+│  ├─ router               # 路由管理
+│  ├─ store                # store管理
+│  ├─ utils                # 全局公共方法
+│  ├─ views                # 所有业务页面
+│  ├─ App.vue              # 页面入口
+│  ├─ main.ts              # 项目入口文件
+│  └─ shims-vue.d.ts       # vue-cli自动生成 为ts做的适配文件
+├─ tests                   # 单元测试
+├─ .browserslistrc         # browserslist配置
+├─ .commitlintrc.js        # commitlint配置
+├─ .cz-config.js           # cz-customizable配置
+├─ .editorconfig           # editorconfig配置
+├─ .env.debug              # debug环境
+├─ .env.development        # 开发环境
+├─ .env.mock               # mock环境
+├─ .env.production         # 生产环境
+├─ .env.test               # 测试环境
+├─ .eslintrc.js            # eslint配置
+├─ .gitignore              # 忽略git提交配置
+├─ .prettierrc.js          # prettier配置
+├─ .release-it.json        # release-it配置
+├─ auto-imports.d.ts       # element-plus按需引入插件自动生成文件
+├─ babel.config.js         # babel配置
+├─ CHANGELOG.md            # changelog文档，由release-it配置auto-changelog自动生成
+├─ components.d.ts         # element-plus按需引入插件自动生成文件
+├─ jest.config.js          # jest单测配置
+├─ LICENSE                 # 开源协议
+├─ lint-staged.config.js   # lint-staged配置
+├─ package-lock.json       # 版本锁定文件
+├─ package.json            # 项目依赖
+├─ README.md               # 项目说明文档
+├─ tsconfig.json           # ts配置
+├─ vue.config.js           # vue-cli 配置
+└─ yarn.lock               # 版本锁定文件
+```
+
 ## npm scripts说明（以下命令使用npm run或yarn均可）
 ```bash
 # 启动项目
@@ -65,6 +115,10 @@ yarn dev
 # 启动项目并在浏览器中打开页面
 yarn serve:open
 yarn dev:open
+
+# 启动项目（绕过权限拦截，目前支持绕过路由拦截）
+yarn serve:debug
+yarn dev:debug
 
 # 启动开发环境并且开启mock模式
 yarn serve:mock
@@ -106,6 +160,15 @@ yarn release:detail
 
 yarn commit命令运行效果如下：
 ![img](https://github.com/Mr-Super-X/assets-resouece/blob/main/images/1653480834.jpg)
+
+
+## 浏览器支持
+
+现代浏览器和 Internet Explorer 10+。
+
+| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)</br>Safari |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| IE10, IE11, Edge                                             | last 2 versions                                              | last 2 versions                                              | last 2 versions                                              | 
 
 ## License
 

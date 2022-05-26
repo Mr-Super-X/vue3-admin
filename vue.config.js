@@ -158,7 +158,8 @@ function consoleEnvInfo () {
     title: process.env.VUE_APP_TITLE,
     path: process.env.VUE_APP_PATH,
     apiPath: process.env.VUE_APP_API_PATH,
-    NODE_ENV: process.env.NODE_ENV
+    NODE_ENV: process.env.NODE_ENV,
+    VUE_APP_ENV: process.env.VUE_APP_ENV
   }
   // 只需将package.json中对应的命令加入配置即可
   const strategy = {
@@ -175,6 +176,10 @@ function consoleEnvInfo () {
       global.console.log('开始构建' + process.env.VUE_APP_TITLE + '...')
     },
     run (arg) {
+      if (!this[arg]) {
+        // 不存在就不需要执行后面的代码了
+        return
+      }
       this[arg]()
       global.console.log('当前环境配置信息如下...')
       global.console.table(params)

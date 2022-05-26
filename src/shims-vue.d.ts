@@ -5,7 +5,5 @@ declare module '*.vue' {
   export default component
 }
 
-// ts提示找不到模块xxx或其相应的类型声明时，在此处声明即可
-declare module 'mockjs';
-declare module 'axios';
-declare module 'qs';
+// 修复找不到mockjs模块的ts报错
+declare module 'mockjs'
