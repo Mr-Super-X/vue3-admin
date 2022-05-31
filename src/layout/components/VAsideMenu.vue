@@ -149,5 +149,9 @@ export default defineComponent({
   .el-menu-vertical:not(.el-menu--collapse) {
     width: 100%;
   }
+
+  .el-menu {
+    border-right: none;
+  }
 }
 </style>

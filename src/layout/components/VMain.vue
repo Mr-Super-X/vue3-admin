@@ -5,7 +5,7 @@
  * @Contact: 1303232158@qq.com
  * @Date: 2022-05-20 13:17:47
  * @LastEditors: Mr.Mikey
- * @LastEditTime: 2022-05-31 13:24:29
+ * @LastEditTime: 2022-05-31 13:42:25
  * @FilePath: \vue3-admin\src\layout\components\VMain.vue
 -->
 
@@ -29,7 +29,7 @@ export default defineComponent({
 
 <style scoped lang="scss">
 .main-container {
-  background-color: #666;
+  background-color: #f9f9f9;
   overflow: hidden;
 
   &.el-main {

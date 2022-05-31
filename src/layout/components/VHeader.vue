@@ -5,7 +5,7 @@
  * @Contact: 1303232158@qq.com
  * @Date: 2022-05-19 12:37:18
  * @LastEditors: Mr.Mikey
- * @LastEditTime: 2022-05-31 13:29:14
+ * @LastEditTime: 2022-05-31 16:08:38
  * @FilePath: \vue3-admin\src\layout\components\VHeader.vue
 -->
 
@@ -39,5 +39,6 @@ export default defineComponent({
   z-index: 1000;
   height: 80px;
   padding: 0;
+  overflow: hidden;
 }
 </style>
