@@ -1,0 +1,46 @@
+/* 测试未使用的css被purge删除 */
+.a {
+  font-size: 20px;
+}
+
+body {
+  height: 100%;
+}
+
+#app {
+  height: 100%;
+}
+
+/* 全局默认滚动条样式 */
+::-webkit-scrollbar-track-piece {
+  border-radius: 0;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  height: 50px;
+  background-color: #b8b8b8;
+  border-radius: 5px;
+  outline-offset: -2px;
+  filter: alpha(opacity=60);
+  -moz-opacity: 0.6;
+  -khtml-opacity: 0.6;
+  opacity: 0.6;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  height: 50px;
+  background-color: #878987;
+  border-radius: 5px;
+}
+
+/* 单行文本超出省略 */
+.text-ellipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}

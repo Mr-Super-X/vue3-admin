@@ -3,10 +3,11 @@ import { verifyENV } from './utils'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import components from '@components/index' // 引入全局公共组件
 
 import 'normalize.css' // 保持各浏览器样式统一
-import '@css/reset.css' // 重置样式
-import '@css/common.css' // 引入公共样式
+import '@styles/css/reset.css' // 重置样式
+import '@styles/css/common.css' // 引入公共样式
 
 import { mockXHR } from '../mock' // 引入mockjs（其他环境下未使用的esmodule会被tree-shaking）
 if (verifyENV('mock')) {
@@ -14,6 +15,6 @@ if (verifyENV('mock')) {
   mockXHR()
 }
 
-const app = createApp(App)
+export const app = createApp(App)
 
-app.use(store).use(router).mount('#app')
+app.use(store).use(router).use(components).mount('#app')

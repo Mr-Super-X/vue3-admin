@@ -1,18 +1,18 @@
 <template>
-  <div>
+  <div class="home">
     <div v-for="item in list" :key="item.id">{{ item.text }}</div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref } from 'vue'
 
 // Typescript的接口，用于标记数据格式
 // 1. 属性或参数中使用?：表示该属性或参数为可选项
 // 2. 属性或参数中使用!：表示强制解析（告诉typescript编译器，这里一定有值），常用于vue-decorator中的@Prop
 // 3. 变量后使用!：表示类型推断排除null、undefined
 interface IListItem {
-  id: string,
+  id: string
   text?: string
 }
 
@@ -28,8 +28,10 @@ const list = ref<IListItem[]>([
     text: 'test2'
   }
 ])
-
 </script>
 
 <style lang="scss" scoped>
+.home {
+  height: 1000px;
+}
 </style>

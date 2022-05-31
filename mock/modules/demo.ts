@@ -1,3 +1,4 @@
+import { IMockItem } from '../index'
 /**
  * 使用方法：
  *    1. import request from '@request/index'
@@ -10,7 +11,7 @@
         })
  */
 
-export default [
+const mockList: Array<IMockItem> = [
   // getToken
   {
     url: '/auth/oauth/token',
@@ -26,3 +27,5 @@ export default [
     }
   }
 ]
+
+export default mockList

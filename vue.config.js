@@ -25,7 +25,7 @@ module.exports = defineConfig({
       // 配置全局scss变量支持
       // 文档：https://cli.vuejs.org/zh/guide/css.html#%E5%90%91%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8-loader-%E4%BC%A0%E9%80%92%E9%80%89%E9%A1%B9
       scss: {
-        additionalData: '@import "~@css/scss/common.scss";'
+        additionalData: '@import "~@styles/scss/common.scss";'
       }
     }
   },
@@ -81,8 +81,9 @@ module.exports = defineConfig({
        * 全面解释：http://webpack.wuhaolin.cn/4%E4%BC%98%E5%8C%96/4-1%E7%BC%A9%E5%B0%8F%E6%96%87%E4%BB%B6%E6%90%9C%E7%B4%A2%E8%8C%83%E5%9B%B4.html
        */
       alias: {
-        '@css': resolve(__dirname, 'src/assets/styles'),
+        '@': resolve(__dirname, 'src'),
         '@img': resolve(__dirname, 'src/assets/images'),
+        '@styles': resolve(__dirname, 'src/assets/styles'),
         '@components': resolve(__dirname, 'src/components'),
         '@utils': resolve(__dirname, 'src/utils'),
         '@request': resolve(__dirname, 'src/request'),

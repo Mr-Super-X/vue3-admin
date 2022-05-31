@@ -1,7 +1,8 @@
 import Mock from 'mockjs'
+import { IMockItem } from './index.d'
 
 // 加载所有mock模块
-const allMockModules: Array<any> = []
+const allMockModules: Array<IMockItem> = []
 const requireContext = require.context('./modules', false, /\.ts|.js$/)
 requireContext.keys().forEach(name => {
   allMockModules.push(...(requireContext(name).default || []))
@@ -17,6 +18,6 @@ Mock.setup({
 export function mockXHR () {
   // 注册所有的mock服务
   for (const i of mocks) {
-    Mock.mock(new RegExp(i.url), i.method || 'get', i.response)
+    Mock.mock(new RegExp(i.url), i.method || 'get', i.response())
   }
 }
