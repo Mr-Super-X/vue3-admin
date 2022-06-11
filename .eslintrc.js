@@ -13,8 +13,9 @@ module.exports = {
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    '@typescript-eslint/no-explicit-any': ['off'],
     'vue/multi-word-component-names': 0,
-    '@typescript-eslint/no-explicit-any': ['off']
+    'symbol-description': 0
   },
   overrides: [
     {
