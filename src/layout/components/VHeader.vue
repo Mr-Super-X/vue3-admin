@@ -5,26 +5,26 @@
  * @Contact: 1303232158@qq.com
  * @Date: 2022-05-19 12:37:18
  * @LastEditors: Mr.Mikey
- * @LastEditTime: 2022-05-31 16:08:38
+ * @LastEditTime: 2022-06-02 12:19:34
  * @FilePath: \vue3-admin\src\layout\components\VHeader.vue
 -->
 
 <template>
   <el-header class="header-container">
     <v-header-nav />
-    <v-header-breadcrumb />
+    <v-header-tags />
   </el-header>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 import VHeaderNav from './VHeaderNav.vue'
-import VHeaderBreadcrumb from './VHeaderBreadcrumb.vue'
+import VHeaderTags from './VHeaderTags.vue'
 
 export default defineComponent({
   components: {
     VHeaderNav,
-    VHeaderBreadcrumb
+    VHeaderTags
   },
   setup () {
     return {}

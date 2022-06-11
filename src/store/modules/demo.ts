@@ -2,7 +2,9 @@ export interface IState {
   test?: string
 }
 
-const state: IState = {}
+const state: IState = {
+  test: 'test'
+}
 
 const getters = {}
 
