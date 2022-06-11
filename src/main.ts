@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
-import { store, key } from './store'
 import { verifyENV } from './utils'
 import App from './App.vue'
+import pinia from './store'
 import router from './router'
 import components from '@components/index' // 引入全局公共组件
 
@@ -17,4 +17,4 @@ if (verifyENV('mock')) {
 
 export const app = createApp(App)
 
-app.use(store, key).use(router).use(components).mount('#app')
+app.use(pinia).use(router).use(components).mount('#app')

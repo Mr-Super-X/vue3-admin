@@ -41,7 +41,7 @@ export default defineComponent({
         const tabs = editableTabs.value
         let activeName = editableTabsValue.value
         if (activeName === targetName) {
-          tabs.forEach((tab, index) => {
+          tabs.forEach((tab: any, index: number) => {
             if (tab.name === targetName) {
               const nextTab = tabs[index + 1] || tabs[index - 1]
               if (nextTab) {
@@ -52,7 +52,7 @@ export default defineComponent({
         }
 
         editableTabsValue.value = activeName
-        editableTabs.value = tabs.filter(tab => tab.name !== targetName)
+        editableTabs.value = tabs.filter((tab: any) => tab.name !== targetName)
       }
     }
 
