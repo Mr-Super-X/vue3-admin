@@ -8,5 +8,5 @@
  */
 module.exports = {
   // 对匹配的文件执行prettier格式化、eslint修复，再进行eslint检测，如果还有不通过的则需要自己手动修复
-  '*.{js,jsx,vue,ts,tsx}': ['prettier --ignore-unknown --write', 'eslint --fix', 'npm run lint']
+  '*.{js,jsx,vue,ts,tsx}': ['prettier --ignore-unknown --write', 'eslint --fix', 'npm run lint'],
 }
