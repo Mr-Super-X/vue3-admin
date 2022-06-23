@@ -54,6 +54,7 @@
     "auto-changelog": "^2.4.0",
     "babel-jest": "^27.0.6",
     "commitizen": "^4.2.4",
+    "commitlint-config-cz": "^0.13.3",
     "cz-customizable": "^6.3.0",
     "eslint": "^7.32.0",
     "eslint-plugin-import": "^2.25.3",

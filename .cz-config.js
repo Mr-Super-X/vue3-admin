@@ -7,7 +7,7 @@ module.exports = {
     { value: '[!]', name: '[!]: Bug修改' },
     { value: '[+]', name: '[+]: 新增功能' },
     { value: '[*]', name: '[*]: 常规修改' },
-    { value: '[-]', name: '[-]: 删除功能' },
+    { value: '[-]', name: '[-]: 删除功能' }
 
     // { value: 'fix', name: 'fix: 修复 bug' },
     // { value: 'docs', name: 'docs: 文档变更' },
@@ -47,7 +47,7 @@ module.exports = {
     ['store', 'store 相关'],
     ['utils', 'utils 相关'],
     ['views', 'views 相关'],
-    ['tests', 'tests 相关'],
+    // ['tests', 'tests 相关'],
     // 如果选择 custom，后面会让你再输入一个自定义的 scope。也可以不设置此项，把后面的 allowCustomScopes 设置为 true
     ['custom', '以上都不是？我要自定义']
   ].map(([value, description]) => {
@@ -68,15 +68,15 @@ module.exports = {
 
   // 交互提示信息
   messages: {
-    type: '确保本次提交遵循 Angular 规范！文档：https://github.com/angular/angular/blob/main/CONTRIBUTING.md \n选择你要提交的类型：',
-    scope: '\n选择一个scope（可选）：',
+    type: '确保本次提交遵循 Angular 规范！文档：https://github.com/angular/angular/blob/main/CONTRIBUTING.md \n选择你要提交的类型:',
+    scope: '选择一个scope(可选):',
     // 选择 scope: custom 时会出下面的提示 customScope: '请输入自定义的 scope：',
-    customScope: '表示此更改的范围：',
-    subject: '填写简短精炼的变更描述：\n',
-    body: '填写更加详细的变更描述（可选）。使用 "|" 换行：\n',
-    breaking: '列举非兼容性重大的变更（可选）：\n',
-    footer: '列举出所有变更的 ISSUES CLOSED（可选）。 例如: #31, #34：\n',
-    confirmCommit: '确认提交? (y/n)'
+    customScope: '表示此更改的范围:',
+    subject: '填写简短精炼的变更描述:\n',
+    body: '填写更加详细的变更描述(可选)，使用 "|" 换行:\n',
+    breaking: '列举非兼容性重大的变更(可选):\n',
+    footer: '列举出所有变更的 ISSUES CLOSED(可选)。 例如: #31, #34:\n',
+    confirmCommit: '确认提交?'
   },
   // 设置只有 type 选择了 feat 或 fix，才询问 breaking message
   allowBreakingChanges: ['[+]', '[!]'],
