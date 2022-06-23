@@ -4,10 +4,10 @@
 module.exports = {
   // type 类型（定义之后，可通过上下键选择）
   types: [
-    { value: '[!]', name: '[!]: Bug修改' },
-    { value: '[+]', name: '[+]: 新增功能' },
-    { value: '[*]', name: '[*]: 常规修改' },
-    { value: '[-]', name: '[-]: 删除功能' }
+    { value: '[!]', name: '[!] Bug修改' },
+    { value: '[+]', name: '[+] 新增功能' },
+    { value: '[*]', name: '[*] 常规修改' },
+    { value: '[-]', name: '[-] 删除功能' }
 
     // { value: 'fix', name: 'fix: 修复 bug' },
     // { value: 'docs', name: 'docs: 文档变更' },
