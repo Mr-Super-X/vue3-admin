@@ -79,7 +79,7 @@ module.exports = {
     confirmCommit: '确认提交? (y/n)'
   },
   // 设置只有 type 选择了 feat 或 fix，才询问 breaking message
-  allowBreakingChanges: ['feat', 'fix'],
+  allowBreakingChanges: ['[+]', '[!]'],
   // 跳过要询问的步骤
   // skipQuestions: ['body', 'footer'],
   subjectLimit: 100, // subject 限制长度
