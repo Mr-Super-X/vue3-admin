@@ -22,7 +22,6 @@ if (!commitRE.test(msg)) {
       [+]: 新增功能
       [*]: 常规修改
       [-]: 删除功能
-
     `)
     process.exit(1)
   }
