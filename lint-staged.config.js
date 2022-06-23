@@ -7,6 +7,6 @@
  * 配置的命令可以填多个，使用数组即可
  */
 module.exports = {
-  // 对匹配的文件执行prettier格式化、eslint修复，再进行eslint检测，如果还有不通过的则需要自己手动修复
-  '*.{js,jsx,vue,ts,tsx}': ['prettier --ignore-unknown --write', 'eslint --fix', 'npm run lint']
+  // 对匹配的文件执行eslint检测
+  '*.{js,jsx,vue,ts,tsx}': ['npm run lint']
 }
