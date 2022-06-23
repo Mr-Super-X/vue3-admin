@@ -3,12 +3,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent } from 'vue'
 // import { getOrderList } from "./request/modules/demo";
 // import request from "./request";
 
 export default defineComponent({
-  name: "App",
+  name: 'App',
   setup() {
     // 测试重复请求过滤功能
     /* getOrderList().then(({data}: any) => {
@@ -20,7 +20,6 @@ export default defineComponent({
     // axios.get('/auth/oauth/token').then(res => {
     //   console.log(res)
     // })
-
     // 测试mock功能
     // request({
     //   url: '/auth/oauth/token'
@@ -30,8 +29,7 @@ export default defineComponent({
     //   console.log(d)
     // })
   },
-});
+})
 </script>
 
-<style>
-</style>
+<style></style>

@@ -5,7 +5,7 @@
  * @Contact: 1303232158@qq.com
  * @Date: 2022-05-19 12:37:18
  * @LastEditors: Mr.Mikey
- * @LastEditTime: 2022-05-31 13:25:07
+ * @LastEditTime: 2022-06-23 15:19:57
  * @FilePath: \vue3-admin\src\layout\index.vue
 -->
 
@@ -35,21 +35,22 @@ export default defineComponent({
     ElConfigProvider,
     VAside,
     VHeader,
-    VMain
+    VMain,
   },
-  setup () {
+  setup() {
     return {
       locale: zhCn,
       zIndex: 3000,
-      size: 'small'
+      size: 'small',
     }
-  }
+  },
 })
 </script>
 
 <style scoped lang="scss">
 .layout {
   height: 100%;
+
   &-container {
     flex-direction: column;
   }
