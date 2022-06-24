@@ -20,7 +20,7 @@
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
     "lint:fix": "vue-cli-service lint --fix",
-    "commit": "cz",
+    "commit": "git add . && cz",
     "release": "release-it",
     "release:detail": "release-it --dry-run"
   },
