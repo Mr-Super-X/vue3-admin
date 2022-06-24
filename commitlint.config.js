@@ -1,11 +1,4 @@
 module.exports = {
+  // 继承cz配置，依赖commitlint-config-cz包（实测这两个都要写，否则不生效）
   extends: ['@commitlint/config-conventional', 'cz'],
-  // rules: {
-  //   'type-enum': [
-  //     2,
-  //     'always',
-  //     // ['build', 'chore', 'ci', 'docs', 'feat', 'fix', 'perf', 'refactor', 'revert', 'style', 'test'],
-  //     ['dddtest'],
-  //   ],
-  // },
 }
