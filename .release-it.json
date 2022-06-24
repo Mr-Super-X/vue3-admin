@@ -39,9 +39,9 @@
           { "type": "chore", "section": "📦 Chores | 其余更新" },
           { "type": "docs", "section": "📝 Documentation | 文档" },
           { "type": "style", "section": "💄 Styles | 代码格式调整", "hidden": true },
-          { "type": "refactor", "section": "♻ Code Refactoring | 代码重构" },
+          { "type": "refactor", "section": "♻️ Code Refactoring | 代码重构" },
           { "type": "test", "section": "✅ Tests | 测试" },
-          { "type": "build", "section": "👷‍ Build System | 构建" },
+          { "type": "build", "section": "📦️‍ Build System | 构建" },
           { "type": "ci", "section": "🔧 Continuous Integration | CI 配置" }
         ],
         "commitUrlFormat": "{{host}}/{{owner}}/{{repository}}/commit/{{hash}}"
