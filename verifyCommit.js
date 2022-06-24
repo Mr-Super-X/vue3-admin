@@ -5,7 +5,7 @@
  * @Contact: 1303232158@qq.com
  * @Date: 2022-06-23 17:21:54
  * @LastEditors: Mr.Mikey
- * @LastEditTime: 2022-06-24 10:03:27
+ * @LastEditTime: 2022-06-24 10:08:17
  * @FilePath: \vue3-admin\verifyCommit.js
  */
 
@@ -29,7 +29,8 @@ if (!commitRE.test(msg)) {
   if (!mergeRe.test(msg)) {
     console.log('git commit信息校验不通过')
 
-    console.log(`git commit信息正确格式为：类型 + 冒号 + 空格 + 1-100个修改内容描述
+    console.log(`
+git commit信息正确格式为：类型 + 冒号 + 空格 + 1-100个修改内容描述
 
       例如：
 
