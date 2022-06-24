@@ -87,6 +87,7 @@ module.exports = {
   // type 类型（定义之后，可通过上下键选择）
   types: [
     { value: 'dd', name: '[+]: 新功能' },
+
     { value: 'ss', name: '[!]: 修复bug' },
   ],
   // scope 类型（定义之后，可通过上下键选择）
