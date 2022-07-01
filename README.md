@@ -174,7 +174,8 @@ yarn commit命令运行效果如下：
 
 
 ## 附上一份git指南
-[git指南](git_doc.png)
+[git指南png文件](git_doc.png)
+[git指南xmind文件](git_doc.xmind)
 
 
 ## License
