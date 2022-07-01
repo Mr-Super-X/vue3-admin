@@ -29,7 +29,7 @@ export function demoGet(options?: AxiosRequestConfig): Promise<any> {
 import axios from './axiosConfig'
 import type { AxiosInstance, AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios'
 
-function hash (params: any): string {
+function hash(params: any): string {
   return JSON.stringify(params)
 }
 
@@ -44,7 +44,7 @@ interface IWindowIt {
   }
 }
 
-export function windowIt (f: AxiosInstance, time = 50) {
+export function windowIt(f: AxiosInstance, time = 50) {
   let w: IWindowIt = {}
   let flag = false
 
@@ -56,7 +56,7 @@ export function windowIt (f: AxiosInstance, time = 50) {
           axios: f,
           args: { ...params },
           resolvers: [],
-          rejecters: []
+          rejecters: [],
         }
       }
       if (!flag) {

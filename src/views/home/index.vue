@@ -21,12 +21,12 @@ interface IListItem {
 const list = ref<IListItem[]>([
   {
     id: '1',
-    text: 'test1'
+    text: 'test1',
   },
   {
     id: '2',
-    text: 'test2'
-  }
+    text: 'test2',
+  },
 ])
 </script>
 

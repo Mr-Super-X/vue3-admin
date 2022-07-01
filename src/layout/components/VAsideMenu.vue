@@ -5,7 +5,7 @@
  * @Contact: 1303232158@qq.com
  * @Date: 2022-05-31 12:11:16
  * @LastEditors: Mr.Mikey
- * @LastEditTime: 2022-05-31 13:31:44
+ * @LastEditTime: 2022-07-01 18:00:52
  * @FilePath: \vue3-admin\src\layout\components\VAsideMenu.vue
 -->
 
@@ -106,13 +106,13 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
 import { Location } from '@element-plus/icons-vue'
-import { getMenu } from '@request/modules/system'
+import { getMenu } from '../apis'
 
 export default defineComponent({
   components: {
-    Location
+    Location,
   },
-  setup () {
+  setup() {
     const isCollapse = ref(false)
     const handleOpen = (key: string, keyPath: string[]) => {
       console.log(key, keyPath)
@@ -121,20 +121,20 @@ export default defineComponent({
       console.log(key, keyPath)
     }
 
-    getMenu()
-      .then(res => {
-        return res.data
-      })
-      .then(data => {
-        console.log(data)
-      })
+    // getMenu()
+    //   .then(res => {
+    //     return res.data
+    //   })
+    //   .then(data => {
+    //     console.log(data)
+    //   })
 
     return {
       isCollapse,
       handleOpen,
-      handleClose
+      handleClose,
     }
-  }
+  },
 })
 </script>
 

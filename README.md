@@ -110,6 +110,18 @@ vue3-admin
 └─ yarn.lock               # 版本锁定文件
 ```
 
+## 视图结构规范说明
+```
+所有的视图都放在views目录中，对应的模块视图放在views/modules/模块文件夹，视图结构遵循如下规范：
+├─ home                      # 首页文件夹
+│  ├─ components             # 首页组件
+│  ├─ apis.ts                # 首页请求接口配置
+│  ├─ configs.ts             # 首页静态常量配置
+│  ├─ index.vue              # 首页入口vue文件
+│  ├─ routes.ts              # 首页路由配置
+└─ └─ scripts.ts             # 首页其他脚本函数配置
+```
+
 ## npm scripts说明（以下命令使用npm run或yarn均可）
 ```bash
 # 启动项目
