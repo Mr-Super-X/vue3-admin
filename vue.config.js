@@ -25,16 +25,16 @@ module.exports = defineConfig({
       // 配置全局scss变量支持
       // 文档：https://cli.vuejs.org/zh/guide/css.html#%E5%90%91%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8-loader-%E4%BC%A0%E9%80%92%E9%80%89%E9%A1%B9
       scss: {
-        additionalData: '@import "~@styles/scss/common.scss";'
-      }
-    }
+        additionalData: '@import "~@styles/scss/common.scss";',
+      },
+    },
   },
   // 配置对象写法
   configureWebpack: {
     output: {
       // 可以覆盖vue默认的output配置
       filename: 'js/[name].[contenthash:8].bundle.js', // 对打包后的bundle进行命名，[name]会取entry中的文件名
-      chunkFilename: 'js/[name].[contenthash:8].chunk.js' // 对打包后的chunk进行命名，[name]会取webpackChunkName
+      chunkFilename: 'js/[name].[contenthash:8].chunk.js', // 对打包后的chunk进行命名，[name]会取webpackChunkName
     },
     // 生产环境需要考虑是否开启，开发环境推荐使用source-map或者eval-cheap-module-source-map
     devtool: isProd ? false : 'eval-cheap-module-source-map',
@@ -46,11 +46,11 @@ module.exports = defineConfig({
       // }),
       // start 按需导入element-plus
       AutoImport({
-        resolvers: [ElementPlusResolver()]
+        resolvers: [ElementPlusResolver()],
       }),
       Components({
-        resolvers: [ElementPlusResolver()]
-      })
+        resolvers: [ElementPlusResolver()],
+      }),
       // end 按需导入element-plus
     ],
     optimization: {
@@ -65,8 +65,8 @@ module.exports = defineConfig({
        * 其中属性值可以是名称或者返回名称的函数，用于为 runtime chunks 命名。
        */
       runtimeChunk: {
-        name: entrypoint => `runtimechunk~${entrypoint.name}`
-      }
+        name: entrypoint => `runtimechunk~${entrypoint.name}`,
+      },
     },
     /**
      * 解析模块的规则
@@ -87,7 +87,7 @@ module.exports = defineConfig({
         '@components': resolve(__dirname, 'src/components'),
         '@utils': resolve(__dirname, 'src/utils'),
         '@request': resolve(__dirname, 'src/request'),
-        '@store': resolve(__dirname, 'src/store')
+        '@store': resolve(__dirname, 'src/store'),
       },
       /**
        * 配置省略文件名的后缀规则
@@ -105,7 +105,7 @@ module.exports = defineConfig({
        * 3.在源码中写导入语句时，要尽可能的带上后缀，从而可以避免寻找过程。例如在你确定的情况下把
        * require('./data') 写成 require('./data.json')
        */
-      extensions: ['.ts', '.tsx', '.js', '.jsx', '.vue', '.json']
+      extensions: ['.ts', '.tsx', '.js', '.jsx', '.vue', '.json'],
     },
     /**
      * 防止将某些import的包打包到最终的bundle中，例如jquery
@@ -119,7 +119,7 @@ module.exports = defineConfig({
      */
     externals: {
       // jquery: 'jQuery', // 拒绝jQuery被打包
-    }
+    },
   },
   // 链式写法
   // chainWebpack: (config) => {},
@@ -134,25 +134,25 @@ module.exports = defineConfig({
       '/api': {
         target: 'http://localhost:3000',
         secure: false, // 如果是https接口，需要配置这个参数
-        changeOrigin: true // 设置为true, 本地就会虚拟一个服务器接收你的请求并代你发送该请求
+        changeOrigin: true, // 设置为true, 本地就会虚拟一个服务器接收你的请求并代你发送该请求
       },
       // 例如将'localhost:8080/img/xxx'代理到'https://cdn.xxx.cn/xxx'
       '/img': {
         target: 'https://cdn.xxx.cn', // 接口的域名
         secure: false,
         changeOrigin: true,
-        pathRewrite: { '^/img': '' } // pathRewrite 来重写地址，将前缀 '/img' 转为 '/'
-      }
+        pathRewrite: { '^/img': '' }, // pathRewrite 来重写地址，将前缀 '/img' 转为 '/'
+      },
     },
     compress: true, // 启动gzip压缩
     host: 'localhost', // 主机地址
     port: 8080, // 端口号
-    hot: true // 热更新
-  }
+    hot: true, // 热更新
+  },
 })
 
 // 控制台输出当前构建信息
-function consoleEnvInfo () {
+function consoleEnvInfo() {
   const arg = process.argv[2]
   // 配置信息，对应根目录下的.env.xxx文件配置
   const params = {
@@ -160,31 +160,30 @@ function consoleEnvInfo () {
     path: process.env.VUE_APP_PATH,
     apiPath: process.env.VUE_APP_API_PATH,
     NODE_ENV: process.env.NODE_ENV,
-    VUE_APP_ENV: process.env.VUE_APP_ENV
+    VUE_APP_ENV: process.env.VUE_APP_ENV,
   }
   // 只需将package.json中对应的命令加入配置即可
   const strategy = {
-    serve () {
+    serve() {
       global.console.log('开始运行' + process.env.VUE_APP_TITLE + '...')
     },
-    dev () {
+    dev() {
       global.console.log('开始运行' + process.env.VUE_APP_TITLE + '...')
     },
-    lint () {
+    lint() {
       global.console.log('开始检查代码规范...')
     },
-    build () {
+    build() {
       global.console.log('开始构建' + process.env.VUE_APP_TITLE + '...')
     },
-    run (arg) {
-      if (!this[arg]) {
-        // 不存在就不需要执行后面的代码了
-        return
-      }
+    run(arg) {
+      // 不存在就不需要执行后面的代码了
+      if (!this[arg]) return
+
       this[arg]()
       global.console.log('当前环境配置信息如下...')
       global.console.table(params)
-    }
+    },
   }
 
   strategy.run(arg)
