@@ -112,7 +112,15 @@ vue3-admin
 
 ## 视图结构说明
 
-所有的视图都放在views目录中，对应的模块视图放在views/modules/模块文件夹，ts类型在types目录中新建xxx.d.ts文件进行管理，视图结构遵循如下规范：
+1. 所有的视图都放在views目录中，对应的模块视图放在views/modules/模块文件夹
+2. ts类型在types目录中新建xxx.d.ts文件进行管理
+3. 当前页面的UI组件放在当前目录下的components目录中管理
+4. 当前页面的api请求在apis.ts中管理
+5. 当前页面的路由信息在routes.ts中管理
+6. 当前页面的静态数据或常量在configs.ts中管理
+7. 当前页面的一些工具方法或脚本函数在scripts.ts中管理
+
+整体采用Domain Style工程范式，专注于横向的功能拆分和扩展，视图结构遵循如下规范：
 ```
 home                      # 首页文件夹
 ├─ components             # 首页UI组件文件夹
@@ -188,6 +196,8 @@ yarn commit命令运行效果如下：
 
 
 ## 附上一份git指南
+包含git日常使用的详细操作命令，需要自取
+
 [git指南png文件](git_doc.png)
 
 [git指南xmind文件](git_doc.xmind)
