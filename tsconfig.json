@@ -1,26 +1,26 @@
 {
+  // 文档：https://www.tslang.cn/docs/handbook/compiler-options.html
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "strict": true,
-    "jsx": "preserve",
-    "moduleResolution": "node",
-    // 跳过对一些第三方库的类型检查
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
-    "useDefineForClassFields": true,
-    "sourceMap": true,
-    "baseUrl": ".",
-    "noImplicitAny": false,
-    "types": [
+    "target": "esnext", // 目标语言的版本
+    "module": "esnext", // 生成代码的模板标准
+    "strict": true, // 以严格模式解析并为每个源文件生成 "use strict"语句
+    "jsx": "preserve", // 在 .tsx 中支持 JSX ：React 或 Preserve
+    "moduleResolution": "node", // 模块解析策略，ts默认用node的解析策略，即相对的方式导入
+    "skipLibCheck": true, // 跳过对一些第三方库的类型检查
+    "esModuleInterop": true, // 允许export=导出，由import from 导入
+    "experimentalDecorators": true, // 启用实验性的ES装饰器
+    "allowSyntheticDefaultImports": true, // 允许从没有设置默认导出的模块中默认导入。这并不影响代码的输出，仅为了类型检查
+    "forceConsistentCasingInFileNames": true, // 禁止对同一个文件的不一致的引用
+    "useDefineForClassFields": true, // 不跳过默认值为undefined的变量，防止使用NODE_ENV时报错
+    "sourceMap": true, // 生成目标文件的sourceMap文件
+    "baseUrl": ".", // 解析非相对模块的基地址，默认是当前目录
+    "noImplicitAny": false, // 在表达式和声明上有隐含的 any类型时报错
+    "types": [ // 加载的声明文件包，如果指定了某个值， 她会在 typeRoots 下找这个包，找到了就只加载这个包
       "node",
       "webpack-env",
       "jest"
     ],
-    "paths": {
+    "paths": { // 路径映射，相对于baseUrl
       "@/*": [
         "src/*"
       ],
@@ -42,7 +42,11 @@
       "@store/*": [
         "src/store/*"
       ]
+      // 例如使用jq时不想使用默认版本，而需要手动指定版本，可进行如下配置
+      // "jquery": ["node_modules/jquery/dist/jquery.min.js"]
     },
+    // 编译时引入的 ES 功能库，包括：es5 、es6、es7、dom 等。
+    // 如果未设置，则默认为： target 为 es5 时: ["dom", "es5", "scripthost"] 
     "lib": [
       "esnext",
       "dom",
@@ -50,14 +54,15 @@
       "scripthost"
     ]
   },
+  // 生效的目录
   "include": [
-    "src/**/*",
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx"
   ],
+  // 排除的目录
   "exclude": [
     "node_modules"
   ]
