@@ -18,7 +18,7 @@ interface IListItem {
 
 // <IListItem[]>表示list为数组类型，所有的子项需要符合IListItem接口定义的格式
 // 好处是模板中使用list和item时，鼠标移入会有类型提示
-const list = ref<IListItem[]>([
+const list = ref([
   {
     id: '1',
     text: 'test1',

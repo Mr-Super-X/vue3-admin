@@ -1,8 +1,8 @@
-import { createApp } from 'vue'
-import { verifyENV } from './utils'
-import App from './App.vue'
-import pinia from './store'
-import router from './router'
+import { createApp } from 'vue' // 创建vue实例函数
+import { verifyENV } from './utils' // 验证环境函数
+import App from './App.vue' // 入口vue组件
+import pinia from './store' // store
+import router from './router' // 路由
 import components from '@components/index' // 引入全局公共组件
 
 import 'normalize.css' // 保持各浏览器样式统一

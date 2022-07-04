@@ -114,7 +114,7 @@ vue3-admin
 ```
 所有的视图都放在views目录中，对应的模块视图放在views/modules/模块文件夹，视图结构遵循如下规范：
 ├─ home                      # 首页文件夹
-│  ├─ components             # 首页组件
+│  ├─ components             # 首页UI组件
 │  ├─ apis.ts                # 首页请求接口配置
 │  ├─ configs.ts             # 首页静态常量配置
 │  ├─ index.vue              # 首页入口vue文件

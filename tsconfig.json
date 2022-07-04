@@ -8,11 +8,13 @@
     // 跳过对一些第三方库的类型检查
     "skipLibCheck": true,
     "esModuleInterop": true,
+    "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "useDefineForClassFields": true,
     "sourceMap": true,
     "baseUrl": ".",
+    "noImplicitAny": false,
     "types": [
       "node",
       "webpack-env",
@@ -49,11 +51,12 @@
     ]
   },
   "include": [
+    "src/**/*",
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx"  
+    "tests/**/*.tsx"
   ],
   "exclude": [
     "node_modules"

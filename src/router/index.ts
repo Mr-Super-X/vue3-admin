@@ -1,6 +1,7 @@
 import router from './routerConfig'
-import { getToken, verifyENV } from '../utils/index'
 import whitelist from './whitelist'
+import { getToken, verifyENV } from '../utils/index'
+import { LAYOUT_ROUTE_NAME } from '@/layout/configs'
 const debug = verifyENV('debug')
 
 // 不用校验的路由，默认不做校验的列表如下
@@ -20,9 +21,8 @@ router.beforeEach((to, from, next) => {
     next()
     return
   }
-
   // 找到layout组件
-  const isLayout: any = to.matched.length && to.matched[0].name === 'Layout'
+  const isLayout: any = to.matched.length && to.matched[0].name === LAYOUT_ROUTE_NAME
   // 获取权限
   const havePermission = getToken() // 以token作为示例
   // 如果是layout下的路由并且有权限才可以正常跳转，否则重定向到login页面
