@@ -27,6 +27,10 @@ const list = ref([
     id: '2',
     text: 'test2',
   },
+  {
+    id: '3',
+    text: 'test3',
+  },
 ])
 </script>
 
