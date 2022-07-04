@@ -14,7 +14,7 @@
     "useDefineForClassFields": true, // 不跳过默认值为undefined的变量，防止使用NODE_ENV时报错
     "sourceMap": true, // 生成目标文件的sourceMap文件
     "baseUrl": ".", // 解析非相对模块的基地址，默认是当前目录
-    "noImplicitAny": false, // 允许隐式的any类型
+    "noImplicitAny": false, // 在表达式和声明上有隐含的 any类型时报错
     "types": [ // 加载的声明文件包，如果指定了某个值， 她会在 typeRoots 下找这个包，找到了就只加载这个包
       "node",
       "webpack-env",
