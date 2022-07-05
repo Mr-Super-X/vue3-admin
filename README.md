@@ -1,10 +1,19 @@
-[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+<!-- [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) -->
+
+<p align="center">
+  <!-- <a href="https://github.com/Mr-Super-X/vue3-admin/actions"><img allt="checks" src="https://badgen.net/github/checks/Mr-Super-X/vue3-admin"/></a> -->
+  <a href="https://vercel.com/mr-super-x/vue3-admin/deployments?status=ready"><img src="https://img.shields.io/circleci/project/github/vuejs/vue/dev.svg?sanitize=true" alt="Build Status"></a>
+  <a href="https://github.com/Mr-Super-X/vue3-admin"><img allt="stars" src="https://badgen.net/github/stars/Mr-Super-X/vue3-admin"/></a>
+  <a href="https://github.com/Mr-Super-X/vue3-admin"><img allt="forks" src="https://badgen.net/github/forks/Mr-Super-X/vue3-admin"/></a>
+  <a href="./LICENSE"><img allt="MIT License" src="https://badgen.net/github/license/Mr-Super-X/vue3-admin"/></a>
+  <a href="http://commitizen.github.io/cz-cli/"><img allt="Commitizen friendly" src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg"/></a>
+</p>
 
 # vue3-admin
 
 ## 简介
 
-[vue3-admin](https://vue3-admin-beta.vercel.app/#/home)是一个后台前端解决方案，基于[Vue3](https://v3.cn.vuejs.org/) + [Element-plus](https://element-plus.gitee.io/zh-CN/) + [Webpack5](https://www.webpackjs.com/concepts/) + [Typescript](https://www.tslang.cn/) + [Pinia](https://pinia.web3doc.top/) + [Axios](http://www.axios-js.com/zh-cn/docs/) + [Scss](https://www.sass.hk/)搭建。使用[EditorConfig](https://editorconfig.org) + [Prettier](https://www.prettier.cn/) + [ESLint](http://eslint.cn/)搭建项目中统一的代码风格，使用[commitizen](https://github.com/commitizen) + [lint-staged](https://github.com/okonet/lint-staged) + [commitlint](https://github.com/conventional-changelog/commitlint)统一代码提交规范，支持[release-it](https://github.com/release-it/release-it)自动化发布符合[Semantic Versioning](https://semver.org/)规范的版本，自动生成changelog文档等功能。
+[vue3-admin](https://vue3-admin-beta.vercel.app/#/home)是一个后台前端解决方案，基于[Vue3](https://v3.cn.vuejs.org/) + [Element-plus](https://element-plus.gitee.io/zh-CN/) + [Webpack5](https://www.webpackjs.com/concepts/) + [Typescript](https://www.tslang.cn/) + [Pinia](https://pinia.web3doc.top/) + [Axios](http://www.axios-js.com/zh-cn/docs/) + [Scss](https://www.sass.hk/)搭建。使用[EditorConfig](https://editorconfig.org) + [Prettier](https://www.prettier.cn/) + [ESLint](http://eslint.cn/)搭建项目中统一的代码风格，使用[commitizen](https://github.com/commitizen) + [lint-staged](https://github.com/okonet/lint-staged) + [commitlint](https://github.com/conventional-changelog/commitlint)统一代码提交规范，支持[release-it](https://github.com/release-it/release-it)自动化发布符合[Semantic Versioning](https://semver.org/)规范的版本，自动生成[changelog](https://github.com/release-it/release-it/blob/master/docs/changelog.md)文档等功能。
 
 
 ## 在线预览
@@ -19,7 +28,7 @@
 git clone https://github.com/Mr-Super-X/vue3-admin.git
 # 进入项目目录
 cd vue3-admin
-# 安装依赖（推荐使用pnpm，好处就不说了）
+# 安装依赖（推荐使用pnpm，好处就不说了，如果githook没有触发，请执行一次npm install）
 npm install
 # 建议不要直接使用 cnpm 安装依赖，会有各种诡异的 bug。可以通过如下操作解决 npm 下载速度慢的问题
 npm install --registry=https://registry.npm.taobao.org
