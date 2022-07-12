@@ -13,9 +13,9 @@ module.exports = {
     browser: true,
   },
   // 指定继承的规则
-  // plugin:vue/vue3-essential vue官方eslint插件
-  // @vue/standard
-  // @vue/typescript/recommended
+  // plugin:vue/vue3-essential 为vue-cli设计的vue3官方eslint插件
+  // @vue/standard 为vue-cli设计的standard规范的eslint配置
+  // @vue/typescript/recommended 为vue-cli设计的recommended规范的eslint配置
   // plugin:prettier/recommended 作用是解决prettier和eslint冲突，需要安装eslint-plugin-prettier
   extends: ['plugin:vue/vue3-essential', '@vue/standard', '@vue/typescript/recommended', 'plugin:prettier/recommended'],
   // 指定你想要支持的 JavaScript 语言选项。
