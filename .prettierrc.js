@@ -18,7 +18,6 @@ module.exports = {
   requireConfig: false, // Require a 'prettierconfig' to format prettier
   stylelintIntegration: false, // 不让prettier使用stylelint的代码格式进行校验
   trailingComma: 'es5', // 在对象或数组最后一个元素后面是否加逗号（在ES5中加尾逗号）
-  tslintIntegration: false, // 不让prettier使用tslint的代码格式进行校验
   vueIndentScriptAndStyle: false, // （默认值）对于 .vue 文件，不缩进 <script> 和 <style> 里的内容
   embeddedLanguageFormatting: 'auto', // （默认值）允许自动格式化内嵌的代码块
   // 箭头函数参数括号 默认avoid 可选 avoid| always
