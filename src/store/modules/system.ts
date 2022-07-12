@@ -6,7 +6,7 @@ export interface IState {
 
 // state 类似组件的data选项，函数形式返回对象
 const state = (): IState => ({
-  keepAliveIncludes: []
+  keepAliveIncludes: [],
 })
 
 const getters = {}
@@ -20,5 +20,5 @@ const actions = {}
 export const useSystemStore = defineStore('system', {
   state,
   getters,
-  actions
+  actions,
 })

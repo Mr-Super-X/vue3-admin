@@ -1,11 +1,11 @@
-import { IMockItem } from '../index.d'
+import type { IMockItem } from '../index.d'
 
 const mockList: Array<IMockItem> = [
   // 获取左侧菜单栏数据
   {
     url: '/system/menu',
     method: 'get',
-    response () {
+    response() {
       return {
         code: 200,
         msg: '成功',
@@ -22,15 +22,15 @@ const mockList: Array<IMockItem> = [
                 {
                   id: '@id',
                   // 属性componentName是一个5位随机码
-                  'componentName|5': ''
-                }
-              ]
-            }
-          ]
-        }
+                  'componentName|5': '',
+                },
+              ],
+            },
+          ],
+        },
       }
-    }
-  }
+    },
+  },
 ]
 
 export default mockList

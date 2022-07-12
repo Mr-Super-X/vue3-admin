@@ -8,13 +8,13 @@
 import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
-  setup () {
+  setup() {
     const toolTipContent = ref('收起')
 
     return {
-      toolTipContent
+      toolTipContent,
     }
-  }
+  },
 })
 </script>
 

@@ -11,8 +11,8 @@ import Error from '@/views/error/index.vue'
 // 加载所有子路由-将views/modules下面所有文件夹里面的routes.ts拿过来创建一个路由集合
 // require.context第二个参数为true表示会递归查找
 const requireContext = require.context('@/views/modules', true, /\/routes\.ts|.js$/)
-const allRouterModules: Array<RouteRecordRaw> = requireContext.keys().reduce((pre: any, key: any) => {
-  return [...pre, ...requireContext(key).default]
+const allRouterModules: Array<RouteRecordRaw> = requireContext.keys().reduce((pre: any, cur: any) => {
+  return [...pre, ...requireContext(cur).default]
 }, [])
 
 export const routes: Array<RouteRecordRaw> = [

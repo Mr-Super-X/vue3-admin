@@ -24,11 +24,11 @@ import VAsideMenu from './VAsideMenu.vue'
 export default defineComponent({
   components: {
     VAsideLogo,
-    VAsideMenu
+    VAsideMenu,
   },
-  setup () {
+  setup() {
     return {}
-  }
+  },
 })
 </script>
 

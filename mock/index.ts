@@ -1,5 +1,5 @@
 import Mock from 'mockjs'
-import { IMockItem } from './index.d'
+import type { IMockItem } from './index.d'
 
 // 加载所有mock模块
 const allMockModules: Array<IMockItem> = []
@@ -12,10 +12,10 @@ export const mocks = [...allMockModules]
 
 // 设置随机延迟时间
 Mock.setup({
-  timeout: '300-1000'
+  timeout: '300-1000',
 })
 
-export function mockXHR () {
+export function mockXHR() {
   // 注册所有的mock服务
   for (const i of mocks) {
     Mock.mock(new RegExp(i.url), i.method || 'get', i.response())

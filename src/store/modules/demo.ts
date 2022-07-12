@@ -6,7 +6,7 @@ export interface IState {
 
 // state 类似组件的data选项，函数形式返回对象
 const state = (): IState => ({
-  test: 'test'
+  test: 'test',
 })
 
 const getters = {}
@@ -20,5 +20,5 @@ const actions = {}
 export const useDemoStore = defineStore('demo', {
   state,
   getters,
-  actions
+  actions,
 })

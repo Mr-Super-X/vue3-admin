@@ -28,16 +28,16 @@ import { defineComponent, computed } from 'vue'
 import { useSystemStore } from '@store/modules/system'
 
 export default defineComponent({
-  setup () {
+  setup() {
     const systemStore = useSystemStore()
     // ❌ 这不起作用，因为它会破坏响应式
     // 这和从 props 解构是一样的
     // const { keepAliveIncludes } = systemStore
     return {
       // 为了访问 state ，需要创建 computed 引用以保留响应性，这与在选项式 API 中创建计算属性等效。
-      keepAliveIncludes: computed(() => systemStore.keepAliveIncludes)
+      keepAliveIncludes: computed(() => systemStore.keepAliveIncludes),
     }
-  }
+  },
 })
 </script>
 
