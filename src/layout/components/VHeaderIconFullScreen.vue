@@ -3,7 +3,12 @@
     <template #content>
       <span>{{ toolTipContent }}</span>
     </template>
-    <v-svg-icon :icon-class="iconClass" @click="handleToggle" />
+    <v-svg-icon
+      :icon-class="iconClass"
+      @click="handleToggle"
+      @mouseenter="visible = true"
+      @mouseleave="visible = false"
+    />
   </el-tooltip>
 </template>
 
@@ -25,7 +30,7 @@ const handleToggle = () => {
     })
     return false
   }
-  screenfull.toggle().catch(e => '')
+  screenfull.toggle().catch(() => '')
 }
 const handleChange = () => {
   isFullscreen.value = screenfull.isFullscreen
