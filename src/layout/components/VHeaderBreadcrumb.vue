@@ -10,9 +10,9 @@ import { defineComponent } from 'vue'
 import { ArrowRight } from '@element-plus/icons-vue'
 
 export default defineComponent({
-  setup () {
+  setup() {
     return { ArrowRight }
-  }
+  },
 })
 </script>
 

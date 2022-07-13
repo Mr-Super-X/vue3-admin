@@ -24,11 +24,11 @@ import VHeaderTags from './VHeaderTags.vue'
 export default defineComponent({
   components: {
     VHeaderNav,
-    VHeaderTags
+    VHeaderTags,
   },
-  setup () {
+  setup() {
     return {}
-  }
+  },
 })
 </script>
 

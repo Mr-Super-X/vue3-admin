@@ -30,11 +30,11 @@ export default defineComponent({
   components: {
     VHeaderBreadcrumb,
     VHeaderIconCollapse,
-    VHeaderIconFullScreen
+    VHeaderIconFullScreen,
   },
-  setup () {
+  setup() {
     return {}
-  }
+  },
 })
 </script>
 

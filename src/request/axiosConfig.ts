@@ -30,7 +30,7 @@ const config: AxiosRequestConfig = {
     function (data: any, headers: any) {
       // 对 data 进行任意转换处理
       return data instanceof FormData ? data : qs.stringify(data, { arrayFormat: 'indices' })
-    }
+    },
   ],
 
   // `transformResponse` 在传递给 then/catch 前，允许修改响应数据
@@ -38,14 +38,14 @@ const config: AxiosRequestConfig = {
     function (data: any) {
       // 对 data 进行任意转换处理
       return JSON.parse(data)
-    }
+    },
   ],
 
   // `headers` 是即将被发送的自定义请求头
   headers: {
     'X-Requested-With': 'XMLHttpRequest',
     'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
-    token: getToken() || ''
+    token: getToken() || '',
   },
 
   // `params` 是即将与请求一起发送的 URL 参数
@@ -124,7 +124,7 @@ const config: AxiosRequestConfig = {
   // 例如 '/var/run/docker.sock' 向 docker 守护进程发送请求
   // 只能指定 `socketPath` 或 `proxy`
   // 如果两者都指定，则使用 `socketPath`
-  socketPath: null // default
+  socketPath: null, // default
 
   // `httpAgent` 和 `httpsAgent` 分别在 node.js 中用于定义在执行 http 和 https 时使用的自定义代理。允许像这样配置选项：
   // `keepAlive` 默认没有启用

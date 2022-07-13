@@ -1,4 +1,4 @@
-import { IMockItem } from '../index'
+import type { IMockItem } from '../index.d'
 /**
  * 使用方法：
  *    1. import request from '@request/index'
@@ -16,16 +16,16 @@ const mockList: Array<IMockItem> = [
   {
     url: '/auth/oauth/token',
     method: 'get',
-    response () {
+    response() {
       return {
         code: 200,
         msg: '成功',
         data: {
-          name: 'test get token'
-        }
+          name: 'test get token',
+        },
       }
-    }
-  }
+    },
+  },
 ]
 
 export default mockList
