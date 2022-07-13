@@ -1,4 +1,5 @@
 // http://eslint.cn/
+// https://eslint.vuejs.org/rules/no-deprecated-data-object-declaration.html
 
 module.exports = {
   // 默认情况下，ESLint 会在所有父级目录里寻找配置文件，一直到根目录。
@@ -38,6 +39,15 @@ module.exports = {
     'vue/multi-word-component-names': 0,
     // 关闭使用symbol时一定要传入描述
     'symbol-description': 0,
+    // 关闭未导入defineProps/defineEmits时使用报红
+    'vue/setup-compiler-macros': 0,
+  },
+  // 解决使用未导入的全局变量报错
+  globals: {
+    defineProps: 'readonly',
+    defineEmits: 'readonly',
+    defineExpose: 'readonly',
+    withDefaults: 'readonly',
   },
   // 禁用一组文件的配置文件中的规则
   overrides: [

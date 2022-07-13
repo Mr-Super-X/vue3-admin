@@ -15,7 +15,7 @@ module.exports = {
   ignorePath: '.prettierignore', // 不使用prettier格式化的文件填写在项目的.prettierignore文件中
   jsxBracketSameLine: false, // 是否把 > 符号放在多行的 JSX 元素的最后一行
   jsxSingleQuote: false, // 在jsx中使用单引号代替双引号
-  requireConfig: false, // Require a 'prettierconfig' to format prettier
+  requireConfig: true, // 需要“prettierconfig”来格式化prettier
   stylelintIntegration: false, // 不让prettier使用stylelint的代码格式进行校验
   trailingComma: 'es5', // 在对象或数组最后一个元素后面是否加逗号（在ES5中加尾逗号）
   vueIndentScriptAndStyle: false, // （默认值）对于 .vue 文件，不缩进 <script> 和 <style> 里的内容

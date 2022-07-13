@@ -1,5 +1,5 @@
 // 导出当前页面的路由配置
-import { ROUTER_MODULE_PATHS } from '@/utils/configs'
+import { ROUTER_MODULE_PATHS } from '@/constant'
 export default [
   {
     path: ROUTER_MODULE_PATHS.DEMO + '/demo', // 路由访问路径（'/' + '模块名' + '/' + '路由名'）

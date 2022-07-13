@@ -88,6 +88,8 @@ module.exports = defineConfig({
         '@utils': resolve(__dirname, 'src/utils'),
         '@request': resolve(__dirname, 'src/request'),
         '@store': resolve(__dirname, 'src/store'),
+        '@types': resolve(__dirname, 'src/types'),
+        '@constant': resolve(__dirname, 'src/constant'),
       },
       /**
        * 配置省略文件名的后缀规则

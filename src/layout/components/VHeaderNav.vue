@@ -5,13 +5,13 @@
  * @Contact: 1303232158@qq.com
  * @Date: 2022-05-31 12:56:55
  * @LastEditors: Mr.Mikey
- * @LastEditTime: 2022-06-02 16:51:53
+ * @LastEditTime: 2022-07-13 22:44:55
  * @FilePath: \vue3-admin\src\layout\components\VHeaderNav.vue
 -->
 <template>
   <div class="nav-container">
     <div class="left-area">
-      <v-header-icon-collapse />
+      <v-header-icon-collapse :is-active="sidebar.opened" />
       <v-header-breadcrumb />
     </div>
     <div class="right-area">
@@ -20,22 +20,18 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
+import { computed } from 'vue'
+import { useAppStore } from '@store/modules/app'
 import VHeaderBreadcrumb from './VHeaderBreadcrumb.vue'
 import VHeaderIconCollapse from './VHeaderIconCollapse.vue'
 import VHeaderIconFullScreen from './VHeaderIconFullScreen.vue'
 
-export default defineComponent({
-  components: {
-    VHeaderBreadcrumb,
-    VHeaderIconCollapse,
-    VHeaderIconFullScreen,
-  },
-  setup() {
-    return {}
-  },
-})
+const appStore = useAppStore()
+
+const sidebar = computed(() => appStore.getSidebar)
+
+// appStore.updateSidebarOpened(false)
 </script>
 
 <style scoped lang="scss">
