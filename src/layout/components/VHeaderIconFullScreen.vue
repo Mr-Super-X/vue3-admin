@@ -3,23 +3,21 @@
     <template #content>
       <span>{{ toolTipContent }}</span>
     </template>
-    <v-svg-icon :icon-class="iconClass" @click="handleFullScreen" />
+    <v-svg-icon :icon-class="iconClass" @click="handleToggle" />
   </el-tooltip>
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, onBeforeUnmount, onMounted } from 'vue'
 import { ElMessage } from 'element-plus'
 import screenfull from 'screenfull'
-
-const emit = defineEmits(['toggleClick'])
 
 const visible = ref(false)
 const isFullscreen = ref(false)
 const toolTipContent = computed(() => (isFullscreen.value ? '退出全屏' : '全屏'))
 const iconClass = computed(() => (isFullscreen.value ? 'exit-fullscreen' : 'fullscreen'))
 
-function handleFullScreen() {
+const handleToggle = () => {
   if (!screenfull.isEnabled) {
     ElMessage({
       message: 'you browser can not work',
@@ -28,9 +26,22 @@ function handleFullScreen() {
     return false
   }
   screenfull.toggle()
-  isFullscreen.value = !isFullscreen.value
-  emit('toggleClick', screenfull.isFullscreen)
 }
+const handleChange = () => {
+  isFullscreen.value = screenfull.isFullscreen
+}
+
+onBeforeUnmount(() => {
+  if (screenfull.isEnabled) {
+    screenfull.off('change', handleChange)
+  }
+})
+
+onMounted(() => {
+  if (screenfull.isEnabled) {
+    screenfull.on('change', handleChange)
+  }
+})
 </script>
 
 <style lang="scss" scoped>

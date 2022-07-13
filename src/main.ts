@@ -4,7 +4,7 @@ import App from './App.vue' // 入口vue组件
 import pinia from './store' // store
 import router from './router' // 路由
 import components from '@components/index' // 引入全局公共组件
-import svgPlugin from '@/utils/plugins/useSvgPlugin' // 引入assets/icons/svg
+import plugins from './plugins' // 引入全局插件
 
 import 'normalize.css' // 保持各浏览器样式统一
 import '@styles/css/reset.css' // 重置样式
@@ -18,4 +18,4 @@ if (verifyENV('mock')) {
 
 export const app = createApp(App)
 
-app.use(pinia).use(router).use(svgPlugin).use(components).mount('#app')
+app.use(pinia).use(router).use(plugins).use(components).mount('#app')

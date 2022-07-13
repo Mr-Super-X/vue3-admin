@@ -5,20 +5,25 @@
  * @Contact: 1303232158@qq.com
  * @Date: 2022-07-14 00:31:13
  * @LastEditors: Mr.Mikey
- * @LastEditTime: 2022-07-14 02:14:59
+ * @LastEditTime: 2022-07-14 02:53:03
  * @FilePath: \vue3-admin\src\components\common\VSvgIcon.vue
 -->
 <template>
-  <div v-if="isExternals" :style="styleExternalIcon" class="svg-external-icon svg-icon" v-bind="$attrs" />
-  <svg v-else :class="svgClass" aria-hidden="true" v-bind="$attrs">
-    <use :xlink:href="iconName" />
-  </svg>
+  <div class="v-svg-icon" v-bind="$attrs">
+    <!-- https?:|mailto:|tel:渲染div -->
+    <div v-if="isExternals" :style="styleExternalIcon" class="svg-external-icon svg-icon" v-bind="$attrs" />
+    <!-- svg格式渲染svg标签 -->
+    <svg v-else :class="svgClass" aria-hidden="true" v-bind="$attrs">
+      <use :xlink:href="iconName" />
+    </svg>
+  </div>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
 import { isExternal } from '@/utils/validate'
 const props = defineProps({
+  // 对应assets/icons/svg目录下的文件名
   iconClass: {
     type: String,
     required: true,
@@ -29,6 +34,7 @@ const props = defineProps({
   },
 })
 
+// 根据用户传入的iconClass判断文件扩展
 const isExternals = computed(() => isExternal(props.iconClass))
 const iconName = computed(() => `#icon-${props.iconClass}`)
 const svgClass = computed(() => {

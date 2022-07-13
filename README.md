@@ -83,6 +83,7 @@ vue3-admin
 │  ├─ constant             # 全局常量管理
 │  ├─ directives           # 全局指令
 │  ├─ layout               # 全局Layout
+│  ├─ plugins              # 全局plugin配置
 │  ├─ request              # 接口请求
 │  ├─ router               # 路由管理
 │  ├─ store                # store管理
