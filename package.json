@@ -29,6 +29,7 @@
     "core-js": "^3.8.3",
     "element-plus": "^2.2.0",
     "normalize.css": "^8.0.1",
+    "nprogress": "^0.2.0",
     "pinia": "^2.0.14",
     "screenfull": "^6.0.2",
     "vue": "^3.2.13",
