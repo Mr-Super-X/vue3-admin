@@ -15,7 +15,11 @@ const getters = {
   },
 }
 
-const actions = {}
+const actions = {
+  updateSidebarOpened(val) {
+    this.sidebar.opened = val
+  },
+}
 
 // 传入2个参数，定义store并导出
 // 第一个参数唯一不可重复，string类型，作为仓库ID以区分仓库

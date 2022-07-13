@@ -5,13 +5,13 @@
  * @Contact: 1303232158@qq.com
  * @Date: 2022-05-31 12:56:55
  * @LastEditors: Mr.Mikey
- * @LastEditTime: 2022-07-13 22:44:55
+ * @LastEditTime: 2022-07-13 23:17:27
  * @FilePath: \vue3-admin\src\layout\components\VHeaderNav.vue
 -->
 <template>
   <div class="nav-container">
     <div class="left-area">
-      <v-header-icon-collapse :is-active="sidebar.opened" />
+      <v-header-icon-collapse :is-active="sidebar.opened" @toggleClick="toggleSideBar" />
       <v-header-breadcrumb />
     </div>
     <div class="right-area">
@@ -31,7 +31,10 @@ const appStore = useAppStore()
 
 const sidebar = computed(() => appStore.getSidebar)
 
-// appStore.updateSidebarOpened(false)
+function toggleSideBar() {
+  const opened = !sidebar.value.opened
+  appStore.updateSidebarOpened(opened)
+}
 </script>
 
 <style scoped lang="scss">
