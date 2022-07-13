@@ -25,7 +25,7 @@ const handleToggle = () => {
     })
     return false
   }
-  screenfull.toggle()
+  screenfull.toggle().catch(e => '')
 }
 const handleChange = () => {
   isFullscreen.value = screenfull.isFullscreen
