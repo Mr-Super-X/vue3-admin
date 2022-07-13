@@ -124,7 +124,18 @@ module.exports = defineConfig({
     },
   },
   // 链式写法
-  // chainWebpack: (config) => {},
+  chainWebpack: config => {
+    // set svg-sprite-loader
+    const svgRule = config.module.rule('svg')
+    svgRule.uses.clear()
+    svgRule
+      .use('svg-sprite-loader')
+      .loader('svg-sprite-loader')
+      .options({
+        symbolId: 'icon-[name]',
+      })
+      .end()
+  },
   /**
    * 开发服务器devServer：用来自动化编译、自动刷新、自动打开浏览器等
    * 启动命令：webpack serve （webpack-cli推荐）
