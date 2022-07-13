@@ -85,7 +85,7 @@ vue3-admin
 │  ├─ request              # 接口请求
 │  ├─ router               # 路由管理
 │  ├─ store                # store管理
-│  ├─ utils                # 全局公共方法
+│  ├─ utils                # 全局工具管理
 │  ├─ views                # 所有业务页面
 │  ├─ App.vue              # 页面入口
 │  ├─ main.ts              # 项目入口文件
@@ -133,6 +133,7 @@ vue3-admin
 ```
 home                      # 首页文件夹
 ├─ components             # 首页UI组件文件夹
+├─ styles                 # 首页样式文件夹
 ├─ types                  # 首页TS类型配置
 ├─ apis.ts                # 首页请求接口配置
 ├─ configs.ts             # 首页静态常量配置
