@@ -1,19 +1,19 @@
 <!--
- * @Description: svg组件，在src/assets/icon/svg文件夹下添加svg后调用该组件即可使用
+ * @Description: svg组件，在src/assets/icons/svg文件夹下添加svg后调用该组件即可使用
  * @Tips: 亲，记得补全功能描述哦~  (ღ˘⌣˘ღ)
  * @Author: Mr.Mikey
  * @Contact: 1303232158@qq.com
  * @Date: 2022-07-14 00:31:13
  * @LastEditors: Mr.Mikey
- * @LastEditTime: 2022-07-14 02:53:03
+ * @LastEditTime: 2022-08-03 16:22:36
  * @FilePath: \vue3-admin\src\components\common\VSvgIcon.vue
 -->
 <template>
-  <div class="v-svg-icon" v-bind="$attrs">
+  <div class="v-svg-icon">
     <!-- https?:|mailto:|tel:渲染div -->
-    <div v-if="isExternals" :style="styleExternalIcon" class="svg-external-icon svg-icon" v-bind="$attrs" />
+    <div v-if="isExternals" :style="styleExternalIcon" class="svg-external-icon svg-icon" />
     <!-- svg格式渲染svg标签 -->
-    <svg v-else :class="svgClass" aria-hidden="true" v-bind="$attrs">
+    <svg v-else :class="svgClass" aria-hidden="true">
       <use :xlink:href="iconName" />
     </svg>
   </div>

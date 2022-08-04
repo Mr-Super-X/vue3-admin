@@ -5,3 +5,6 @@ export const API_MODULE_PATHS = {
   ORDER: '/order',
   SYSTEM: '/system',
 }
+
+// api接口请求过滤窗口时间
+export const WINDOW_IT_TIME = 50 // 默认50ms

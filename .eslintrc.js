@@ -33,6 +33,8 @@ module.exports = {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     // 生产环境使用debugger报警告，开发环境关闭
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    // 关闭在ts中使用require的警告
+    '@typescript-eslint/no-var-requires': ['off'],
     // 关闭在ts中使用any类型时的警告
     '@typescript-eslint/no-explicit-any': ['off'],
     // 关闭检测组件名称是否使用驼峰或多单词命名

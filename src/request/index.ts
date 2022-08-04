@@ -28,6 +28,7 @@ export function demoGet(options?: AxiosRequestConfig): Promise<any> {
 } */
 import axios from './axiosConfig'
 import type { AxiosInstance, AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios'
+import { WINDOW_IT_TIME } from '@constant/index'
 
 function hash(params: any): string {
   return JSON.stringify(params)
@@ -44,7 +45,7 @@ interface IWindowIt {
   }
 }
 
-export function windowIt(f: AxiosInstance, time = 50) {
+export function windowIt(f: any, time: number) {
   let w: IWindowIt = {}
   let flag = false
 
@@ -95,6 +96,6 @@ export function windowIt(f: AxiosInstance, time = 50) {
   }
 }
 
-const request = windowIt(axios, 50)
+const request = windowIt(axios, WINDOW_IT_TIME)
 
 export default request

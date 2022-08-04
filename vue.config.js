@@ -126,9 +126,12 @@ module.exports = defineConfig({
   // 链式写法
   chainWebpack: config => {
     // set svg-sprite-loader
-    const svgRule = config.module.rule('svg')
-    svgRule.uses.clear()
-    svgRule
+    config.module.rule('svg').exclude.add(resolve('src/assets/icons/svg')).end()
+    config.module
+      .rule('icons')
+      .test(/\.svg$/)
+      .include.add(resolve('src/assets/icons/svg'))
+      .end()
       .use('svg-sprite-loader')
       .loader('svg-sprite-loader')
       .options({
