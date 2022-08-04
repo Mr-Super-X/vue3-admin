@@ -4,6 +4,7 @@
       <span>{{ toolTipContent }}</span>
     </template>
     <v-svg-icon
+      class="icon-fullscreen-box"
       :icon-class="iconClass"
       @click="handleToggle"
       @mouseenter="visible = true"
@@ -50,10 +51,7 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
-.svg-icon {
-  width: 1em;
-  height: 1em;
-  vertical-align: -0.15em;
-  overflow: hidden;
+.icon-fullscreen-box {
+  cursor: pointer;
 }
 </style>
