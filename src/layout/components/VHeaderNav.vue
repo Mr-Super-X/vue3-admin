@@ -5,7 +5,7 @@
  * @Contact: 1303232158@qq.com
  * @Date: 2022-05-31 12:56:55
  * @LastEditors: Mr.Mikey
- * @LastEditTime: 2022-07-13 23:17:27
+ * @LastEditTime: 2022-08-04 10:53:22
  * @FilePath: \vue3-admin\src\layout\components\VHeaderNav.vue
 -->
 <template>
@@ -16,6 +16,7 @@
     </div>
     <div class="right-area">
       <v-header-icon-full-screen />
+      <v-header-user />
     </div>
   </div>
 </template>
@@ -26,6 +27,7 @@ import { useAppStore } from '@store/modules/app'
 import VHeaderBreadcrumb from './VHeaderBreadcrumb.vue'
 import VHeaderIconCollapse from './VHeaderIconCollapse.vue'
 import VHeaderIconFullScreen from './VHeaderIconFullScreen.vue'
+import VHeaderUser from './VHeaderUser.vue'
 
 const appStore = useAppStore()
 
