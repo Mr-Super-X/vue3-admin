@@ -11,7 +11,7 @@ import type { IMockItem } from '../index.d'
         })
  */
 
-const mockList: Array<IMockItem> = [
+export const mockList: Array<IMockItem> = [
   // getToken
   {
     url: '/auth/oauth/token',
@@ -27,5 +27,3 @@ const mockList: Array<IMockItem> = [
     },
   },
 ]
-
-export default mockList

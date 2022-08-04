@@ -27,25 +27,15 @@ export function demoGet(options?: AxiosRequestConfig): Promise<any> {
   return request(config)
 } */
 import axios from './axiosConfig'
-import type { AxiosInstance, AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios'
+import type { AxiosResponse, AxiosError } from 'axios'
+import type { IWindowIt } from './index.d'
 import { WINDOW_IT_TIME } from '@constant/index'
 
 function hash(params: any): string {
   return JSON.stringify(params)
 }
 
-// 定义w对象的数据格式
-interface IWindowIt {
-  // key为string
-  [key: string]: {
-    axios: AxiosInstance // 符合axios类型定义
-    args: AxiosRequestConfig // 符合axios类型定义
-    resolvers: Array<(value: unknown) => void> // 类型为数组，每一个成员都是一个函数
-    rejecters: Array<(value: unknown) => void> // 类型为数组，每一个成员都是一个函数
-  }
-}
-
-export function windowIt(f: any, time: number) {
+export function windowIt(f: any, time: number, type?: string) {
   let w: IWindowIt = {}
   let flag = false
 
@@ -68,8 +58,34 @@ export function windowIt(f: any, time: number) {
           Object.keys(w).forEach(key => {
             // 获取请求方法、请求参数、resolvers、rejecters
             const { axios, args, resolvers, rejecters } = w[key]
+            const { url, data, params } = args
+            let requestFn = axios.bind(null, args)
+            switch (type) {
+              case 'get':
+                requestFn = axios.bind(null, url, { params })
+                break
+              case 'post':
+                requestFn = axios.bind(null, url, data, { ...args })
+                break
+              case 'put':
+                requestFn = axios.bind(null, url, data, { ...args })
+                break
+              case 'delete':
+                requestFn = axios.bind(null, url, data, { ...args })
+                break
+              case 'head':
+                requestFn = axios.bind(null, url, data, { ...args })
+                break
+              case 'options':
+                requestFn = axios.bind(null, url, data, { ...args })
+                break
+              case 'patch':
+                requestFn = axios.bind(null, url, data, { ...args })
+                break
+            }
+
             // 发起请求，传入的参数会跟axiosConfig合并
-            axios(args)
+            requestFn()
               .then((response: AxiosResponse) => {
                 resolvers.forEach(r => {
                   r(response)

@@ -46,10 +46,16 @@ module.exports = defineConfig({
       // }),
       // start 按需导入element-plus
       AutoImport({
-        resolvers: [ElementPlusResolver()],
+        resolvers: [
+          // 自动导入 Element Plus 相关函数，如：ElMessage, ElMessageBox... (带样式)
+          ElementPlusResolver(),
+        ],
       }),
       Components({
-        resolvers: [ElementPlusResolver()],
+        resolvers: [
+          // 自动导入 Element Plus 组件
+          ElementPlusResolver(),
+        ],
       }),
       // end 按需导入element-plus
     ],
@@ -90,6 +96,7 @@ module.exports = defineConfig({
         '@store': resolve(__dirname, 'src/store'),
         '@types': resolve(__dirname, 'src/types'),
         '@constant': resolve(__dirname, 'src/constant'),
+        '@plugins': resolve(__dirname, 'src/plugins'),
       },
       /**
        * 配置省略文件名的后缀规则

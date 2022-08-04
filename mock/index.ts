@@ -5,10 +5,17 @@ import type { IMockItem } from './index.d'
 const allMockModules: Array<IMockItem> = []
 const requireContext = require.context('./modules', false, /\.ts|.js$/)
 requireContext.keys().forEach(name => {
-  allMockModules.push(...(requireContext(name).default || []))
+  const module = requireContext(name)
+  const moduleArr = []
+  Object.keys(module).forEach(item => {
+    moduleArr.push(...module[item])
+  })
+  allMockModules.push(...moduleArr)
 })
 
 export const mocks = [...allMockModules]
+
+console.log(mocks, 'mocks')
 
 // 设置随机延迟时间
 Mock.setup({

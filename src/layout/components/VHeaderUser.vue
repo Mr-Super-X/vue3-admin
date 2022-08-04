@@ -5,19 +5,24 @@
  * @Contact: 1303232158@qq.com
  * @Date: 2022-08-04 10:48:28
  * @LastEditors: Mr.Mikey
- * @LastEditTime: 2022-08-04 14:52:37
+ * @LastEditTime: 2022-08-04 16:43:45
  * @FilePath: \vue3-admin\src\layout\components\VHeaderUser.vue
 -->
 
 <template>
-  <el-dropdown trigger="click" class="avatar-container">
+  <el-dropdown trigger="click" class="avatar-container" size="large">
     <div class="avatar-wrapper">
       <img src="@/assets/images/avatar.gif" class="user-avatar" />
-      <i class="el-icon-caret-bottom" />
     </div>
     <template #dropdown>
       <el-dropdown-menu>
-        <el-dropdown-item @click="handleLogout">退出登录</el-dropdown-item>
+        <router-link to="/">
+          <el-dropdown-item>Dashboard</el-dropdown-item>
+        </router-link>
+        <a target="_blank" href="https://github.com/Mr-Super-X/vue3-admin">
+          <el-dropdown-item>Github</el-dropdown-item>
+        </a>
+        <el-dropdown-item divided @click="handleLogout">退出登录</el-dropdown-item>
       </el-dropdown-menu>
     </template>
   </el-dropdown>
@@ -36,8 +41,8 @@ const handleLogout = () => {
 .avatar-container {
   margin-left: 15px;
   .avatar-wrapper {
+    cursor: pointer;
     .user-avatar {
-      cursor: pointer;
       width: 40px;
       height: 40px;
       border-radius: 10px;
