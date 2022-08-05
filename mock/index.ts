@@ -6,7 +6,7 @@ const allMockModules: Array<IMockItem> = []
 const requireContext = require.context('./modules', false, /\.ts|.js$/)
 requireContext.keys().forEach(name => {
   const module = requireContext(name)
-  const moduleArr = []
+  const moduleArr: Array<any> = []
   Object.keys(module).forEach(item => {
     moduleArr.push(...module[item])
   })

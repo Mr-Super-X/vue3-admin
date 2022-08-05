@@ -35,6 +35,13 @@ function hash(params: any): string {
   return JSON.stringify(params)
 }
 
+/**
+ * 时间窗口架构
+ * @param f promise 请求方法，如axios、axios.get、...，必传
+ * @param time number 窗口时间 必传
+ * @param type string 请求类型 非必传
+ * @returns promise
+ */
 export function windowIt(f: any, time: number, type?: string) {
   let w: IWindowIt = {}
   let flag = false
@@ -58,30 +65,35 @@ export function windowIt(f: any, time: number, type?: string) {
           Object.keys(w).forEach(key => {
             // 获取请求方法、请求参数、resolvers、rejecters
             const { axios, args, resolvers, rejecters } = w[key]
-            const { url, data, params } = args
-            let requestFn = axios.bind(null, args)
+            // 将参数分别从args中解构出来
+            const { url, data, params, ...other } = args
+
+            // 创建请求方法，根据类型type进行参数绑定
+            let requestFn: () => Promise<any>
             switch (type) {
               case 'get':
-                requestFn = axios.bind(null, url, { params })
+                requestFn = axios.bind(null, url, { params, ...other })
                 break
               case 'post':
-                requestFn = axios.bind(null, url, data, { ...args })
+                requestFn = axios.bind(null, url, data, { ...other })
                 break
               case 'put':
-                requestFn = axios.bind(null, url, data, { ...args })
+                requestFn = axios.bind(null, url, data, { ...other })
                 break
               case 'delete':
-                requestFn = axios.bind(null, url, data, { ...args })
+                requestFn = axios.bind(null, url, { params, ...other })
                 break
               case 'head':
-                requestFn = axios.bind(null, url, data, { ...args })
+                requestFn = axios.bind(null, url, { params, ...other })
                 break
               case 'options':
-                requestFn = axios.bind(null, url, data, { ...args })
+                requestFn = axios.bind(null, url, { params, ...other })
                 break
               case 'patch':
-                requestFn = axios.bind(null, url, data, { ...args })
+                requestFn = axios.bind(null, url, data, { ...other })
                 break
+              default:
+                requestFn = axios.bind(null, args)
             }
 
             // 发起请求，传入的参数会跟axiosConfig合并
@@ -112,6 +124,7 @@ export function windowIt(f: any, time: number, type?: string) {
   }
 }
 
+// 将axios进行包装
 const request = windowIt(axios, WINDOW_IT_TIME)
-
+// 返回包装后的请求方法
 export default request
