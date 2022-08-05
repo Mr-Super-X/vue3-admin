@@ -1,6 +1,6 @@
 // 存放当前页面的请求api配置
 import type { AxiosRequestConfig } from 'axios'
-import request from '@/request/index'
+import { request } from '@/request/index'
 import { API_MODULE_PATHS } from '@/constant'
 
 // 示例

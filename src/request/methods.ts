@@ -1,7 +1,22 @@
 import axios from './axiosConfig'
 import type { AxiosRequestConfig } from 'axios'
-import { windowIt } from './index'
+import windowIt from './windowIt'
 import { WINDOW_IT_TIME } from '@constant/index'
+
+/**
+ * axios默认请求方法
+ * @param config object 配置对象，参考axios.config
+ * @returns promise
+ */
+export const request = (config: AxiosRequestConfig) => {
+  const options: AxiosRequestConfig = {
+    ...config,
+  }
+
+  // 将axios进行包装
+  const REQUEST = windowIt(axios, WINDOW_IT_TIME)
+  return REQUEST(options)
+}
 
 /**
  * get请求方法

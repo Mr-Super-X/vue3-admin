@@ -15,8 +15,6 @@ requireContext.keys().forEach(name => {
 
 export const mocks = [...allMockModules]
 
-console.log(mocks, 'mocks')
-
 // 设置随机延迟时间
 Mock.setup({
   timeout: '300-1000',

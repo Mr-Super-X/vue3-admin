@@ -1,7 +1,7 @@
 import type { IMockItem } from '../index.d'
 /**
  * 使用方法：
- *    1. import request from '@request/index'
+ *    1. import { request } from '@request/index'
  *    2. request({
           url: '/demo/tokens'
         }).then(({data}: any) => {

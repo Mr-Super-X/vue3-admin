@@ -5,7 +5,7 @@
  * @Contact: 1303232158@qq.com
  * @Date: 2022-05-31 12:11:16
  * @LastEditors: Mr.Mikey
- * @LastEditTime: 2022-08-04 18:01:39
+ * @LastEditTime: 2022-08-05 11:38:23
  * @FilePath: \vue3-admin\src\layout\components\VAsideMenu.vue
 -->
 
@@ -37,22 +37,18 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { getMenu, getMenuTest } from '../apis'
+import { getMenu, postMenuTest } from '../apis'
 import type { IListItem } from '../types/index.d'
 
 const isCollapse = ref(false)
 const menu = ref<IListItem[]>([])
 
-getMenu({}, { headers: {} })
-  .then(res => {
-    return res?.data?.data
-  })
-  .then(data => {
-    console.log(data)
-    menu.value = data.list
-  })
+getMenu({}, { headers: {} }).then(data => {
+  console.log(data)
+  menu.value = data.list
+})
 
-getMenuTest({}, { headers: { a: '1' } })
+postMenuTest({}, { headers: { a: '1' } })
   .then(res => {
     return res?.data?.data
   })

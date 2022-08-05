@@ -1,27 +1,24 @@
 // 存放当前页面的请求api配置
 import type { AxiosRequestConfig } from 'axios'
 import { get, post } from '@/request/methods'
-import request from '@/request'
 import { API_MODULE_PATHS } from '@/constant'
 
 /**
  * 获取菜单
- * @param options AxiosRequestConfig options
+ * @param params object 请求参数对象
+ * @param config objcet AxiosRequestConfig
  * @returns Promise
  */
-// export function getMenu(options?: AxiosRequestConfig): Promise<any> {
-//   const config: AxiosRequestConfig = {
-//     url: API_MODULE_PATHS.SYSTEM + '/menu',
-//     method: 'get',
-//     params: {}, // get请求传params，参数会拼在url后面，必须是一个无格式对象(plain object)或 URLSearchParams 对象
-//     ...options,
-//   }
-//   return request(config)
-// }
 export function getMenu(params?: object, config?: AxiosRequestConfig): Promise<any> {
-  return get(API_MODULE_PATHS.SYSTEM + '/menu', params, config)
+  return get(API_MODULE_PATHS.SYSTEM + '/menu', params, config).then((res: any) => res?.data?.data)
 }
 
-export function getMenuTest(data?: object, config?: AxiosRequestConfig): Promise<any> {
+/**
+ * 测试post方法
+ * @param data object 请求参数对象
+ * @param config objcet AxiosRequestConfig
+ * @returns Promise
+ */
+export function postMenuTest(data?: object, config?: AxiosRequestConfig): Promise<any> {
   return post(API_MODULE_PATHS.SYSTEM + '/test', data, config)
 }
