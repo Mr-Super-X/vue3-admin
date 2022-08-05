@@ -11,7 +11,7 @@ export function demoPost(options?: AxiosRequestConfig) {
     data: {}, // post请求传data
     ...options,
   }
-  return request(config)
+  return request(config).then((res: any) => res?.data?.data)
 }
 
 export function demoGet(options?: AxiosRequestConfig): Promise<any> {
@@ -21,5 +21,5 @@ export function demoGet(options?: AxiosRequestConfig): Promise<any> {
     params: {}, // get请求传params，参数会拼在url后面，必须是一个无格式对象(plain object)或 URLSearchParams 对象
     ...options,
   }
-  return request(config)
+  return request(config).then((res: any) => res?.data?.data)
 }

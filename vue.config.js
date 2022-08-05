@@ -7,7 +7,12 @@ const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
 // const glob = require('glob')
 const { defineConfig } = require('@vue/cli-service')
 const { resolve } = require('path')
-const isProd = ['production'].includes(process.env.NODE_ENV)
+
+// 验证VUE_APP_ENV环境方法
+function verifyENV(env) {
+  return [env].includes(process.env?.VUE_APP_ENV)
+}
+const isProd = verifyENV('production')
 
 // 获取匹配文件
 // const purgeFiles = glob.sync(`${join(__dirname, 'public')}/**/*`, {

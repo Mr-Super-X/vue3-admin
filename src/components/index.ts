@@ -7,7 +7,8 @@ const components = {
     requireComponents.keys().forEach(component => {
       const Component = requireComponents(component).default
       // const componentName = Component.__file.split('/')[3].replace(/\.vue$/, '') || Component?.render?.name
-      const componentName = getFilename(Component?.__file) || Component?.render?.name
+      // vue版本不同可能存在组件没有name的情况，已经试过以下几种都出现过，因此做一下兼容处理
+      const componentName = Component.__name || getFilename(Component?.__file) || Component?.render?.name
       Vue.component(componentName, Component)
     })
   },
