@@ -1,31 +1,8 @@
 /**
  * 请求封装：基于promise的时间窗口架构
  * 在一定时间内参数相同的请求无论发起多少次，最终只会发起一次请求
- * 并将该次请求的结果返回给对应的方法
+ * 并将该次请求的结果返回给所有发起该请求的方法
  */
-
-// 使用示例如下：
-// 默认情况下只需要在创建方法时进行配置即可
-// 如需动态传参，需提供options参数以覆盖默认配置，config所有参数与axios保持一致
-/* export function demoPost(options?: AxiosRequestConfig): Promise<any> {
-  const config: AxiosRequestConfig = {
-    url: modulePath + '/demoPost',
-    method: 'post',
-    data: {}, // post请求传data
-    ...options,
-  }
-  return request(config)
-}
-
-export function demoGet(options?: AxiosRequestConfig): Promise<any> {
-  const config: AxiosRequestConfig = {
-    url: modulePath + '/demoGet',
-    method: 'get',
-    params: {}, // get请求传params，参数会拼在url后面，必须是一个无格式对象(plain object)或 URLSearchParams 对象
-    ...options,
-  }
-  return request(config)
-} */
 import type { AxiosResponse, AxiosError } from 'axios'
 import type { IWindowIt } from './index.d'
 
