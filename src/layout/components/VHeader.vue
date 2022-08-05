@@ -5,7 +5,7 @@
  * @Contact: 1303232158@qq.com
  * @Date: 2022-05-19 12:37:18
  * @LastEditors: Mr.Mikey
- * @LastEditTime: 2022-06-02 12:19:34
+ * @LastEditTime: 2022-07-13 22:18:04
  * @FilePath: \vue3-admin\src\layout\components\VHeader.vue
 -->
 
@@ -16,20 +16,9 @@
   </el-header>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
 import VHeaderNav from './VHeaderNav.vue'
 import VHeaderTags from './VHeaderTags.vue'
-
-export default defineComponent({
-  components: {
-    VHeaderNav,
-    VHeaderTags,
-  },
-  setup() {
-    return {}
-  },
-})
 </script>
 
 <style scoped lang="scss">

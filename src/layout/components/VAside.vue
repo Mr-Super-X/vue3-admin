@@ -5,7 +5,7 @@
  * @Contact: 1303232158@qq.com
  * @Date: 2022-05-19 12:37:18
  * @LastEditors: Mr.Mikey
- * @LastEditTime: 2022-05-31 13:33:30
+ * @LastEditTime: 2022-07-13 22:28:56
  * @FilePath: \vue3-admin\src\layout\components\VAside.vue
 -->
 
@@ -16,20 +16,9 @@
   </el-aside>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
 import VAsideLogo from './VAsideLogo.vue'
 import VAsideMenu from './VAsideMenu.vue'
-
-export default defineComponent({
-  components: {
-    VAsideLogo,
-    VAsideMenu,
-  },
-  setup() {
-    return {}
-  },
-})
 </script>
 
 <style lang="scss" scoped></style>

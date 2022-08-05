@@ -2,6 +2,8 @@ import router from './routerConfig'
 import whitelist from './whitelist'
 import { getToken, verifyENV } from '../utils/index'
 import { LAYOUT_ROUTE_NAME } from '@/layout/configs'
+import Nprogress from 'nprogress'
+import 'nprogress/nprogress.css'
 const debug = verifyENV('debug')
 
 // 不用校验的路由，默认不做校验的列表如下
@@ -14,6 +16,7 @@ if (debug) {
 
 // 全局钩子，可以在这里做校验（登录鉴权）
 router.beforeEach((to, from, next) => {
+  Nprogress.start()
   // 获取当前跳转的路由name
   const routeName: any = to.name
   // 不用校验的路由直接跳转即可
@@ -31,6 +34,10 @@ router.beforeEach((to, from, next) => {
   } else {
     next('/login')
   }
+})
+
+router.afterEach(() => {
+  Nprogress.done()
 })
 
 export default router

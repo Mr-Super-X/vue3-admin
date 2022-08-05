@@ -5,7 +5,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 // import { getOrderList } from "./request/modules/demo";
-// import request from "./request";
+// import { request } from "./request";
 
 export default defineComponent({
   name: 'App',

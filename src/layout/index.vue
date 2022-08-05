@@ -5,12 +5,12 @@
  * @Contact: 1303232158@qq.com
  * @Date: 2022-05-19 12:37:18
  * @LastEditors: Mr.Mikey
- * @LastEditTime: 2022-06-23 15:19:57
+ * @LastEditTime: 2022-07-13 23:02:14
  * @FilePath: \vue3-admin\src\layout\index.vue
 -->
 
 <template>
-  <el-config-provider :size="size" :z-index="zIndex" :locale="locale">
+  <el-config-provider :size="config.size" :z-index="config.zIndex" :locale="config.locale">
     <el-container class="layout">
       <v-aside />
       <el-container class="layout-container">
@@ -21,8 +21,8 @@
   </el-config-provider>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
+import { reactive } from 'vue'
 import { ElConfigProvider } from 'element-plus'
 import zhCn from 'element-plus/lib/locale/lang/zh-cn'
 // import en from "element-plus/lib/locale/lang/en";
@@ -30,20 +30,10 @@ import VAside from './components/VAside.vue'
 import VHeader from './components/VHeader.vue'
 import VMain from './components/VMain.vue'
 
-export default defineComponent({
-  components: {
-    ElConfigProvider,
-    VAside,
-    VHeader,
-    VMain,
-  },
-  setup() {
-    return {
-      locale: zhCn,
-      zIndex: 3000,
-      size: 'small',
-    }
-  },
+const config = reactive({
+  locale: zhCn,
+  zIndex: 3000,
+  size: 'small',
 })
 </script>
 

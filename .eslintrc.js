@@ -1,4 +1,5 @@
 // http://eslint.cn/
+// https://eslint.vuejs.org/rules/no-deprecated-data-object-declaration.html
 
 module.exports = {
   // 默认情况下，ESLint 会在所有父级目录里寻找配置文件，一直到根目录。
@@ -32,12 +33,21 @@ module.exports = {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     // 生产环境使用debugger报警告，开发环境关闭
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    // 关闭在ts中使用require的警告
+    '@typescript-eslint/no-var-requires': ['off'],
     // 关闭在ts中使用any类型时的警告
     '@typescript-eslint/no-explicit-any': ['off'],
     // 关闭检测组件名称是否使用驼峰或多单词命名
     'vue/multi-word-component-names': 0,
     // 关闭使用symbol时一定要传入描述
     'symbol-description': 0,
+  },
+  // 解决使用未导入的全局变量报错
+  globals: {
+    defineProps: 'readonly',
+    defineEmits: 'readonly',
+    defineExpose: 'readonly',
+    withDefaults: 'readonly',
   },
   // 禁用一组文件的配置文件中的规则
   overrides: [

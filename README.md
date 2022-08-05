@@ -80,11 +80,14 @@ vue3-admin
 ├─ src                     # 源码
 │  ├─ assets               # 媒体资源（图片、样式、icon、medio等）
 │  ├─ components           # 公共组件
+│  ├─ constant             # 全局常量管理
 │  ├─ directives           # 全局指令
 │  ├─ layout               # 全局Layout
+│  ├─ plugins              # 全局plugin配置
 │  ├─ request              # 接口请求
 │  ├─ router               # 路由管理
 │  ├─ store                # store管理
+│  ├─ types                # 全局ts类型管理
 │  ├─ utils                # 全局工具管理
 │  ├─ views                # 所有业务页面
 │  ├─ App.vue              # 页面入口

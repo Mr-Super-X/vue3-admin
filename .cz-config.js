@@ -64,7 +64,7 @@ module.exports = {
     type: '确保本次提交遵循 Angular 规范！文档：https://github.com/angular/angular/blob/main/CONTRIBUTING.md \n选择你要提交的类型（必选）：',
     scope: '选择一个影响范围（可选）：',
     // 选择 scope: custom 时会出下面的提示 customScope: '请输入自定义的 scope：',
-    customScope: '请输入文件修改范围(可选)：',
+    customScope: '请输入文件修改范围（可选）：',
     subject: '填写简短精炼的变更描述（必填）：',
     body: '填写更加详细的变更描述（可选）。使用 "|" 换行：',
     breaking: '列举非兼容性重大的变更（可选）：',

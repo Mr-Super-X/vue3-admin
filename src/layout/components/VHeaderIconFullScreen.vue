@@ -1,17 +1,57 @@
 <template>
-  <el-tooltip class="icon-full-screen" content="全屏" placement="bottom">
-    <el-button>icon</el-button>
+  <el-tooltip v-model="visible" :hide-after="0">
+    <template #content>
+      <span>{{ toolTipContent }}</span>
+    </template>
+    <v-svg-icon
+      class="icon-fullscreen-box"
+      :icon-class="iconClass"
+      @click="handleToggle"
+      @mouseenter="visible = true"
+      @mouseleave="visible = false"
+    />
   </el-tooltip>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
+import { ref, computed, onBeforeUnmount, onMounted } from 'vue'
+import { ElMessage } from 'element-plus'
+import screenfull from 'screenfull'
 
-export default defineComponent({
-  setup() {
-    return {}
-  },
+const visible = ref(false)
+const isFullscreen = ref(false)
+const toolTipContent = computed(() => (isFullscreen.value ? '退出全屏' : '全屏'))
+const iconClass = computed(() => (isFullscreen.value ? 'exit-fullscreen' : 'fullscreen'))
+
+const handleToggle = () => {
+  if (!screenfull.isEnabled) {
+    ElMessage({
+      message: 'you browser can not work',
+      type: 'warning',
+    })
+    return false
+  }
+  screenfull.toggle().catch(() => '')
+}
+const handleChange = () => {
+  isFullscreen.value = screenfull.isFullscreen
+}
+
+onBeforeUnmount(() => {
+  if (screenfull.isEnabled) {
+    screenfull.off('change', handleChange)
+  }
+})
+
+onMounted(() => {
+  if (screenfull.isEnabled) {
+    screenfull.on('change', handleChange)
+  }
 })
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.icon-fullscreen-box {
+  cursor: pointer;
+}
+</style>

@@ -18,7 +18,7 @@
     "types": [ // 加载的声明文件包，如果指定了某个值， 她会在 typeRoots 下找这个包，找到了就只加载这个包
       "node",
       "webpack-env",
-      "jest"
+      "jest",
     ],
     "paths": { // 路径映射，相对于baseUrl
       "@/*": [
@@ -41,6 +41,15 @@
       ],
       "@store/*": [
         "src/store/*"
+      ],
+      "@types/*": [
+        "src/types/*"
+      ],
+      "@constant/*": [
+        "src/constant/*"
+      ],
+      "@plugins/*": [
+        "src/plugins/*"
       ]
       // 例如使用jq时不想使用默认版本，而需要手动指定版本，可进行如下配置
       // "jquery": ["node_modules/jquery/dist/jquery.min.js"]
@@ -64,6 +73,7 @@
   ],
   // 排除的目录
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "src/store/modules", // pinia在目前的工程下IDE无法正常使用ts类型声明，因此先排除
   ]
 }

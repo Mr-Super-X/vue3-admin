@@ -7,7 +7,12 @@ const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
 // const glob = require('glob')
 const { defineConfig } = require('@vue/cli-service')
 const { resolve } = require('path')
-const isProd = ['production'].includes(process.env.NODE_ENV)
+
+// 验证VUE_APP_ENV环境方法
+function verifyENV(env) {
+  return [env].includes(process.env?.VUE_APP_ENV)
+}
+const isProd = verifyENV('production')
 
 // 获取匹配文件
 // const purgeFiles = glob.sync(`${join(__dirname, 'public')}/**/*`, {
@@ -46,10 +51,16 @@ module.exports = defineConfig({
       // }),
       // start 按需导入element-plus
       AutoImport({
-        resolvers: [ElementPlusResolver()],
+        resolvers: [
+          // 自动导入 Element Plus 相关函数，如：ElMessage, ElMessageBox... (带样式)
+          ElementPlusResolver(),
+        ],
       }),
       Components({
-        resolvers: [ElementPlusResolver()],
+        resolvers: [
+          // 自动导入 Element Plus 组件
+          ElementPlusResolver(),
+        ],
       }),
       // end 按需导入element-plus
     ],
@@ -88,6 +99,9 @@ module.exports = defineConfig({
         '@utils': resolve(__dirname, 'src/utils'),
         '@request': resolve(__dirname, 'src/request'),
         '@store': resolve(__dirname, 'src/store'),
+        '@types': resolve(__dirname, 'src/types'),
+        '@constant': resolve(__dirname, 'src/constant'),
+        '@plugins': resolve(__dirname, 'src/plugins'),
       },
       /**
        * 配置省略文件名的后缀规则
@@ -122,7 +136,21 @@ module.exports = defineConfig({
     },
   },
   // 链式写法
-  // chainWebpack: (config) => {},
+  chainWebpack: config => {
+    // set svg-sprite-loader
+    config.module.rule('svg').exclude.add(resolve('src/assets/icons/svg')).end()
+    config.module
+      .rule('icons')
+      .test(/\.svg$/)
+      .include.add(resolve('src/assets/icons/svg'))
+      .end()
+      .use('svg-sprite-loader')
+      .loader('svg-sprite-loader')
+      .options({
+        symbolId: 'icon-[name]',
+      })
+      .end()
+  },
   /**
    * 开发服务器devServer：用来自动化编译、自动刷新、自动打开浏览器等
    * 启动命令：webpack serve （webpack-cli推荐）
