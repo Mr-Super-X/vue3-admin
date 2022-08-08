@@ -176,6 +176,7 @@ module.exports = defineConfig({
     host: 'localhost', // 主机地址
     port: 8080, // 端口号
     hot: true, // 热更新
+    open: true, // 自动打开默认浏览器预览页面
   },
 })
 

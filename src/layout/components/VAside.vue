@@ -5,15 +5,15 @@
  * @Contact: 1303232158@qq.com
  * @Date: 2022-05-19 12:37:18
  * @LastEditors: Mr.Mikey
- * @LastEditTime: 2022-07-13 22:28:56
+ * @LastEditTime: 2022-08-08 11:35:02
  * @FilePath: \vue3-admin\src\layout\components\VAside.vue
 -->
 
 <template>
-  <el-aside class="aside-container">
+  <div class="aside-container">
     <v-aside-logo />
     <v-aside-menu />
-  </el-aside>
+  </div>
 </template>
 
 <script setup lang="ts">

@@ -5,48 +5,44 @@
  * @Contact: 1303232158@qq.com
  * @Date: 2022-05-31 12:11:16
  * @LastEditors: Mr.Mikey
- * @LastEditTime: 2022-08-05 12:38:15
+ * @LastEditTime: 2022-08-08 14:52:58
  * @FilePath: \vue3-admin\src\layout\components\VAsideMenu.vue
 -->
 
 <template>
-  <el-scrollbar class="menu-container">
+  <el-scrollbar class="menu-container" :style="{ width: scrollbarWidth + 'px' }">
     <el-menu
       mode="vertical"
       default-active="1"
       class="el-menu-vertical"
-      :collapse="isCollapse"
+      :collapse="!isCollapse"
       @open="handleOpen"
       @close="handleClose"
     >
-      <el-sub-menu v-for="(item, idx) in menu" :key="item.id" :index="idx + item.id">
-        <template #title>
-          <el-icon>
-            <!-- <location /> -->
-          </el-icon>
-          <span>Navigator One</span>
-        </template>
-        <el-sub-menu index="1-4">
-          <template #title><span>item four</span></template>
-          <el-menu-item index="1-4-1">item one</el-menu-item>
-        </el-sub-menu>
-      </el-sub-menu>
+      <v-aside-menu-item v-for="item in menu" :key="item.id" :item="item" />
     </el-menu>
   </el-scrollbar>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { useAppStore } from '@store/modules/app'
 import { getMenu, postMenuTest } from '../apis'
 import type { IListItem } from '../types/index.d'
+import VAsideMenuItem from './VAsideMenuItem.vue'
 
-const isCollapse = ref(false)
+const appStore = useAppStore()
+
+const isCollapse = computed(() => appStore.getIsCollapse)
+console.log(isCollapse)
+const scrollbarWidth = computed(() => (isCollapse.value ? 210 : 54))
+
 const menu = ref<IListItem[]>([])
 
-// getMenu({}, { headers: {} }).then(data => {
-//   console.log(data)
-//   menu.value = data.list
-// })
+getMenu({}, { headers: {} }).then(data => {
+  console.log(data)
+  menu.value = data.list
+})
 
 // postMenuTest({}, { headers: { a: '1' } })
 //   .then(res => {
@@ -66,6 +62,7 @@ const handleClose = (key: string, keyPath: string[]) => {
 
 <style scoped lang="scss">
 .menu-container {
+  overflow: hidden;
   height: calc(100% - 100px);
 
   .el-scrollbar__wrap {
