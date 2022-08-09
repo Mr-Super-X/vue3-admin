@@ -4,7 +4,7 @@
       <span>{{ toolTipContent }}</span>
     </template>
     <svg
-      :class="{ 'is-active': isCollapse }"
+      :class="{ 'is-active': !isCollapse }"
       class="hamburger"
       viewBox="0 0 1024 1024"
       xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +31,7 @@ const appStore = useAppStore()
 
 const isCollapse = computed(() => appStore.getIsCollapse)
 
-const toolTipContent = computed(() => (isCollapse.value ? '收起' : '展开'))
+const toolTipContent = computed(() => (isCollapse.value ? '展开' : '收起'))
 
 function toggleClick() {
   const bool = !isCollapse.value

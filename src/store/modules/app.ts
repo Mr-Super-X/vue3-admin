@@ -4,7 +4,7 @@ import { MODULE_ID } from '@/constant'
 
 // state 类似组件的data选项，函数形式返回对象
 const state = () => ({
-  isCollapse: true,
+  isCollapse: false,
 })
 
 const getters = {
