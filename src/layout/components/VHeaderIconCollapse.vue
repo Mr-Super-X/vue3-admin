@@ -4,7 +4,7 @@
       <span>{{ toolTipContent }}</span>
     </template>
     <svg
-      :class="{ 'is-active': props.isActive }"
+      :class="{ 'is-active': !isCollapse }"
       class="hamburger"
       viewBox="0 0 1024 1024"
       xmlns="http://www.w3.org/2000/svg"
@@ -23,22 +23,19 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-
-const props = defineProps({
-  isActive: {
-    type: Boolean,
-    default: false,
-  },
-})
-
-const emit = defineEmits(['toggleClick'])
+import { useAppStore } from '@store/modules/app'
 
 const visible = ref(false)
 
-const toolTipContent = computed(() => (props.isActive ? '收起' : '展开'))
+const appStore = useAppStore()
+
+const isCollapse = computed(() => appStore.getIsCollapse)
+
+const toolTipContent = computed(() => (isCollapse.value ? '展开' : '收起'))
 
 function toggleClick() {
-  emit('toggleClick')
+  const bool = !isCollapse.value
+  appStore.toggleAsideMenu(bool)
 }
 </script>
 

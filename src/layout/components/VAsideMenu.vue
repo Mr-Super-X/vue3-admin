@@ -5,48 +5,52 @@
  * @Contact: 1303232158@qq.com
  * @Date: 2022-05-31 12:11:16
  * @LastEditors: Mr.Mikey
- * @LastEditTime: 2022-08-05 12:38:15
+ * @LastEditTime: 2022-08-08 17:45:43
  * @FilePath: \vue3-admin\src\layout\components\VAsideMenu.vue
 -->
 
 <template>
-  <el-scrollbar class="menu-container">
-    <el-menu
-      mode="vertical"
-      default-active="1"
-      class="el-menu-vertical"
-      :collapse="isCollapse"
-      @open="handleOpen"
-      @close="handleClose"
-    >
-      <el-sub-menu v-for="(item, idx) in menu" :key="item.id" :index="idx + item.id">
-        <template #title>
-          <el-icon>
-            <!-- <location /> -->
-          </el-icon>
-          <span>Navigator One</span>
-        </template>
-        <el-sub-menu index="1-4">
-          <template #title><span>item four</span></template>
-          <el-menu-item index="1-4-1">item one</el-menu-item>
-        </el-sub-menu>
-      </el-sub-menu>
-    </el-menu>
-  </el-scrollbar>
+  <div class="menu-container" :style="{ width: scrollbarWidth + 'px' }">
+    <el-scrollbar>
+      <el-menu
+        mode="vertical"
+        class="el-menu-vertical"
+        :default-active="$route.path"
+        :collapse="isCollapse"
+        :text-color="menuColor"
+        :background-color="menuBackground"
+        :active-text-color="menuColorActive"
+        :collapse-transition="false"
+        router
+      >
+        <v-aside-menu-item v-for="item in menu" :key="item.id" :item="item" />
+      </el-menu>
+    </el-scrollbar>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { useAppStore } from '@store/modules/app'
 import { getMenu, postMenuTest } from '../apis'
 import type { IListItem } from '../types/index.d'
+import VAsideMenuItem from './VAsideMenuItem.vue'
+import style from '@styles/scss/variables.scss'
 
-const isCollapse = ref(false)
+const appStore = useAppStore()
+
+const isCollapse = computed(() => appStore.getIsCollapse)
+const scrollbarWidth = computed(() => (isCollapse.value ? 54 : 210))
+
 const menu = ref<IListItem[]>([])
+const menuColor = computed(() => style['menu-color'])
+const menuBackground = computed(() => style['menu-background'])
+const menuColorActive = computed(() => style['menu-color-active'])
 
-// getMenu({}, { headers: {} }).then(data => {
-//   console.log(data)
-//   menu.value = data.list
-// })
+getMenu({}, { headers: {} }).then(data => {
+  console.log(data)
+  menu.value = data.list
+})
 
 // postMenuTest({}, { headers: { a: '1' } })
 //   .then(res => {
@@ -55,17 +59,11 @@ const menu = ref<IListItem[]>([])
 //   .then(data => {
 //     console.log('getMenuTest', data)
 //   })
-
-const handleOpen = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath)
-}
-const handleClose = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath)
-}
 </script>
 
 <style scoped lang="scss">
 .menu-container {
+  overflow: hidden;
   height: calc(100% - 100px);
 
   .el-scrollbar__wrap {

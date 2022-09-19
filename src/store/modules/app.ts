@@ -4,20 +4,18 @@ import { MODULE_ID } from '@/constant'
 
 // state 类似组件的data选项，函数形式返回对象
 const state = () => ({
-  sidebar: {
-    opened: true,
-  },
+  isCollapse: false,
 })
 
 const getters = {
-  getSidebar(state) {
-    return state.sidebar
+  getIsCollapse(state) {
+    return state.isCollapse
   },
 }
 
 const actions = {
-  updateSidebarOpened(val) {
-    this.sidebar.opened = val
+  toggleAsideMenu(val: boolean) {
+    this.isCollapse = val
   },
 }
 

@@ -5,13 +5,13 @@
  * @Contact: 1303232158@qq.com
  * @Date: 2022-05-31 12:56:55
  * @LastEditors: Mr.Mikey
- * @LastEditTime: 2022-08-04 10:53:22
+ * @LastEditTime: 2022-08-08 11:28:16
  * @FilePath: \vue3-admin\src\layout\components\VHeaderNav.vue
 -->
 <template>
   <div class="nav-container">
     <div class="left-area">
-      <v-header-icon-collapse :is-active="sidebar.opened" @toggleClick="toggleSideBar" />
+      <v-header-icon-collapse />
       <v-header-breadcrumb />
     </div>
     <div class="right-area">
@@ -22,21 +22,10 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-import { useAppStore } from '@store/modules/app'
 import VHeaderBreadcrumb from './VHeaderBreadcrumb.vue'
 import VHeaderIconCollapse from './VHeaderIconCollapse.vue'
 import VHeaderIconFullScreen from './VHeaderIconFullScreen.vue'
 import VHeaderUser from './VHeaderUser.vue'
-
-const appStore = useAppStore()
-
-const sidebar = computed(() => appStore.getSidebar)
-
-function toggleSideBar() {
-  const opened = !sidebar.value.opened
-  appStore.updateSidebarOpened(opened)
-}
 </script>
 
 <style scoped lang="scss">

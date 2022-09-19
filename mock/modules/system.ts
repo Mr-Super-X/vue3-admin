@@ -15,12 +15,20 @@ export const mockList: Array<IMockItem> = [
             {
               // 属性 id 是随机id
               id: '@id',
+              // 属性 icon是一个#icon-search
+              icon: 'search',
+              // 属性path是一个5位随机码
+              'path|5': '',
               // 属性componentName是一个5位随机码
               'componentName|5': '',
               // 属性children是一个数组，其中含有1-10个元素
               'children|1-10': [
                 {
                   id: '@id',
+                  // 属性 icon是一个#icon-search
+                  icon: '',
+                  // 属性path是一个5位随机码
+                  'path|5': '',
                   // 属性componentName是一个5位随机码
                   'componentName|5': '',
                 },
