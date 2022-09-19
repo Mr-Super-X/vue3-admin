@@ -32,7 +32,6 @@ module.exports = defineConfig({
       scss: {
         additionalData: `
           @import "~@styles/scss/common.scss";
-          @import "~@styles/scss/variables.scss";
         `,
       },
     },
