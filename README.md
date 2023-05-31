@@ -122,6 +122,7 @@ vue3-admin
 └─ yarn.lock               # 版本锁定文件
 ```
 
+
 ## 视图结构说明
 
 1. 所有的视图都放在views目录中，对应的模块视图放在views/modules/模块文件夹
