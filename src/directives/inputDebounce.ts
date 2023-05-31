@@ -1,9 +1,12 @@
 /* eslint-disable */
+// @ts-nocheck
+// 以上两条命令为忽略该文件eslint和tslint检查
+
+import type { App } from 'vue'
 
 export function debounce(input: (event: Event) => any, timeout: number): (this: HTMLElement, ev: Event) => any {
   let timer: string | number | NodeJS.Timeout | undefined
   return (event: Event) => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     if (event.target.composing === true) {
       return
@@ -25,14 +28,10 @@ export function isFunction(param: any): boolean {
 }
 
 // 处理中文输入可能会触发多次的问题。可借助compositionstart和compositionend来实现。
-function compositionStart(event: CompositionEvent) {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  event.target.composing = true
+function compositionStart(e: CompositionEvent) {
+  e.target.composing = true
 }
 function compositionEnd(e: CompositionEvent) {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
   e.target.composing = false
   const event = new Event('input', { bubbles: true })
   e.target?.dispatchEvent(event)
@@ -51,8 +50,6 @@ function findInput(el: HTMLElement): HTMLElement | null {
     }
 
     if (current?.childNodes) {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       queue.push(...current.childNodes)
     }
   }
@@ -80,8 +77,6 @@ const definition = {
         input.addEventListener('compositionend', compositionEnd)
       }
       // 用于在卸载阶段找到该元素，便于移除事件
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       el._INPUT = input
     }
   },
@@ -95,8 +90,12 @@ const definition = {
   },
 }
 
+const inputDebounce = {
+  install(app: App, options: any) {
+    app.directive('inputDebounce', definition)
+  },
+}
+
 // 导出指令
 // input输入防抖指令，用法：v-inputDebounce="onInput"  v-inputDebounce:1000="onInput"
-export function inputDebounce(app) {
-  app.directive('inputDebounce', definition)
-}
+export default inputDebounce

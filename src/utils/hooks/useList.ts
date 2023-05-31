@@ -77,7 +77,7 @@ export const useList = <T extends (...args: any) => Promise<any>>(listRequestFn:
         list: resList,
         total: resTotal,
       }
-    } catch (error) {
+    } catch (error: any) {
       ElMessage.error('请求出错了，', error)
       return {
         list: [],
@@ -110,7 +110,7 @@ export const useList = <T extends (...args: any) => Promise<any>>(listRequestFn:
       // 赋值
       list.value = data.list
       total.value = data.total
-    } catch (error) {
+    } catch (error: any) {
       ElMessage.error('请求出错了，', error)
     }
   })

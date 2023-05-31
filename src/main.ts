@@ -5,6 +5,7 @@ import pinia from './store' // store
 import router from './router' // 路由
 import components from '@components/index' // 引入全局公共组件
 import plugins from './plugins' // 引入全局插件
+import directives from './directives' // 引入全局指令
 
 import 'normalize.css' // 保持各浏览器样式统一
 import '@styles/css/reset.css' // 重置样式
@@ -29,4 +30,4 @@ export const app = createApp(App)
 // const globalProperties = app.config.globalProperties // 使用全局属性
 // globalProperties.$message = ElMessage // 将ElMessage挂载到全局属性上
 
-app.use(pinia).use(router).use(plugins).use(components).mount('#app')
+app.use(pinia).use(router).use(plugins).use(directives).use(components).mount('#app')

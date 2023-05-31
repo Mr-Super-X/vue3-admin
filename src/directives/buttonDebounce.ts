@@ -1,4 +1,8 @@
 /* eslint-disable */
+// @ts-nocheck
+// 以上两条命令为忽略该文件eslint和tslint检查
+
+import type { App } from 'vue'
 
 export function debounce(click: (event: Event) => any, timeout: number): (this: HTMLElement, ev: Event) => any {
   let timer: string | number | NodeJS.Timeout | undefined
@@ -68,7 +72,12 @@ const definition = {
   },
 }
 
-// 导出指令
-export function buttonDebounce(app) {
-  app.directive('buttonDebounce', definition)
+const buttonDebounce = {
+  install(app: App, options: any) {
+    app.directive('buttonDebounce', definition)
+  },
 }
+
+// 导出指令
+// input输入防抖指令，用法：v-buttonDebounce="onInput"  v-buttonDebounce:1000="onInput"
+export default buttonDebounce
