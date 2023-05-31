@@ -20,6 +20,8 @@
 
 - [在线demo演示](https://vue3-admin-beta.vercel.app/#/home)
 
+> Vercel被墙了，请克隆项目后启动查看
+
 
 ## 开发
 
