@@ -19,7 +19,7 @@ export function isFunction(param: any): boolean {
   return Object.prototype.toString.call(param) === '[object Function]'
 }
 
-let clickFunction
+let clickFunction: (event: Event) => {}
 
 // 要同时支持button和封装的button组件，因此需要循环去找这个button元素
 function findButton(el: HTMLElement): HTMLElement | null {
