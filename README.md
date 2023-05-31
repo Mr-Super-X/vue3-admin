@@ -31,13 +31,13 @@ cd vue3-admin
 # 安装依赖（推荐使用pnpm，好处就不说了，如果githook没有触发，请执行一次npm install）
 npm install
 # 建议不要直接使用 cnpm 安装依赖，会有各种诡异的 bug。可以通过如下操作解决 npm 下载速度慢的问题
-npm install --registry=https://registry.npm.taobao.org
+npm install --registry=https://registry.npmmirror.com/
 # 也可以使用nrm设置淘宝源再安装
 npm install nrm -g
 nrm use taobao
 npm install
 # 启动服务
-yarn dev
+npm run dev
 ```
 
 
@@ -52,12 +52,12 @@ yarn dev
   - production
 
 - 全局功能
-  - 支持githooks（vue-cli创建项目默认安装yorkie，比husky使用更简单）
+  - 支持githooks（已安装yorkie-尤雨溪fork自husky写的，与husky功能类似）
   - 支持pre-commit自动执行prettier统一代码格式
   - 支持eslint，使用standard规范，支持pre-commit自动进行eslint修复
   - 支持lint-staged只对commit的文件做lint校验
-  - 支持mock功能
-  - 支持commitizen，可在终端选择符合Angular规范的提交信息（可自定义汉化）
+  - 支持mock功能，运行npm run dev:mock命令即可进入mock模式
+  - 支持commitizen，可在终端进行交互选择符合Angular规范的提交信息（已支持自定义汉化，可自行修改）
   - 支持commitlint，使用git commit命令也会触发commit校验
   - 支持release-it自动化发布符合Semantic Versioning规范的版本
   - 支持auto-changelog，自动生成changelog文档
@@ -121,6 +121,7 @@ vue3-admin
 ├─ vue.config.js           # vue-cli 配置
 └─ yarn.lock               # 版本锁定文件
 ```
+
 
 ## 视图结构说明
 
@@ -195,6 +196,15 @@ yarn release
 
 # 运行release-it配置并列出release-it详细运行步骤
 yarn release:detail
+
+# 运行release-it配置，更新major版本号
+yarn release:major
+
+# 运行release-it配置，更新minor版本号
+yarn release:minor
+
+# 运行release-it配置，更新patch版本号
+yarn release:patch
 ```
 
 yarn commit命令运行效果如下：
@@ -220,4 +230,4 @@ yarn commit命令运行效果如下：
 
 [MIT](https://opensource.org/licenses/MIT)
 
-Copyright (c) 2022, Mr.Mikey
+Copyright (c) 2023, Mr.Mikey

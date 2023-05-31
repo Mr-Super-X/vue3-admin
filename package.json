@@ -20,9 +20,13 @@
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
     "lint:fix": "vue-cli-service lint --fix",
-    "commit": "cz",
+    "commit": "git add . && cz",
+    "push": "git add . && cz && git push",
     "release": "release-it",
-    "release:detail": "release-it --dry-run"
+    "release:detail": "release-it --dry-run",
+    "release:major": "release-it major",
+    "release:minor": "release-it minor",
+    "release:patch": "release-it patch"
   },
   "dependencies": {
     "axios": "^0.27.2",

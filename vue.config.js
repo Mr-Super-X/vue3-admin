@@ -202,7 +202,7 @@ function consoleEnvInfo() {
       global.console.log('开始运行' + process.env.VUE_APP_TITLE + '...')
     },
     lint() {
-      global.console.log('开始检查代码规范...')
+      global.console.log('开始运行ESLint...')
     },
     build() {
       global.console.log('开始构建' + process.env.VUE_APP_TITLE + '...')
