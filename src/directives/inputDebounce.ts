@@ -1,5 +1,4 @@
 /* eslint-disable */
-// @ts-nocheck
 // 以上两条命令为忽略该文件eslint和tslint检查
 
 import type { App } from 'vue'
@@ -29,10 +28,10 @@ export function isFunction(param: any): boolean {
 
 // 处理中文输入可能会触发多次的问题。可借助compositionstart和compositionend来实现。
 function compositionStart(e: CompositionEvent) {
-  e.target.composing = true
+  ;(e.target as any).composing = true
 }
 function compositionEnd(e: CompositionEvent) {
-  e.target.composing = false
+  ;(e.target as any).composing = false
   const event = new Event('input', { bubbles: true })
   e.target?.dispatchEvent(event)
 }
@@ -50,7 +49,7 @@ function findInput(el: HTMLElement): HTMLElement | null {
     }
 
     if (current?.childNodes) {
-      queue.push(...current.childNodes)
+      queue.push(...(current.childNodes as any))
     }
   }
 
