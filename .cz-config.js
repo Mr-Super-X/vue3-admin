@@ -27,6 +27,7 @@ module.exports = {
     },
     { value: 'ci', name: 'ci       👷: 修改 CI 配置、脚本' },
     { value: 'revert', name: 'revert   ⏪️: 回滚 commit' },
+    { value: 'version', name: 'version     🎉: 发布新版本' },
     { value: 'init', name: 'init     🎉: 初始化' },
   ],
   // scope 类型（定义之后，可通过上下键选择）
