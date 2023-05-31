@@ -2,7 +2,7 @@
 
 <p align="center">
   <!-- <a href="https://github.com/Mr-Super-X/vue3-admin/actions"><img allt="checks" src="https://badgen.net/github/checks/Mr-Super-X/vue3-admin"/></a> -->
-  <!-- <a href="https://vercel.com/mr-super-x/vue3-admin/deployments?status=ready"><img src="https://img.shields.io/circleci/project/github/vuejs/vue/dev.svg?sanitize=true" alt="Build Status"></a> -->
+  <a href="https://vercel.com/mr-super-x/vue3-admin/deployments?status=ready"><img src="https://img.shields.io/circleci/project/github/vuejs/vue/dev.svg?sanitize=true" alt="Build Status"></a>
   <a href="https://github.com/Mr-Super-X/vue3-admin"><img allt="stars" src="https://badgen.net/github/stars/Mr-Super-X/vue3-admin"/></a>
   <a href="https://github.com/Mr-Super-X/vue3-admin"><img allt="forks" src="https://badgen.net/github/forks/Mr-Super-X/vue3-admin"/></a>
   <a href="./LICENSE"><img allt="MIT License" src="https://badgen.net/github/license/Mr-Super-X/vue3-admin"/></a>
