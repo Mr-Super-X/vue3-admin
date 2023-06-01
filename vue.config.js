@@ -73,11 +73,12 @@ module.exports = defineConfig({
       }),
       AutoImport({
         // 解决自动导入组件引起的Eslint 报错： ‘ElMessageBox’ is not defined.eslint(no-undef)
-        // 会自动生成.eslintrc-auto-import.json文件
+        // 会自动生成.eslintrc-auto-import.json文件，需要在.eslintrc.js中extends该文件
         eslintrc: {
           enabled: true,
         },
         // 解决自动导入组件引起的tslint报错，仅在ts下才需要开启
+        // 需要在tsconfig.json中include auto-imports.d.ts文件
         dts: true,
         resolvers: [
           // 自动导入 Element Plus 相关函数，如：ElMessage, ElMessageBox... (带样式)
