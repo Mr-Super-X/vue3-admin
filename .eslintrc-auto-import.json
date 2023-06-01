@@ -1,0 +1,19 @@
+{
+  "globals": {
+    "ElBreadcrumb": true,
+    "ElBreadcrumbItem": true,
+    "ElContainer": true,
+    "ElDropdown": true,
+    "ElDropdownItem": true,
+    "ElDropdownMenu": true,
+    "ElHeader": true,
+    "ElIcon": true,
+    "ElMain": true,
+    "ElMenu": true,
+    "ElMenuItem": true,
+    "ElMessage": true,
+    "ElScrollbar": true,
+    "ElSubMenu": true,
+    "ElTooltip": true
+  }
+}

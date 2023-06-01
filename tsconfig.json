@@ -63,15 +63,17 @@
       "scripthost"
     ]
   },
-  // 生效的目录
+  // 生效的目录、文件
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx"
+    "tests/**/*.tsx",
+    // vue.config.js中AutoImport插件配置dts: true时需要确保该文件被include，否则ts会报错找不到模块
+    "auto-imports.d.ts"
   ],
-  // 排除的目录
+  // 排除的目录、文件
   "exclude": [
     "node_modules",
     "src/store/modules", // pinia在目前的工程下IDE无法正常使用ts类型声明，因此先排除
