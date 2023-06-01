@@ -1,13 +1,15 @@
-import router from './routerConfig'
-import whitelist from './whitelist'
-import { getToken, verifyENV } from '../utils/index'
-import { LAYOUT_ROUTE_NAME } from '@/layout/configs'
 import Nprogress from 'nprogress'
 import 'nprogress/nprogress.css'
+import router from './routerConfig'
+import whitelist from './whitelist'
+import noPermissionRoutes from './noPermissionRoutes'
+import { getToken, verifyENV } from '../utils/index'
+import { LAYOUT_ROUTE_NAME } from '@/layout/configs'
+
 const debug = verifyENV('debug')
 
 // 不用校验的路由，默认不做校验的列表如下
-const filterRoutes = ['Login', 'Error']
+const filterRoutes = [...noPermissionRoutes]
 // 调试模式下把路由白名单列表添加进去
 // 绕过路由权限拦截
 if (debug) {
