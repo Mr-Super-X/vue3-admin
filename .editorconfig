@@ -11,7 +11,7 @@ indent_style = space
 # 一个缩进占用两个空格，因没有设置tab_with，一个Tab占用2列
 indent_size = 2
 # 去除行首的任意空白字符
-trim_trailing_whitespace = true
+trim_trailing_whitespace = false
 # 文件以一个空白行结尾
 insert_final_newline = true
 

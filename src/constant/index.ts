@@ -2,3 +2,4 @@
 export * from './api'
 export * from './route'
 export * from './store'
+export * from './pagination'

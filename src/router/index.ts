@@ -1,16 +1,20 @@
-import router from './routerConfig'
-import whitelist from './whitelist'
-import { getToken, verifyENV } from '../utils/index'
-import { LAYOUT_ROUTE_NAME } from '@/layout/configs'
 import Nprogress from 'nprogress'
 import 'nprogress/nprogress.css'
-const debug = verifyENV('debug')
+import router from './routerConfig'
+import whitelist from './whitelist'
+import noNeedPermissionRouteNamesConfig from './noNeedPermissionRouteNamesConfig'
+import { getToken, verifyENV } from '../utils/index'
+import { LAYOUT_ROUTE_NAME } from '@/layout/configs'
+import { RouteRecordName } from 'vue-router'
+
+// 验证是否debug环境
+const isDebug = verifyENV('debug')
 
 // 不用校验的路由，默认不做校验的列表如下
-const filterRoutes = ['Login', 'Error']
+const filterRoutes: Array<string | RouteRecordName> = [...noNeedPermissionRouteNamesConfig]
 // 调试模式下把路由白名单列表添加进去
 // 绕过路由权限拦截
-if (debug) {
+if (isDebug) {
   filterRoutes.push(...whitelist)
 }
 
@@ -18,14 +22,14 @@ if (debug) {
 router.beforeEach((to, from, next) => {
   Nprogress.start()
   // 获取当前跳转的路由name
-  const routeName: any = to.name
+  const routeName: RouteRecordName = to.name
   // 不用校验的路由直接跳转即可
   if (filterRoutes.includes(routeName)) {
     next()
     return
   }
   // 找到layout组件
-  const isLayout: any = to.matched.length && to.matched[0].name === LAYOUT_ROUTE_NAME
+  const isLayout: boolean = to.matched.length && to.matched[0].name === LAYOUT_ROUTE_NAME
   // 获取权限
   const havePermission = getToken() // 以token作为示例
   // 如果是layout下的路由并且有权限才可以正常跳转，否则重定向到login页面

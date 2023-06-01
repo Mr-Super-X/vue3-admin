@@ -1,9 +1,16 @@
 // const PurgeCSSPlugin = require('purgecss-webpack-plugin');
 // start 按需导入element-plus
+const AutoImportElementPlusCss = require('unplugin-element-plus/webpack')
 const AutoImport = require('unplugin-auto-import/webpack')
 const Components = require('unplugin-vue-components/webpack')
 const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
 // end 按需导入element-plus
+
+// start 按需导入element-icon
+const Icons = require('unplugin-icons/webpack')
+const IconsResolver = require('unplugin-icons/resolver')
+// end 按需导入element-icon
+
 // const glob = require('glob')
 const { defineConfig } = require('@vue/cli-service')
 const { resolve } = require('path')
@@ -46,23 +53,53 @@ module.exports = defineConfig({
     // 生产环境需要考虑是否开启，开发环境推荐使用source-map或者eval-cheap-module-source-map
     devtool: isProd ? false : 'eval-cheap-module-source-map',
     plugins: [
-      // todo 与element-plus的自动导入有冲突，会导致打包后没有样式
+      // TODO 与element-plus的自动导入有冲突，会导致打包后没有样式
       // 删除没有用到的css（需要安装glob包）
       // new PurgeCSSPlugin({
       //   paths: purgeFiles,
       // }),
       // start 按需导入element-plus
+      // 配置webpack自动按需引入element-plus样式
+      AutoImportElementPlusCss({
+        libs: [
+          {
+            libraryName: 'element-plus',
+            esModule: true,
+            resolveStyle: name => {
+              return `element-plus/theme-chalk/${name}.css`
+            },
+          },
+        ],
+      }),
       AutoImport({
+        // 解决自动导入组件引起的Eslint 报错： ‘ElMessageBox’ is not defined.eslint(no-undef)
+        // 会自动生成.eslintrc-auto-import.json文件
+        eslintrc: {
+          enabled: true,
+        },
+        // 解决自动导入组件引起的tslint报错，仅在ts下才需要开启
+        dts: true,
         resolvers: [
           // 自动导入 Element Plus 相关函数，如：ElMessage, ElMessageBox... (带样式)
           ElementPlusResolver(),
+          // 自动导入 Element Icon
+          IconsResolver({
+            prefix: 'Icon',
+          }),
         ],
       }),
       Components({
         resolvers: [
           // 自动导入 Element Plus 组件
           ElementPlusResolver(),
+          // 自动注册图标组件
+          IconsResolver({
+            enabledCollections: ['ep'],
+          }),
         ],
+      }),
+      Icons({
+        autoInstall: true,
       }),
       // end 按需导入element-plus
     ],

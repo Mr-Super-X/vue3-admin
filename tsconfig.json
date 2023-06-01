@@ -3,7 +3,7 @@
   "compilerOptions": {
     "target": "esnext", // 目标语言的版本
     "module": "esnext", // 生成代码的模板标准
-    "strict": true, // 以严格模式解析并为每个源文件生成 "use strict"语句
+    "strict": false, // 以严格模式解析并为每个源文件生成 "use strict"语句
     "jsx": "preserve", // 在 .tsx 中支持 JSX ：React 或 Preserve
     "moduleResolution": "node", // 模块解析策略，ts默认用node的解析策略，即相对的方式导入
     "skipLibCheck": true, // 跳过对一些第三方库的类型检查
@@ -63,15 +63,17 @@
       "scripthost"
     ]
   },
-  // 生效的目录
+  // 生效的目录、文件
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx"
+    "tests/**/*.tsx",
+    // vue.config.js中AutoImport插件配置dts: true时需要确保该文件被include，否则ts会报错找不到模块
+    "auto-imports.d.ts"
   ],
-  // 排除的目录
+  // 排除的目录、文件
   "exclude": [
     "node_modules",
     "src/store/modules", // pinia在目前的工程下IDE无法正常使用ts类型声明，因此先排除
