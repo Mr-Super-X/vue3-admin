@@ -1,13 +1,13 @@
 /* eslint-disable */
-// 以上两条命令为忽略该文件eslint和tslint检查
+// 以上命令为忽略该文件eslint检查
 
 import type { App } from 'vue'
+import type { ElHTMLElement } from './inputDebounce.d'
 
 export function debounce(input: (event: Event) => any, timeout: number): (this: HTMLElement, ev: Event) => any {
   let timer: string | number | NodeJS.Timeout | undefined
   return (event: Event) => {
-    // @ts-ignore
-    if (event.target.composing === true) {
+    if ((event.target as any).composing === true) {
       return
     }
     if (timer) {
@@ -39,7 +39,7 @@ function compositionEnd(e: CompositionEvent) {
 let inputFunction: (event: Event) => {}
 
 // 要同时支持input和封装的input组件，因此需要循环去找这个input元素
-function findInput(el: HTMLElement): HTMLElement | null {
+function findInput(el: ElHTMLElement): HTMLElement | null {
   const queue: HTMLElement[] = []
   queue.push(el)
   while (queue.length > 0) {
@@ -58,7 +58,7 @@ function findInput(el: HTMLElement): HTMLElement | null {
 
 // 指令内容
 const definition = {
-  mounted(el: HTMLElement, binding: any) {
+  mounted(el: ElHTMLElement, binding: any) {
     const { value, arg } = binding
     if (value && isFunction(value)) {
       let delay = 300 // 默认防抖时间
@@ -79,7 +79,7 @@ const definition = {
       el._INPUT = input
     }
   },
-  beforeUnmount(el: HTMLElement) {
+  beforeUnmount(el: ElHTMLElement) {
     if (el._INPUT) {
       el._INPUT.removeEventListener('input', inputFunction)
       el._INPUT.removeEventListener('compositionstart', compositionStart)

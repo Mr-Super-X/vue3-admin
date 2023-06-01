@@ -1,8 +1,8 @@
 /* eslint-disable */
-// @ts-nocheck
-// 以上两条命令为忽略该文件eslint和tslint检查
+// 以上命令为忽略该文件eslint检查
 
 import type { App } from 'vue'
+import type { ElHTMLElement } from './buttonDebounce.d'
 
 export function debounce(click: (event: Event) => any, timeout: number): (this: HTMLElement, ev: Event) => any {
   let timer: string | number | NodeJS.Timeout | undefined
@@ -27,16 +27,16 @@ let clickFunction: (event: Event) => {}
 
 // 要同时支持button和封装的button组件，因此需要循环去找这个button元素
 function findButton(el: HTMLElement): HTMLElement | null {
-  const quene: HTMLElement[] = []
-  quene.push(el)
-  while (quene.length > 0) {
-    const current = quene.shift()
+  const queue: HTMLElement[] = []
+  queue.push(el)
+  while (queue.length > 0) {
+    const current = queue.shift()
     if (current?.tagName === 'BUTTON') {
       return current
     }
 
     if (current?.childNodes) {
-      quene.push(...current.childNodes)
+      queue.push(...(current.childNodes as any))
     }
   }
 
@@ -45,7 +45,7 @@ function findButton(el: HTMLElement): HTMLElement | null {
 
 // 指令内容
 const definition = {
-  mounted(el: HTMLElement, binding: any) {
+  mounted(el: ElHTMLElement, binding: any) {
     const { value, arg } = binding
     if (value && isFunction(value)) {
       let delay = 300 // 默认防抖时间
@@ -64,7 +64,7 @@ const definition = {
       el._BUTTON = button
     }
   },
-  beforeUnmount(el: HTMLElement) {
+  beforeUnmount(el: ElHTMLElement) {
     if (el._BUTTON) {
       el._BUTTON.removeEventListener('click', clickFunction)
       el._BUTTON = null
