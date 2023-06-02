@@ -10,6 +10,7 @@ import directives from './directives' // 引入全局指令
 import 'normalize.css' // 保持各浏览器样式统一
 import '@styles/css/reset.css' // 重置样式
 import '@styles/css/common.css' // 引入公共样式
+import '@theme/index.scss' // 引入主题文件
 
 // 引入mockjs（其他环境下未使用的esmodule会被tree-shaking）
 import { mockXHR } from '../mock'

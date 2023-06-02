@@ -15,20 +15,16 @@ module.exports = {
   },
   // 指定继承的规则
   // plugin:vue/vue3-essential 为vue-cli设计的vue3官方eslint插件
-  // @vue/standard 为vue-cli设计的standard规范的eslint配置
-  // @vue/typescript/recommended 为vue-cli设计的recommended规范的eslint配置
   // plugin:prettier/recommended 作用是解决prettier和eslint冲突，需要安装eslint-plugin-prettier
   // .eslintrc-auto-import.json 由AutoImport插件自动生成，参考vue.config.js配置eslintrc.enabled，解决自动导入的eslint报错
-  extends: [
-    'plugin:vue/vue3-essential',
-    '@vue/standard',
-    '@vue/typescript/recommended',
-    'plugin:prettier/recommended',
-    './.eslintrc-auto-import.json',
-  ],
+  extends: ['plugin:vue/vue3-essential', 'plugin:prettier/recommended', './.eslintrc-auto-import.json'],
   // 指定你想要支持的 JavaScript 语言选项。
   // 默认情况下，ESLint 支持 ECMAScript 5 语法。你可以覆盖该设置，以启用对 ECMAScript 其它版本和 JSX 的支持
   parserOptions: {
+    // 解决eslint报错Parsing error: '>' expected
+    // 该错误是由设置顶层parser的"plugin:@typescript-eslint/recommended"引起的，它与Vue的vue-eslint-parser冲突
+    // 参考：https://www.jianshu.com/p/73d169024a20
+    parser: '@typescript-eslint/parser',
     ecmaVersion: 2020,
   },
   // rules 属性可以做下面的任何事情以扩展（或覆盖）规则：

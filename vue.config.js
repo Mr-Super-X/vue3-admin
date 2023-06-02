@@ -133,6 +133,7 @@ module.exports = defineConfig({
        */
       alias: {
         '@': resolve(__dirname, 'src'),
+        '@views': resolve(__dirname, 'src/views'),
         '@img': resolve(__dirname, 'src/assets/images'),
         '@styles': resolve(__dirname, 'src/assets/styles'),
         '@components': resolve(__dirname, 'src/components'),
@@ -142,6 +143,7 @@ module.exports = defineConfig({
         '@types': resolve(__dirname, 'src/types'),
         '@constant': resolve(__dirname, 'src/constant'),
         '@plugins': resolve(__dirname, 'src/plugins'),
+        '@theme': resolve(__dirname, 'src/theme'),
       },
       /**
        * 配置省略文件名的后缀规则
