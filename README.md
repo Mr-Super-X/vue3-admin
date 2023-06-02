@@ -3,10 +3,22 @@
 <p align="center">
   <!-- <a href="https://github.com/Mr-Super-X/vue3-admin/actions"><img allt="checks" src="https://badgen.net/github/checks/Mr-Super-X/vue3-admin"/></a> -->
   <a href="https://vercel.com/mr-super-x/vue3-admin/deployments?status=ready"><img src="https://img.shields.io/circleci/project/github/vuejs/vue/dev.svg?sanitize=true" alt="Build Status"></a>
-  <a href="https://github.com/Mr-Super-X/vue3-admin"><img allt="stars" src="https://badgen.net/github/stars/Mr-Super-X/vue3-admin"/></a>
-  <a href="https://github.com/Mr-Super-X/vue3-admin"><img allt="forks" src="https://badgen.net/github/forks/Mr-Super-X/vue3-admin"/></a>
-  <a href="./LICENSE"><img allt="MIT License" src="https://badgen.net/github/license/Mr-Super-X/vue3-admin"/></a>
-  <a href="http://commitizen.github.io/cz-cli/"><img allt="Commitizen friendly" src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg"/></a>
+  <a href="https://github.com/Mr-Super-X/vue3-admin"><img alt="stars" src="https://badgen.net/github/stars/Mr-Super-X/vue3-admin"/></a>
+  <a href="https://github.com/Mr-Super-X/vue3-admin"><img alt="forks" src="https://badgen.net/github/forks/Mr-Super-X/vue3-admin"/></a>
+  <a href="./LICENSE"><img alt="MIT License" src="https://badgen.net/github/license/Mr-Super-X/vue3-admin"/></a>
+  <a href="http://commitizen.github.io/cz-cli/"><img alt="Commitizen friendly" src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg"/></a>
+  <a href="https://v3.vuejs.org/" target="_blank">
+    <img src="https://img.shields.io/badge/vue-vue3.x-blue" alt="vue">
+  </a>
+  <a href="https://webpack.docschina.org/" target="_blank">
+      <img src="https://img.shields.io/badge/webpack-5.x-blue" alt="webpack">
+  </a>
+  <a href="https://element-plus.org/zh-CN/" target="_blank">
+      <img src="https://img.shields.io/badge/element--plus-2.x-blue" alt="element-plus">
+  </a>
+  <a href="https://www.tslang.cn/" target="_blank">
+      <img src="https://img.shields.io/badge/typescript-5.x-blue" alt="typescript">
+  </a>
 </p>
 
 # vue3-admin
@@ -221,8 +233,8 @@ yarn commit命令运行效果如下：
 ## 浏览器支持
 
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)</br>Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)</br>Safari |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| last 2 versions                                             | last 2 versions                                              | last 2 versions                                              | last 2 versions                                              | 
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| last 2 versions                                                                                                                                                                                        | last 2 versions                                                                                                                                                                                                    | last 2 versions                                                                                                                                                                                                | last 2 versions                                                                                                                                                                                                |
 
 
 ## 附上一份git指南
