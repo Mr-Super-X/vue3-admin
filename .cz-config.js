@@ -33,14 +33,14 @@ module.exports = {
   // scope 类型（定义之后，可通过上下键选择）
   scopes: [
     ['other', '其他修改'],
-    ['assets', '样式/图片/媒体资源 相关'],
     ['components', '公共组件 相关'],
-    ['mock', 'mock 相关'],
-    ['request', 'request 请求相关'],
+    ['views', 'views 相关'],
     ['router', 'router 相关'],
+    ['mock', 'mock 相关'],
     ['store', 'store 相关'],
     ['utils', 'utils 相关'],
-    ['views', 'views 相关'],
+    ['assets', '样式/图片/媒体资源 相关'],
+    ['request', 'request 请求相关'],
     ['tests', 'tests 相关'],
     // 如果选择 custom，后面会让你再输入一个自定义的 scope。也可以不设置此项，把后面的 allowCustomScopes 设置为 true
     ['custom', '以上都不是？我要自定义'],
