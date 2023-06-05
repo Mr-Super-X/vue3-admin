@@ -238,8 +238,15 @@ yarn commit命令运行效果如下：
 
 > 由于 Vue3 不再支持 IE11，故 ElementPlus 也不支持 IE11 及之前版本。
 
-## 附上一份git指南
-包含git日常使用的详细操作命令，需要自取
+### 💕 特别感谢
+
+此项目为个人学习项目，非常感谢vue-next-admin、vue-element-admin提供UI和一些其它的功能参考！
+
+- <a href="https://gitee.com/lyt-top/vue-next-admin" target="_blank">@vue-next-admin</a>
+- <a href="https://github.com/PanJiaChen/vue-element-admin" target="_blank">@vue-element-admin</a>
+
+## 附上一份我自己总结的git命令指南
+包含git日常使用的详细操作命令，有需要可以自取
 
 [git指南png文件](git_doc.png)
 
