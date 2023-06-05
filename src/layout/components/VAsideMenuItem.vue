@@ -5,14 +5,14 @@
         <el-icon>
           <location />
         </el-icon>
-        <span>Navigator One</span>
+        <span>{{ item.path }}</span>
       </template>
       <v-aside-menu-item v-for="child in item.children" :key="child.id" :item="child" />
     </el-sub-menu>
 
     <el-menu-item v-else :index="item.path">
       <template #title>
-        <span>Navigator One</span>
+        <span>{{ item.path }}</span>
       </template>
     </el-menu-item>
   </div>

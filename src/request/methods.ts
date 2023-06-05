@@ -5,7 +5,7 @@ import { WINDOW_IT_TIME } from '@constant/index'
 
 /**
  * axios默认请求方法
- * @param config object 配置对象，参考axios.config
+ * @param config object 配置对象，参考axios.config，文档链接：http://www.axios-js.com/zh-cn/docs/#%E8%AF%B7%E6%B1%82%E9%85%8D%E7%BD%AE
  * @returns promise
  */
 export const request = (config: AxiosRequestConfig) => {
@@ -22,7 +22,7 @@ export const request = (config: AxiosRequestConfig) => {
  * get请求方法
  * @param url string 请求url
  * @param params object 请求参数对象
- * @param config object 配置覆盖对象，参考axios.config
+ * @param config object 配置覆盖对象，参考axios.config，文档链接：http://www.axios-js.com/zh-cn/docs/#%E8%AF%B7%E6%B1%82%E9%85%8D%E7%BD%AE
  * @returns promise
  */
 export const get = (url: string, params?: object, config?: AxiosRequestConfig) => {
@@ -41,7 +41,7 @@ export const get = (url: string, params?: object, config?: AxiosRequestConfig) =
  * post请求方法
  * @param url string 请求url
  * @param data object 请求参数对象
- * @param config object 配置覆盖对象，参考axios.config
+ * @param config object 配置覆盖对象，参考axios.config，文档链接：http://www.axios-js.com/zh-cn/docs/#%E8%AF%B7%E6%B1%82%E9%85%8D%E7%BD%AE
  * @returns promise
  */
 export const post = (url: string, data?: object, config?: AxiosRequestConfig) => {
@@ -60,7 +60,7 @@ export const post = (url: string, data?: object, config?: AxiosRequestConfig) =>
  * put请求方法
  * @param url string 请求url
  * @param data object 请求参数对象
- * @param config object 配置覆盖对象，参考axios.config
+ * @param config object 配置覆盖对象，参考axios.config，文档链接：http://www.axios-js.com/zh-cn/docs/#%E8%AF%B7%E6%B1%82%E9%85%8D%E7%BD%AE
  * @returns promise
  */
 export const put = (url: string, data?: object, config?: AxiosRequestConfig) => {
@@ -79,7 +79,7 @@ export const put = (url: string, data?: object, config?: AxiosRequestConfig) => 
  * delete请求方法
  * @param url string 请求url
  * @param params object 请求参数对象
- * @param config object 配置覆盖对象，参考axios.config
+ * @param config object 配置覆盖对象，参考axios.config，文档链接：http://www.axios-js.com/zh-cn/docs/#%E8%AF%B7%E6%B1%82%E9%85%8D%E7%BD%AE
  * @returns promise
  */
 export const deletes = (url: string, params?: object, config?: AxiosRequestConfig) => {
@@ -98,7 +98,7 @@ export const deletes = (url: string, params?: object, config?: AxiosRequestConfi
  * head请求方法
  * @param url string 请求url
  * @param params object 请求参数对象
- * @param config object 配置覆盖对象，参考axios.config
+ * @param config object 配置覆盖对象，参考axios.config，文档链接：http://www.axios-js.com/zh-cn/docs/#%E8%AF%B7%E6%B1%82%E9%85%8D%E7%BD%AE
  * @returns promise
  */
 export const head = (url: string, params?: object, config?: AxiosRequestConfig) => {
@@ -117,7 +117,7 @@ export const head = (url: string, params?: object, config?: AxiosRequestConfig) 
  * options请求方法
  * @param url string 请求url
  * @param params object 请求参数对象
- * @param config object 配置覆盖对象，参考axios.config
+ * @param config object 配置覆盖对象，参考axios.config，文档链接：http://www.axios-js.com/zh-cn/docs/#%E8%AF%B7%E6%B1%82%E9%85%8D%E7%BD%AE
  * @returns promise
  */
 export const options = (url: string, params?: object, config?: AxiosRequestConfig) => {
@@ -136,7 +136,7 @@ export const options = (url: string, params?: object, config?: AxiosRequestConfi
  * patch请求方法
  * @param url string 请求url
  * @param data object 请求参数对象
- * @param config object 配置覆盖对象，参考axios.config
+ * @param config object 配置覆盖对象，参考axios.config，文档链接：http://www.axios-js.com/zh-cn/docs/#%E8%AF%B7%E6%B1%82%E9%85%8D%E7%BD%AE
  * @returns promise
  */
 export const patch = (url: string, data?: object, config?: AxiosRequestConfig) => {

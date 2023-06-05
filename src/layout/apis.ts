@@ -6,7 +6,7 @@ import { API_MODULE_PATHS } from '@/constant'
 /**
  * 获取菜单
  * @param params object 请求参数对象
- * @param config objcet AxiosRequestConfig
+ * @param config object AxiosRequestConfig
  * @returns Promise
  */
 export function getMenu(params?: object, config?: AxiosRequestConfig): Promise<any> {
@@ -16,7 +16,7 @@ export function getMenu(params?: object, config?: AxiosRequestConfig): Promise<a
 /**
  * 测试post方法
  * @param data object 请求参数对象
- * @param config objcet AxiosRequestConfig
+ * @param config object AxiosRequestConfig
  * @returns Promise
  */
 export function postMenuTest(data?: object, config?: AxiosRequestConfig): Promise<any> {
