@@ -87,6 +87,7 @@
     "unplugin-element-plus": "^0.7.1",
     "unplugin-icons": "^0.16.1",
     "unplugin-vue-components": "^0.25.0",
+    "vue-eslint-parser": "^9.3.0",
     "webpack": "^5.85.0"
   },
   "gitHooks": {
@@ -105,5 +106,31 @@
     "cz-customizable": {
       "config": "./.cz-config.js"
     }
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">= 7.0.0"
+  },
+  "keywords": [
+    "vue",
+    "vue3",
+    "vuejs/vue-next",
+    "element-ui",
+    "element-plus",
+    "vue3-admin",
+    "webpack5",
+    "mock",
+    "commitizen",
+    "lint-staged",
+    "commitlint",
+    "pinia",
+    "typescript",
+    "release-it",
+    "changelog",
+    "axios"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mr-Super-X/vue3-admin.git"
   }
 }

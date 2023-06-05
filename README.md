@@ -3,10 +3,22 @@
 <p align="center">
   <!-- <a href="https://github.com/Mr-Super-X/vue3-admin/actions"><img allt="checks" src="https://badgen.net/github/checks/Mr-Super-X/vue3-admin"/></a> -->
   <a href="https://vercel.com/mr-super-x/vue3-admin/deployments?status=ready"><img src="https://img.shields.io/circleci/project/github/vuejs/vue/dev.svg?sanitize=true" alt="Build Status"></a>
-  <a href="https://github.com/Mr-Super-X/vue3-admin"><img allt="stars" src="https://badgen.net/github/stars/Mr-Super-X/vue3-admin"/></a>
-  <a href="https://github.com/Mr-Super-X/vue3-admin"><img allt="forks" src="https://badgen.net/github/forks/Mr-Super-X/vue3-admin"/></a>
-  <a href="./LICENSE"><img allt="MIT License" src="https://badgen.net/github/license/Mr-Super-X/vue3-admin"/></a>
-  <a href="http://commitizen.github.io/cz-cli/"><img allt="Commitizen friendly" src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg"/></a>
+  <a href="https://github.com/Mr-Super-X/vue3-admin"><img alt="stars" src="https://badgen.net/github/stars/Mr-Super-X/vue3-admin"/></a>
+  <a href="https://github.com/Mr-Super-X/vue3-admin"><img alt="forks" src="https://badgen.net/github/forks/Mr-Super-X/vue3-admin"/></a>
+  <a href="./LICENSE"><img alt="MIT License" src="https://badgen.net/github/license/Mr-Super-X/vue3-admin"/></a>
+  <a href="http://commitizen.github.io/cz-cli/"><img alt="Commitizen friendly" src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg"/></a>
+  <a href="https://v3.vuejs.org/" target="_blank">
+    <img src="https://img.shields.io/badge/vue-vue3.x-blue" alt="vue">
+  </a>
+  <a href="https://webpack.docschina.org/" target="_blank">
+      <img src="https://img.shields.io/badge/webpack-5.x-blue" alt="webpack">
+  </a>
+  <a href="https://element-plus.org/zh-CN/" target="_blank">
+      <img src="https://img.shields.io/badge/element--plus-2.x-blue" alt="element-plus">
+  </a>
+  <a href="https://www.tslang.cn/" target="_blank">
+      <img src="https://img.shields.io/badge/typescript-5.x-blue" alt="typescript">
+  </a>
 </p>
 
 # vue3-admin
@@ -30,7 +42,7 @@
 git clone https://github.com/Mr-Super-X/vue3-admin.git
 # 进入项目目录
 cd vue3-admin
-# 安装依赖（推荐使用pnpm，好处就不说了，如果githook没有触发，请执行一次npm install）
+# 安装依赖
 npm install
 # 建议不要直接使用 cnpm 安装依赖，会有各种诡异的 bug。可以通过如下操作解决 npm 下载速度慢的问题
 npm install --registry=https://registry.npmmirror.com/
@@ -221,12 +233,20 @@ yarn commit命令运行效果如下：
 ## 浏览器支持
 
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)</br>Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)</br>Safari |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| last 2 versions                                             | last 2 versions                                              | last 2 versions                                              | last 2 versions                                              | 
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| last 2 versions                                                                                                                                                                                        | last 2 versions                                                                                                                                                                                                    | last 2 versions                                                                                                                                                                                                | last 2 versions                                                                                                                                                                                                |
 
+> 由于 Vue3 不再支持 IE11，故 ElementPlus 也不支持 IE11 及之前版本。
 
-## 附上一份git指南
-包含git日常使用的详细操作命令，需要自取
+### 💕 特别感谢
+
+此项目为个人学习项目，非常感谢vue-next-admin、vue-element-admin提供UI和一些其它的功能参考！
+
+- <a href="https://gitee.com/lyt-top/vue-next-admin" target="_blank">@vue-next-admin</a>
+- <a href="https://github.com/PanJiaChen/vue-element-admin" target="_blank">@vue-element-admin</a>
+
+## 附上一份我自己总结的git命令指南
+包含git日常使用的详细操作命令，有需要可以自取
 
 [git指南png文件](git_doc.png)
 

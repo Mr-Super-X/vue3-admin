@@ -73,11 +73,12 @@ module.exports = defineConfig({
       }),
       AutoImport({
         // 解决自动导入组件引起的Eslint 报错： ‘ElMessageBox’ is not defined.eslint(no-undef)
-        // 会自动生成.eslintrc-auto-import.json文件
+        // 会自动生成.eslintrc-auto-import.json文件，需要在.eslintrc.js中extends该文件
         eslintrc: {
           enabled: true,
         },
         // 解决自动导入组件引起的tslint报错，仅在ts下才需要开启
+        // 需要在tsconfig.json中include auto-imports.d.ts文件
         dts: true,
         resolvers: [
           // 自动导入 Element Plus 相关函数，如：ElMessage, ElMessageBox... (带样式)
@@ -132,6 +133,7 @@ module.exports = defineConfig({
        */
       alias: {
         '@': resolve(__dirname, 'src'),
+        '@views': resolve(__dirname, 'src/views'),
         '@img': resolve(__dirname, 'src/assets/images'),
         '@styles': resolve(__dirname, 'src/assets/styles'),
         '@components': resolve(__dirname, 'src/components'),
@@ -141,6 +143,7 @@ module.exports = defineConfig({
         '@types': resolve(__dirname, 'src/types'),
         '@constant': resolve(__dirname, 'src/constant'),
         '@plugins': resolve(__dirname, 'src/plugins'),
+        '@theme': resolve(__dirname, 'src/theme'),
       },
       /**
        * 配置省略文件名的后缀规则
