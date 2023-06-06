@@ -66,7 +66,7 @@ npm run dev
   - production
 
 - 全局功能
-  - 支持githooks（已安装yorkie-尤雨溪fork自husky写的，与husky功能类似）
+  - 支持githooks 已安装yorkie（https://github.com/yyx990803/yorkie）-尤大fork自husky，与husky功能类似
   - 支持pre-commit自动执行prettier统一代码格式
   - 支持eslint，使用standard规范，支持pre-commit自动进行eslint修复
   - 支持lint-staged只对commit的文件做lint校验
