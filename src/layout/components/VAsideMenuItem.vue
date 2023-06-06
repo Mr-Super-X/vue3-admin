@@ -3,23 +3,22 @@
     <el-sub-menu v-if="item.children && item.children.length" :index="item.path">
       <template #title>
         <el-icon>
-          <location />
+          <i-ep-location />
         </el-icon>
-        <span>Navigator One</span>
+        <span>{{ item.path }}</span>
       </template>
       <v-aside-menu-item v-for="child in item.children" :key="child.id" :item="child" />
     </el-sub-menu>
 
     <el-menu-item v-else :index="item.path">
       <template #title>
-        <span>Navigator One</span>
+        <span>{{ item.path }}</span>
       </template>
     </el-menu-item>
   </div>
 </template>
 
 <script setup lang="ts">
-import { Location } from '@element-plus/icons-vue'
 import VAsideMenuItem from './VAsideMenuItem.vue'
 
 const props = defineProps({

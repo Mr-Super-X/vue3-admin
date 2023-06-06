@@ -1,8 +1,3 @@
-/**
- * 请求封装：基于promise的时间窗口架构
- * 在一定时间内参数相同的请求无论发起多少次，最终只会发起一次请求
- * 并将该次请求的结果返回给所有发起该请求的方法
- */
 import type { AxiosResponse, AxiosError } from 'axios'
 import type { IWindowIt } from './index.d'
 
@@ -11,13 +6,17 @@ function hash(params: any): string {
 }
 
 /**
- * 时间窗口架构
- * @param f promise 请求方法，如axios、axios.get、...，必传
- * @param time number 窗口时间 必传
- * @param type string 请求类型 非必传
- * @returns promise
+ * 时间窗口架构封装
+ * @description 基于promise的时间窗口架构，
+ * 在一定时间内参数相同的请求无论发起多少次，最终只会发起一次请求
+ * 并将该次请求的结果返回给所有发起该请求的方法
+ * @param f promise 请求方法，如axios、axios.get、axios.post、...，必传
+ * @param time number 窗口时间 必传，默认时间常量 WINDOW_IT_TIME 配置在src/constant/api.ts中，默认值50
+ * @param method string 请求方法（get/post/...） 非必传
+ * @returns promise 返回值与直接调用axios的返回一致，包含config、data、headers、request、status、statusText等信息，
+ * 查看axios响应结构文档：http://www.axios-js.com/zh-cn/docs/#%E5%93%8D%E5%BA%94%E7%BB%93%E6%9E%84
  */
-function windowIt(f: any, time: number, type?: string) {
+function windowIt(f: any, time: number, method?: string) {
   let w: IWindowIt = {}
   let flag = false
 
@@ -43,9 +42,9 @@ function windowIt(f: any, time: number, type?: string) {
             // 将参数分别从args中解构出来
             const { url, data, params, ...other } = args
 
-            // 创建请求方法，根据类型type进行参数绑定
+            // 创建请求方法，根据类型method进行参数绑定
             let requestFn: () => Promise<any>
-            switch (type) {
+            switch (method) {
               case 'get':
                 requestFn = axios.bind(null, url, { params, ...other })
                 break

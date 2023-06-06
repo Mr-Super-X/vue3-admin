@@ -152,7 +152,7 @@ const config: AxiosRequestConfig = {
 // 创建axios实例
 const instance: AxiosInstance = axios.create(config)
 
-// 请求前的拦截处理
+// 请求拦截
 // config 代表发起请求的参数的实体
 instance.interceptors.request.use(
   (config: any) => {
@@ -163,7 +163,7 @@ instance.interceptors.request.use(
   }
 )
 
-// 请求后的拦截处理
+// 响应拦截
 instance.interceptors.response.use(
   (response: any) => {
     return response

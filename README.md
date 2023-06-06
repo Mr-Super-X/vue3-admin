@@ -66,7 +66,7 @@ npm run dev
   - production
 
 - 全局功能
-  - 支持githooks（已安装yorkie-尤雨溪fork自husky写的，与husky功能类似）
+  - 支持githooks 已安装yorkie（https://github.com/yyx990803/yorkie）-尤大fork自husky，与husky功能类似
   - 支持pre-commit自动执行prettier统一代码格式
   - 支持eslint，使用standard规范，支持pre-commit自动进行eslint修复
   - 支持lint-staged只对commit的文件做lint校验
@@ -94,6 +94,7 @@ npm run dev
 
 ```
 vue3-admin
+├─ docs                    # 功能文档说明
 ├─ mock                    # mock服务
 ├─ public                  # 静态资源
 ├─ src                     # 源码
@@ -106,6 +107,7 @@ vue3-admin
 │  ├─ request              # 接口请求
 │  ├─ router               # 路由管理
 │  ├─ store                # store管理
+│  ├─ theme                # 主题样式管理
 │  ├─ types                # 全局ts类型管理
 │  ├─ utils                # 全局工具管理
 │  ├─ views                # 所有业务页面
