@@ -94,6 +94,7 @@ npm run dev
 
 ```
 vue3-admin
+├─ docs                    # 功能文档说明
 ├─ mock                    # mock服务
 ├─ public                  # 静态资源
 ├─ src                     # 源码
@@ -106,6 +107,7 @@ vue3-admin
 │  ├─ request              # 接口请求
 │  ├─ router               # 路由管理
 │  ├─ store                # store管理
+│  ├─ theme                # 主题样式管理
 │  ├─ types                # 全局ts类型管理
 │  ├─ utils                # 全局工具管理
 │  ├─ views                # 所有业务页面
