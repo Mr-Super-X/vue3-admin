@@ -3,7 +3,7 @@
     <el-sub-menu v-if="item.children && item.children.length" :index="item.path">
       <template #title>
         <el-icon>
-          <location />
+          <i-ep-location />
         </el-icon>
         <span>{{ item.path }}</span>
       </template>
@@ -19,7 +19,6 @@
 </template>
 
 <script setup lang="ts">
-import { Location } from '@element-plus/icons-vue'
 import VAsideMenuItem from './VAsideMenuItem.vue'
 
 const props = defineProps({

@@ -5,8 +5,8 @@ import { API_MODULE_PATHS } from '@/constant'
 
 /**
  * 获取菜单
- * @param params object 请求参数对象
- * @param config object AxiosRequestConfig
+ * @param params object 请求参数对象 非必传
+ * @param config object 配置覆盖对象，AxiosRequestConfig 非必传
  * @returns Promise
  */
 export function getMenu(params?: object, config?: AxiosRequestConfig): Promise<any> {
