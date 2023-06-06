@@ -5,7 +5,7 @@
  * @Contact: 1303232158@qq.com
  * @Date: 2022-05-31 12:11:16
  * @LastEditors: Mr.Mikey
- * @LastEditTime: 2023-06-06 11:25:37
+ * @LastEditTime: 2023-06-06 14:55:32
  * @FilePath: \vue3-admin\src\layout\components\VAsideMenu.vue
 -->
 
@@ -45,10 +45,10 @@ const menuColor = computed(() => style['menu-color'])
 const menuBackground = computed(() => style['menu-background'])
 const menuColorActive = computed(() => style['menu-color-active'])
 
-getMenu({}, { headers: {} }).then(data => {
-  console.log(data)
-  menu.value = data.list
-})
+// getMenu({}, { headers: {} }).then(data => {
+//   console.log(data)
+//   menu.value = data.list
+// })
 
 // postMenuTest({}, { headers: { a: '1' } })
 //   .then(res => {

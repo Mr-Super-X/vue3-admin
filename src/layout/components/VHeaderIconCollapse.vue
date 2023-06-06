@@ -42,8 +42,8 @@ function toggleClick() {
 <style scoped lang="scss">
 .hamburger {
   vertical-align: middle;
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   margin-right: 8px;
   cursor: pointer;
 }

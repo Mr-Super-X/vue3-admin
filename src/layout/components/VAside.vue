@@ -5,12 +5,12 @@
  * @Contact: 1303232158@qq.com
  * @Date: 2022-05-19 12:37:18
  * @LastEditors: Mr.Mikey
- * @LastEditTime: 2023-06-06 11:24:27
+ * @LastEditTime: 2023-06-06 15:20:45
  * @FilePath: \vue3-admin\src\layout\components\VAside.vue
 -->
 
 <template>
-  <div class="aside-container">
+  <div class="layout-aside layout-aside-pc-220">
     <v-aside-logo />
     <v-aside-menu />
   </div>
@@ -20,10 +20,3 @@
 import VAsideLogo from './VAsideLogo.vue'
 import VAsideMenu from './VAsideMenu.vue'
 </script>
-
-<style lang="scss" scoped>
-.aside-container {
-  display: flex;
-  flex-direction: column;
-}
-</style>
