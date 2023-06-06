@@ -6,7 +6,8 @@ import { WINDOW_IT_TIME } from '@constant/index'
 /**
  * axios默认请求方法
  * @param config object 配置对象，参考axios.config，文档链接：http://www.axios-js.com/zh-cn/docs/#%E8%AF%B7%E6%B1%82%E9%85%8D%E7%BD%AE
- * @returns promise
+ * @returns promise 返回值与直接调用axios的返回一致，包含config、data、headers、request、status、statusText等信息，
+ * 查看axios响应结构文档：http://www.axios-js.com/zh-cn/docs/#%E5%93%8D%E5%BA%94%E7%BB%93%E6%9E%84
  */
 export const request = (config: AxiosRequestConfig) => {
   const options: AxiosRequestConfig = {
@@ -20,10 +21,11 @@ export const request = (config: AxiosRequestConfig) => {
 
 /**
  * get请求方法
- * @param url string 请求url
- * @param params object 请求参数对象
- * @param config object 配置覆盖对象，参考axios.config，文档链接：http://www.axios-js.com/zh-cn/docs/#%E8%AF%B7%E6%B1%82%E9%85%8D%E7%BD%AE
- * @returns promise
+ * @param url string 请求url 必传
+ * @param params object 请求参数对象 非必传
+ * @param config object 配置覆盖对象 非必传，参考axios.config，文档链接：http://www.axios-js.com/zh-cn/docs/#%E8%AF%B7%E6%B1%82%E9%85%8D%E7%BD%AE
+ * @returns promise 返回值与直接调用axios的返回一致，包含config、data、headers、request、status、statusText等信息，
+ * 查看axios响应结构文档：http://www.axios-js.com/zh-cn/docs/#%E5%93%8D%E5%BA%94%E7%BB%93%E6%9E%84
  */
 export const get = (url: string, params?: object, config?: AxiosRequestConfig) => {
   const method = 'get'
@@ -39,10 +41,11 @@ export const get = (url: string, params?: object, config?: AxiosRequestConfig) =
 
 /**
  * post请求方法
- * @param url string 请求url
- * @param data object 请求参数对象
- * @param config object 配置覆盖对象，参考axios.config，文档链接：http://www.axios-js.com/zh-cn/docs/#%E8%AF%B7%E6%B1%82%E9%85%8D%E7%BD%AE
- * @returns promise
+ * @param url string 请求url 必传
+ * @param data object 请求参数对象 非必传
+ * @param config object 配置覆盖对象 非必传，参考axios.config，文档链接：http://www.axios-js.com/zh-cn/docs/#%E8%AF%B7%E6%B1%82%E9%85%8D%E7%BD%AE
+ * @returns promise 返回值与直接调用axios的返回一致，包含config、data、headers、request、status、statusText等信息，
+ * 查看axios响应结构文档：http://www.axios-js.com/zh-cn/docs/#%E5%93%8D%E5%BA%94%E7%BB%93%E6%9E%84
  */
 export const post = (url: string, data?: object, config?: AxiosRequestConfig) => {
   const method = 'post'
@@ -58,10 +61,11 @@ export const post = (url: string, data?: object, config?: AxiosRequestConfig) =>
 
 /**
  * put请求方法
- * @param url string 请求url
- * @param data object 请求参数对象
- * @param config object 配置覆盖对象，参考axios.config，文档链接：http://www.axios-js.com/zh-cn/docs/#%E8%AF%B7%E6%B1%82%E9%85%8D%E7%BD%AE
- * @returns promise
+ * @param url string 请求url 必传
+ * @param data object 请求参数对象 非必传
+ * @param config object 配置覆盖对象 非必传，参考axios.config，文档链接：http://www.axios-js.com/zh-cn/docs/#%E8%AF%B7%E6%B1%82%E9%85%8D%E7%BD%AE
+ * @returns promise 返回值与直接调用axios的返回一致，包含config、data、headers、request、status、statusText等信息，
+ * 查看axios响应结构文档：http://www.axios-js.com/zh-cn/docs/#%E5%93%8D%E5%BA%94%E7%BB%93%E6%9E%84
  */
 export const put = (url: string, data?: object, config?: AxiosRequestConfig) => {
   const method = 'put'
@@ -77,10 +81,11 @@ export const put = (url: string, data?: object, config?: AxiosRequestConfig) => 
 
 /**
  * delete请求方法
- * @param url string 请求url
- * @param params object 请求参数对象
- * @param config object 配置覆盖对象，参考axios.config，文档链接：http://www.axios-js.com/zh-cn/docs/#%E8%AF%B7%E6%B1%82%E9%85%8D%E7%BD%AE
- * @returns promise
+ * @param url string 请求url 必传
+ * @param params object 请求参数对象 非必传
+ * @param config object 配置覆盖对象 非必传，参考axios.config，文档链接：http://www.axios-js.com/zh-cn/docs/#%E8%AF%B7%E6%B1%82%E9%85%8D%E7%BD%AE
+ * @returns promise 返回值与直接调用axios的返回一致，包含config、data、headers、request、status、statusText等信息，
+ * 查看axios响应结构文档：http://www.axios-js.com/zh-cn/docs/#%E5%93%8D%E5%BA%94%E7%BB%93%E6%9E%84
  */
 export const deletes = (url: string, params?: object, config?: AxiosRequestConfig) => {
   const method = 'delete'
@@ -96,10 +101,11 @@ export const deletes = (url: string, params?: object, config?: AxiosRequestConfi
 
 /**
  * head请求方法
- * @param url string 请求url
- * @param params object 请求参数对象
- * @param config object 配置覆盖对象，参考axios.config，文档链接：http://www.axios-js.com/zh-cn/docs/#%E8%AF%B7%E6%B1%82%E9%85%8D%E7%BD%AE
- * @returns promise
+ * @param url string 请求url 必传
+ * @param params object 请求参数对象 非必传
+ * @param config object 配置覆盖对象 非必传，参考axios.config，文档链接：http://www.axios-js.com/zh-cn/docs/#%E8%AF%B7%E6%B1%82%E9%85%8D%E7%BD%AE
+ * @returns promise 返回值与直接调用axios的返回一致，包含config、data、headers、request、status、statusText等信息，
+ * 查看axios响应结构文档：http://www.axios-js.com/zh-cn/docs/#%E5%93%8D%E5%BA%94%E7%BB%93%E6%9E%84
  */
 export const head = (url: string, params?: object, config?: AxiosRequestConfig) => {
   const method = 'head'
@@ -115,10 +121,11 @@ export const head = (url: string, params?: object, config?: AxiosRequestConfig) 
 
 /**
  * options请求方法
- * @param url string 请求url
- * @param params object 请求参数对象
- * @param config object 配置覆盖对象，参考axios.config，文档链接：http://www.axios-js.com/zh-cn/docs/#%E8%AF%B7%E6%B1%82%E9%85%8D%E7%BD%AE
- * @returns promise
+ * @param url string 请求url 必传
+ * @param params object 请求参数对象 非必传
+ * @param config object 配置覆盖对象 非必传，参考axios.config，文档链接：http://www.axios-js.com/zh-cn/docs/#%E8%AF%B7%E6%B1%82%E9%85%8D%E7%BD%AE
+ * @returns promise 返回值与直接调用axios的返回一致，包含config、data、headers、request、status、statusText等信息，
+ * 查看axios响应结构文档：http://www.axios-js.com/zh-cn/docs/#%E5%93%8D%E5%BA%94%E7%BB%93%E6%9E%84
  */
 export const options = (url: string, params?: object, config?: AxiosRequestConfig) => {
   const method = 'options'
@@ -134,10 +141,11 @@ export const options = (url: string, params?: object, config?: AxiosRequestConfi
 
 /**
  * patch请求方法
- * @param url string 请求url
- * @param data object 请求参数对象
- * @param config object 配置覆盖对象，参考axios.config，文档链接：http://www.axios-js.com/zh-cn/docs/#%E8%AF%B7%E6%B1%82%E9%85%8D%E7%BD%AE
- * @returns promise
+ * @param url string 请求url 必传
+ * @param data object 请求参数对象 非必传
+ * @param config object 配置覆盖对象 非必传，参考axios.config，文档链接：http://www.axios-js.com/zh-cn/docs/#%E8%AF%B7%E6%B1%82%E9%85%8D%E7%BD%AE
+ * @returns promise 返回值与直接调用axios的返回一致，包含config、data、headers、request、status、statusText等信息，
+ * 查看axios响应结构文档：http://www.axios-js.com/zh-cn/docs/#%E5%93%8D%E5%BA%94%E7%BB%93%E6%9E%84
  */
 export const patch = (url: string, data?: object, config?: AxiosRequestConfig) => {
   const method = 'patch'

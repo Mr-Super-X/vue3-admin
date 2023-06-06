@@ -1,5 +1,5 @@
 // 存放当前页面的请求api配置
-import type { AxiosRequestConfig } from 'axios'
+import type { AxiosRequestConfig, AxiosResponse } from 'axios'
 import { get, post } from '@/request/methods'
 import { API_MODULE_PATHS } from '@/constant'
 
@@ -10,7 +10,7 @@ import { API_MODULE_PATHS } from '@/constant'
  * @returns Promise
  */
 export function getMenu(params?: object, config?: AxiosRequestConfig): Promise<any> {
-  return get(API_MODULE_PATHS.SYSTEM + '/menu', params, config).then((res: any) => res?.data?.data)
+  return get(API_MODULE_PATHS.SYSTEM + '/menu', params, config).then((res: AxiosResponse) => res?.data?.data)
 }
 
 /**
