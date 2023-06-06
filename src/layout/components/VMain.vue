@@ -5,7 +5,7 @@
  * @Contact: 1303232158@qq.com
  * @Date: 2022-05-20 13:17:47
  * @LastEditors: Mr.Mikey
- * @LastEditTime: 2022-06-11 18:15:00
+ * @LastEditTime: 2023-06-06 14:39:38
  * @FilePath: \vue3-admin\src\layout\components\VMain.vue
 -->
 
@@ -13,7 +13,7 @@
   <el-main class="main-container">
     <el-scrollbar>
       <router-view v-slot="{ Component }">
-        <transition name="fade-transform" mode="out-in">
+        <transition :name="setTransitionName" mode="out-in">
           <keep-alive :include="keepAliveIncludes">
             <component :is="Component" />
           </keep-alive>
@@ -23,22 +23,25 @@
   </el-main>
 </template>
 
-<script lang="ts">
-import { defineComponent, computed } from 'vue'
+<script lang="ts" setup>
+import { computed } from 'vue'
 import { useSystemStore } from '@store/modules/system'
+import { storeToRefs } from 'pinia'
+import { useThemeConfig } from '@/store/themeConfig'
 
-export default defineComponent({
-  setup() {
-    const systemStore = useSystemStore()
-    // ❌ 这不起作用，因为它会破坏响应式
-    // 这和从 props 解构是一样的
-    // const { keepAliveIncludes } = systemStore
-    return {
-      // 为了访问 state ，需要创建 computed 引用以保留响应性，这与在选项式 API 中创建计算属性等效。
-      keepAliveIncludes: computed(() => systemStore.keepAliveIncludes),
-    }
-  },
+// 定义变量
+const systemStore = useSystemStore()
+// 定义变量内容
+const storesThemeConfig = useThemeConfig()
+const { themeConfig } = storeToRefs(storesThemeConfig)
+
+// 设置主界面切换动画
+const setTransitionName = computed(() => {
+  return themeConfig.value.animation
 })
+
+// 获取组件缓存列表(name值)
+const keepAliveIncludes = computed(() => systemStore.keepAliveIncludes)
 </script>
 
 <style scoped lang="scss">

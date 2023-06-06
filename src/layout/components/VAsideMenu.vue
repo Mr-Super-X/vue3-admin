@@ -5,28 +5,26 @@
  * @Contact: 1303232158@qq.com
  * @Date: 2022-05-31 12:11:16
  * @LastEditors: Mr.Mikey
- * @LastEditTime: 2023-06-05 17:14:27
+ * @LastEditTime: 2023-06-06 11:25:37
  * @FilePath: \vue3-admin\src\layout\components\VAsideMenu.vue
 -->
 
 <template>
-  <div class="menu-container" :style="{ width: scrollbarWidth + 'px' }">
-    <el-scrollbar>
-      <el-menu
-        mode="vertical"
-        class="el-menu-vertical"
-        :default-active="$route.path"
-        :collapse="isCollapse"
-        :text-color="menuColor"
-        :background-color="menuBackground"
-        :active-text-color="menuColorActive"
-        :collapse-transition="false"
-        router
-      >
-        <v-aside-menu-item v-for="item in menu" :key="item.id" :item="item" />
-      </el-menu>
-    </el-scrollbar>
-  </div>
+  <el-scrollbar class="menu-container" :style="{ width: scrollbarWidth + 'px' }">
+    <el-menu
+      mode="vertical"
+      class="el-menu-vertical"
+      :default-active="$route.path"
+      :collapse="isCollapse"
+      :text-color="menuColor"
+      :background-color="menuBackground"
+      :active-text-color="menuColorActive"
+      :collapse-transition="false"
+      router
+    >
+      <v-aside-menu-item v-for="item in menu" :key="item.id" :item="item" />
+    </el-menu>
+  </el-scrollbar>
 </template>
 
 <script setup lang="ts">
@@ -63,8 +61,7 @@ getMenu({}, { headers: {} }).then(data => {
 
 <style scoped lang="scss">
 .menu-container {
-  overflow: hidden;
-  height: calc(100% - 100px);
+  flex: 1;
 
   .el-scrollbar__wrap {
     height: 100%;
