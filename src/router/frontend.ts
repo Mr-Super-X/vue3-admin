@@ -15,9 +15,7 @@ export async function initFrontendControlRoutes() {
   // 3、调用router.addRoute动态添加路由
   await setAddRoute()
   // 4、将路由存入pinia routesList中，刷新页面时直接拿store中的数据来进行判断数据是否丢失，丢失后重新获取
-  const routes = await generateRoutes()
-  const routeStore = useRouteStore(pinia)
-  routeStore.setRoutesList(routes)
+  await saveRoutesToStore()
 
   // 5、无权限时返回true
   return false
@@ -49,4 +47,13 @@ export async function generateRoutes() {
   // notFoundAndNoPowerRoutes也要放进去，防止 404、401 不在 layout 布局中，不设置的话，404、401 界面将全屏显示
   routes[0].children = [...routes[0].children, ...notFoundAndNoPowerRoutes, ...dynamicRoutes]
   return routes
+}
+
+/**
+ * 保存路由数据到pinia中
+ */
+export async function saveRoutesToStore() {
+  const routes = await generateRoutes()
+  const routeStore = useRouteStore(pinia)
+  routeStore.setRoutesList(routes)
 }

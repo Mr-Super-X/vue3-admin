@@ -59,6 +59,9 @@
       ],
       "@theme/*": [
         "src/theme/*"
+      ],
+      "@mock/*": [
+        "mock/*"
       ]
       // 例如使用jq时不想使用默认版本，而需要手动指定版本，可进行如下配置
       // "jquery": ["node_modules/jquery/dist/jquery.min.js"]

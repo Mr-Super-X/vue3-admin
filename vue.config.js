@@ -145,6 +145,7 @@ module.exports = defineConfig({
         '@constant': resolve(__dirname, 'src/constant'),
         '@plugins': resolve(__dirname, 'src/plugins'),
         '@theme': resolve(__dirname, 'src/theme'),
+        '@mock': resolve(__dirname, 'mock'),
       },
       /**
        * 配置省略文件名的后缀规则
