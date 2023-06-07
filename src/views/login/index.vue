@@ -45,7 +45,7 @@
 <script lang="ts" setup name="login">
 import { computed, ref, onMounted } from 'vue'
 import { storeToRefs } from 'pinia'
-import { useThemeConfig } from '@/store/themeConfig'
+import { useThemeConfig } from '@/store/modules/themeConfig'
 import { NextLoading } from '@utils/loading'
 
 // 引入组件

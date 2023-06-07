@@ -134,6 +134,7 @@ module.exports = defineConfig({
       alias: {
         '@': resolve(__dirname, 'src'),
         '@views': resolve(__dirname, 'src/views'),
+        '@router': resolve(__dirname, 'src/router'),
         '@img': resolve(__dirname, 'src/assets/images'),
         '@styles': resolve(__dirname, 'src/assets/styles'),
         '@components': resolve(__dirname, 'src/components'),

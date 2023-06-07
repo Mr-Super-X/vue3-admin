@@ -9,7 +9,6 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    ElAside: typeof import('element-plus/es')['ElAside']
     ElBreadcrumb: typeof import('element-plus/es')['ElBreadcrumb']
     ElBreadcrumbItem: typeof import('element-plus/es')['ElBreadcrumbItem']
     ElButton: typeof import('element-plus/es')['ElButton']
@@ -31,7 +30,6 @@ declare module '@vue/runtime-core' {
     ElTabPane: typeof import('element-plus/es')['ElTabPane']
     ElTabs: typeof import('element-plus/es')['ElTabs']
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
-    IEpEdit: typeof import('~icons/ep/edit')['default']
     IEpIphone: typeof import('~icons/ep/iphone')['default']
     IEpLocation: typeof import('~icons/ep/location')['default']
     IEpPosition: typeof import('~icons/ep/position')['default']

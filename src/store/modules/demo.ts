@@ -1,6 +1,6 @@
 // 引入store定义函数
 import { defineStore } from 'pinia'
-import { MODULE_ID } from '@/constant'
+import { MODULE_ID } from '@constant/index'
 
 export interface IState {
   test?: string

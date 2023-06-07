@@ -1,7 +1,5 @@
 import { LAYOUT_ROUTE_NAME } from '@/layout/configs'
-import { createRouter, createWebHashHistory } from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router'
-import dynamicRoutes from './dynamicRoutes' // 引入动态路由
 
 // 静态的视图组件直接引入，动态的可以查看dynamicRoutes.ts中通过requireContext自动加载
 import Layout from '../layout/index.vue'
@@ -24,21 +22,6 @@ import Error from '@/views/error/index.vue'
  * }
  */
 
-// 扩展 RouteMeta 接口
-// ts特性：同名interface接口会被合并
-declare module 'vue-router' {
-  interface RouteMeta {
-    title?: string
-    isLink?: string
-    isHide?: boolean
-    isKeepAlive?: boolean
-    isAffix?: boolean
-    isIframe?: boolean
-    roles?: string[]
-    icon?: string
-  }
-}
-
 /**
  * 顶层layout路由
  */
@@ -46,6 +29,7 @@ export const topRoutes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: LAYOUT_ROUTE_NAME,
+    redirect: '/home',
     component: Layout,
     /* beforeEnter(to, from, next) {
       // 进入layout之前要干点什么事情
@@ -56,21 +40,12 @@ export const topRoutes: Array<RouteRecordRaw> = [
         path: '/:pathMatch(.*)*',
         redirect: '/error',
       },
-      {
-        path: '/',
-        redirect: '/home',
-      },
+      // 这里一般会默认配置一个不需要任何权限的公共页面，如欢迎页
       {
         path: '/home',
-        name: 'home',
         component: Home,
       },
-      {
-        path: '/error',
-        name: 'error',
-        component: Error,
-      },
-      ...dynamicRoutes, // 将所有动态路由模块注入到layout.children下
+      // 所有动态路由模块将会在适当的时机注入到layout.children下，也就是当前位置
     ],
   },
 ]
@@ -86,9 +61,13 @@ export const fullScreenRoutes: Array<RouteRecordRaw> = [
   },
 ]
 
-const router = createRouter({
-  history: createWebHashHistory(),
-  routes: [...fullScreenRoutes, ...topRoutes],
-})
-
-export default router
+/**
+ * 404、401等路由
+ */
+export const notFoundAndNoPowerRoutes: Array<RouteRecordRaw> = [
+  {
+    path: '/error',
+    name: 'error',
+    component: Error,
+  },
+]

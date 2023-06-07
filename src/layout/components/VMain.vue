@@ -5,7 +5,7 @@
  * @Contact: 1303232158@qq.com
  * @Date: 2022-05-20 13:17:47
  * @LastEditors: Mr.Mikey
- * @LastEditTime: 2023-06-06 14:39:38
+ * @LastEditTime: 2023-06-07 10:10:44
  * @FilePath: \vue3-admin\src\layout\components\VMain.vue
 -->
 
@@ -27,7 +27,7 @@
 import { computed } from 'vue'
 import { useSystemStore } from '@store/modules/system'
 import { storeToRefs } from 'pinia'
-import { useThemeConfig } from '@/store/themeConfig'
+import { useThemeConfig } from '@store/modules/themeConfig'
 
 // 定义变量
 const systemStore = useSystemStore()

@@ -27,6 +27,9 @@
       "@views/*": [
         "src/views/*"
       ],
+      "@router/*": [
+        "src/router/*"
+      ],
       "@img/*": [
         "src/assets/images/*"
       ],
