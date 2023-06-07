@@ -6,9 +6,13 @@ export default [
     name: 'orderDetail', // 路由组件名称
     component: () => import(/* webpackChunkName: "demo" */ './index.vue'), // 按需引入组件，提高首屏加载速度
     meta: {
-      leaf: false, // 递归属性，（当前导航具有子集开启）
-      keepAlive: false, // 是否缓存组件
+      isKeepAlive: false, // 是否缓存组件
       title: '订单详情', // 路由中文名称
+      isLink: '',
+      isHide: false,
+      isAffix: false,
+      isIframe: false,
+      icon: '',
     },
   },
 ]
