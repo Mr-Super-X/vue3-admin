@@ -5,7 +5,7 @@
  * @Contact: 1303232158@qq.com
  * @Date: 2022-05-20 13:17:47
  * @LastEditors: Mr.Mikey
- * @LastEditTime: 2023-06-07 10:10:44
+ * @LastEditTime: 2023-06-07 16:56:32
  * @FilePath: \vue3-admin\src\layout\components\VMain.vue
 -->
 
@@ -24,10 +24,11 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { useSystemStore } from '@store/modules/system'
 import { storeToRefs } from 'pinia'
 import { useThemeConfig } from '@store/modules/themeConfig'
+import { NextLoading } from '@utils/loading'
 
 // 定义变量
 const systemStore = useSystemStore()
@@ -42,6 +43,12 @@ const setTransitionName = computed(() => {
 
 // 获取组件缓存列表(name值)
 const keepAliveIncludes = computed(() => systemStore.keepAliveIncludes)
+
+// 组件加载后关闭loading状态，否则会一直转圈
+onMounted(() => {
+  // 500ms后关闭，让界面有个简单的加载动画
+  NextLoading.done(500)
+})
 </script>
 
 <style scoped lang="scss">

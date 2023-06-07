@@ -130,7 +130,7 @@ const signInSuccess = (isNoPower: boolean | undefined) => {
     const signInText = '欢迎回来'
     ElMessage.success(`${currentTimeInfo}，${signInText}`)
     // 添加 loading，防止第一次进入界面时出现短暂空白
-    // NextLoading.start();
+    NextLoading.start()
   }
   state.loading.signIn = false
 }
