@@ -3,10 +3,11 @@ import type { AxiosRequestConfig, AxiosResponse } from 'axios'
 import dynamicRoutes from './dynamicRoutes' // 引入动态路由
 import pinia from '@store/index'
 import { router } from './index'
-import { topRoutes, notFoundAndNoPowerRoutes } from './routerConfig'
+import { topRoutes, notFoundAndNoPowerRoutes, commonRoutes } from './routerConfig'
 import { useRouteStore } from '@store/modules/route'
 import { deepClone } from '@/utils/common'
 import { get } from '@/request/methods'
+import { buildRoutesToTree } from './common'
 
 /**
  * 后端控制路由菜单
@@ -131,30 +132,38 @@ function routesSort(routes: Array<any>) {
 
 /**
  * 添加动态路由
- * @method router.addRoute
- * @description 调用方法处理顶级路由，已经是嵌套好的结构，然后通过addRoute动态添加路由
+ * @method router.removeRoute 移除路由
+ * @method router.addRoute 添加路由
+ * @description 先移除本地路由，再调用方法处理顶级路由，已经是嵌套好的结构，然后通过addRoute动态添加路由
  * @link 参考：https://next.router.vuejs.org/zh/api/#addroute
  */
 export async function setAddRoute(data) {
-  // 获取路由
+  // 在添加新路由之前先移除本地layout所有路由
+  router.removeRoute('layout')
+  // console.log(router.getRoutes()) // 此时的打印结果只有login一条路由
+  // 获取新生成的路由
   const routes = await generateRoutes(data)
-  // 添加路由
+  // 动态添加新生成的路由
   routes.forEach((route: RouteRecordRaw) => {
+    // 传name会将路由添加到当前name路由的children中（嵌套路由的添加方式）
     router.addRoute(route)
   })
+  // console.log(router.getRoutes()) // 此时的打印结果包含login、layout和layout中被扁平化的所有路由
 }
 
 /**
  * 生成路由数据
- * @description 将动态路由 dynamicRoutes（@router/dynamicRoutes）和404、401等页面设置到顶层路由中
+ * @description 将接口路由数据和404、401等页面设置到顶层路由中
  * @param data 通过比对接口数据和本地数据最终得到的路由数据
  * @returns 返回替换后的路由数组
  */
 export async function generateRoutes(data) {
   // 将所有的动态路由添加到顶层路由的children中
   const routes = deepClone(topRoutes) as any[]
-  // notFoundAndNoPowerRoutes也要放进去，防止 404、401 不在 layout 布局中，不设置的话，404、401 界面将全屏显示
-  routes[0].children = [...routes[0].children, ...notFoundAndNoPowerRoutes, ...data]
+  // 拷贝后清空layout的children
+  routes[0].children = []
+  // commonRoutes和notFoundAndNoPowerRoutes也要放进去，防止 404、401 不在 layout 布局中
+  routes[0].children = [...commonRoutes, ...notFoundAndNoPowerRoutes, ...data]
   return routes
 }
 
@@ -162,7 +171,7 @@ export async function generateRoutes(data) {
  * 保存路由数据到pinia中
  */
 export async function saveRoutesToStore(result) {
-  const routes = await generateRoutes(result)
+  const routes = buildRoutesToTree(result)
   const routeStore = useRouteStore(pinia)
   routeStore.setRoutesList(routes)
 }

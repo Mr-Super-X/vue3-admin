@@ -1,10 +1,6 @@
-import type { RouteRecordRaw } from 'vue-router'
 import dynamicRoutes from './dynamicRoutes' // 引入动态路由
 import pinia from '@store/index'
-import { router } from './index'
-import { topRoutes, notFoundAndNoPowerRoutes } from './routerConfig'
 import { useRouteStore } from '@store/modules/route'
-import { deepClone } from '@/utils/common'
 import { buildRoutesToTree } from './common'
 
 /**

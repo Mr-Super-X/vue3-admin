@@ -27,10 +27,26 @@ import Error from '@/views/error/index.vue'
  * 404、401等路由
  */
 export const notFoundAndNoPowerRoutes: Array<RouteRecordRaw> = [
+  // 匹配不到的路由重定向到Error
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: '/error',
+  },
   {
     path: '/error',
     name: 'error',
     component: Error,
+  },
+]
+
+/**
+ * 公共页面，如欢迎页
+ */
+export const commonRoutes: Array<RouteRecordRaw> = [
+  {
+    path: '/home',
+    name: 'home',
+    component: Home,
   },
 ]
 
@@ -47,16 +63,6 @@ export const topRoutes: Array<RouteRecordRaw> = [
       // 进入layout之前要干点什么事情
     }, */
     children: [
-      // 匹配不到的路由重定向到Error
-      {
-        path: '/:pathMatch(.*)*',
-        redirect: '/error',
-      },
-      // 这里一般会默认配置一个不需要任何权限的公共页面，如欢迎页
-      {
-        path: '/home',
-        component: Home,
-      },
       /**
        * 所有动态路由模块将会以扁平结构（一维数组而非树结构）在适当的时机注入到layout.children下，也就是当前位置
        * 原因是keep-alive只支持二级路由缓存（以<router-view>的组件嵌套个数计算）
@@ -65,9 +71,10 @@ export const topRoutes: Array<RouteRecordRaw> = [
        */
       ...dynamicRoutes,
 
-      /**
-       * 404、401等错误页面也要放进去
-       */
+      // 这里一般会默认配置一个不需要任何权限的公共页面，如欢迎页
+      ...commonRoutes,
+
+      // 404、401等错误页面也要放进去
       ...notFoundAndNoPowerRoutes,
     ],
   },
