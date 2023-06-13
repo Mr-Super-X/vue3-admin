@@ -1,8 +1,7 @@
 // 导出当前页面的路由配置
-import { ROUTER_MODULE_PATHS } from '@/constant'
 export default [
   {
-    path: ROUTER_MODULE_PATHS.ROOT + '/login', // 路由访问路径（'/' + '模块名' + '/' + '路由名'）
+    path: '/login', // 路由访问路径（'/' + '模块名' + '/' + '路由名'）
     name: 'login', // 路由组件名称
     component: () => import(/* webpackChunkName: "demo" */ './index.vue'), // 按需引入组件，提高首屏加载速度
     meta: {

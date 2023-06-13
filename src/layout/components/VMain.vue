@@ -5,44 +5,24 @@
  * @Contact: 1303232158@qq.com
  * @Date: 2022-05-20 13:17:47
  * @LastEditors: Mr.Mikey
- * @LastEditTime: 2023-06-07 16:56:32
+ * @LastEditTime: 2023-06-13 09:21:03
  * @FilePath: \vue3-admin\src\layout\components\VMain.vue
 -->
 
 <template>
   <el-main class="main-container">
     <el-scrollbar>
-      <router-view v-slot="{ Component }">
-        <transition :name="setTransitionName" mode="out-in">
-          <keep-alive :include="keepAliveIncludes">
-            <component :is="Component" />
-          </keep-alive>
-        </transition>
-      </router-view>
+      <VRouterView />
     </el-scrollbar>
   </el-main>
 </template>
 
 <script lang="ts" setup>
-import { computed, onMounted } from 'vue'
-import { useSystemStore } from '@store/modules/system'
-import { storeToRefs } from 'pinia'
-import { useThemeConfig } from '@store/modules/themeConfig'
+import { onMounted } from 'vue'
 import { NextLoading } from '@utils/loading'
 
-// 定义变量
-const systemStore = useSystemStore()
-// 定义变量内容
-const storesThemeConfig = useThemeConfig()
-const { themeConfig } = storeToRefs(storesThemeConfig)
-
-// 设置主界面切换动画
-const setTransitionName = computed(() => {
-  return themeConfig.value.animation
-})
-
-// 获取组件缓存列表(name值)
-const keepAliveIncludes = computed(() => systemStore.keepAliveIncludes)
+// 引入组件
+import VRouterView from './VRouterView.vue'
 
 // 组件加载后关闭loading状态，否则会一直转圈
 onMounted(() => {

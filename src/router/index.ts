@@ -7,7 +7,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import { useRouteStore } from '@store/modules/route'
 import { useThemeConfig } from '@store/modules/themeConfig'
 import { storeToRefs } from 'pinia'
-import { fullScreenRoutes, topRoutes } from './routerConfig'
+import { fullScreenRoutes, topRoutes, notFoundAndNoPowerRoutes } from './routerConfig'
 import { getToken, verifyENV } from '../utils/index'
 import { RouteRecordName } from 'vue-router'
 import { initFrontendControlRoutes } from './frontend'
@@ -47,6 +47,7 @@ if (isDebug) {
 // 全局钩子，可以在这里做校验（登录鉴权）
 router.beforeEach(async (to, from, next) => {
   Nprogress.start()
+
   // 获取当前跳转的路由name
   const routeName: RouteRecordName = to.name
   // 不用校验的路由直接跳转即可
@@ -58,7 +59,6 @@ router.beforeEach(async (to, from, next) => {
   // 以下是需要校验的逻辑
   // 获取权限
   const token = getToken() // 以token作为示例
-
   // token不存在时，重定向到登录页
   if (!token) {
     next(`/login?redirect=${to.path}&params=${JSON.stringify(to.query ? to.query : to.params)}`)
@@ -74,7 +74,7 @@ router.beforeEach(async (to, from, next) => {
     return
   }
 
-  // 为防止刷新页面数据丢失，这里去查找缓存中有没有菜单数据，如果没有数据，
+  // 为防止刷新页面导致数据丢失，这里去查找缓存中有没有菜单数据，如果没有数据，
   // 无论此时是前端控制路由还是后端控制路由都说明数据丢失了，要重新获取数据并将数据存入缓存中
   const routeStore = useRouteStore(pinia)
   const { routesList } = storeToRefs(routeStore)

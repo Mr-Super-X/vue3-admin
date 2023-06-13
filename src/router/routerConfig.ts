@@ -1,5 +1,6 @@
 import { LAYOUT_ROUTE_NAME } from '@/layout/configs'
 import type { RouteRecordRaw } from 'vue-router'
+import dynamicRoutes from './dynamicRoutes' // 引入动态路由
 
 // 静态的视图组件直接引入，动态的可以查看dynamicRoutes.ts中通过requireContext自动加载
 import Layout from '../layout/index.vue'
@@ -21,6 +22,17 @@ import Error from '@/views/error/index.vue'
  *      icon：          菜单、tagsView 图标
  * }
  */
+
+/**
+ * 404、401等路由
+ */
+export const notFoundAndNoPowerRoutes: Array<RouteRecordRaw> = [
+  {
+    path: '/error',
+    name: 'error',
+    component: Error,
+  },
+]
 
 /**
  * 顶层layout路由
@@ -45,7 +57,18 @@ export const topRoutes: Array<RouteRecordRaw> = [
         path: '/home',
         component: Home,
       },
-      // 所有动态路由模块将会在适当的时机注入到layout.children下，也就是当前位置
+      /**
+       * 所有动态路由模块将会以扁平结构（一维数组而非树结构）在适当的时机注入到layout.children下，也就是当前位置
+       * 原因是keep-alive只支持二级路由缓存（以<router-view>的组件嵌套个数计算）
+       * @link https://cn.vuejs.org/guide/built-ins/keep-alive.html
+       * @link https://cn.vuejs.org/api/built-in-components.html#keepalive
+       */
+      ...dynamicRoutes,
+
+      /**
+       * 404、401等错误页面也要放进去
+       */
+      ...notFoundAndNoPowerRoutes,
     ],
   },
 ]
@@ -58,16 +81,5 @@ export const fullScreenRoutes: Array<RouteRecordRaw> = [
     path: '/login',
     name: 'login',
     component: Login,
-  },
-]
-
-/**
- * 404、401等路由
- */
-export const notFoundAndNoPowerRoutes: Array<RouteRecordRaw> = [
-  {
-    path: '/error',
-    name: 'error',
-    component: Error,
   },
 ]

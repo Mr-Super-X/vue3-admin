@@ -24,6 +24,9 @@
       "@/*": [
         "src/*"
       ],
+      "@layout/*": [
+        "src/layout/*"
+      ],
       "@views/*": [
         "src/views/*"
       ],
