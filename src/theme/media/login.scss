@@ -1,4 +1,4 @@
-@import './screen.scss';
+@use './screen.scss' as *;
 
 /* 页面宽度小于1200px
 ------------------------------- */

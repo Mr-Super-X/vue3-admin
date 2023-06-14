@@ -1,6 +1,11 @@
-@import './media/index.scss';
-@import './transition.scss';
-@import './mixin.scss';
+/**
+ * 对于支持@use的文件您应该优先使用 @use 'xxx.scss' as *; 代替 @import 'xxx.scss';
+ * 因为 sass 团队说他们最终会删除 @import 语法。
+ * 这里使用了import是为了解决报错
+ */
+@use './media/index.scss' as *;
+@use './element/index.scss' as *;
+@use './transition.scss' as *;
+@use './mixin.scss' as *;
 @import './app.scss';
-@import './element.scss';
 @import './dark.scss';
