@@ -62,8 +62,8 @@ router.beforeEach(async (to, from, next) => {
       // 为防止刷新页面导致数据丢失，这里去查找缓存中有没有菜单数据，如果没有数据，
       // 无论此时是前端控制路由还是后端控制路由都说明数据丢失了，要重新获取数据
       const routeStore = useRouteStore(pinia)
-      const { routesList } = storeToRefs(routeStore)
-      if (routesList.value.length === 0) {
+      const { routesTree } = storeToRefs(routeStore)
+      if (routesTree.value.length === 0) {
         if (isRequestRoutes) {
           // 后端控制路由
           await initBackendControlRoutes()

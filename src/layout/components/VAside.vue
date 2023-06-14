@@ -5,7 +5,7 @@
  * @Contact: 1303232158@qq.com
  * @Date: 2022-05-19 12:37:18
  * @LastEditors: Mr.Mikey
- * @LastEditTime: 2023-06-06 15:20:45
+ * @LastEditTime: 2023-06-14 17:10:27
  * @FilePath: \vue3-admin\src\layout\components\VAside.vue
 -->
 
@@ -17,6 +17,7 @@
 </template>
 
 <script setup lang="ts">
+// 引入组件
 import VAsideLogo from './VAsideLogo.vue'
 import VAsideMenu from './VAsideMenu.vue'
 </script>

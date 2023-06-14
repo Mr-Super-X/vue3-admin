@@ -5,12 +5,12 @@
  * @Contact: 1303232158@qq.com
  * @Date: 2022-05-31 11:59:06
  * @LastEditors: Mr.Mikey
- * @LastEditTime: 2022-05-31 13:21:55
+ * @LastEditTime: 2023-06-14 16:54:50
  * @FilePath: \vue3-admin\src\layout\components\VAsideLogo.vue
 -->
 
 <template>
-  <div class="logo-container">Logo</div>
+  <div class="logo-container">LOGO</div>
 </template>
 
 <script lang="ts">
@@ -29,5 +29,7 @@ export default defineComponent({
   align-items: center;
   justify-content: center;
   height: 100px;
+  font-size: 20px;
+  font-weight: bold;
 }
 </style>

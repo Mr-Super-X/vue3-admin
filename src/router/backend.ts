@@ -173,5 +173,8 @@ export async function generateRoutes(data) {
 export async function saveRoutesToStore(result) {
   const routes = buildRoutesToTree(result)
   const routeStore = useRouteStore(pinia)
-  routeStore.setRoutesList(routes)
+  // 保存完整数据
+  routeStore.setRoutesTree(routes)
+  // 保存过滤掉meta.isHide为true的数据
+  routeStore.setFilterHideRoutesTree(routes)
 }
