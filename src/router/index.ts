@@ -36,7 +36,7 @@ export const router = createRouter({
 // 验证是否debug环境
 const isDebug = verifyENV('debug')
 
-// 不用校验的路由，默认不做校验的列表如下
+// 白名单功能，默认不做校验的列表如下
 const filterRoutes: Array<string | RouteRecordName> = [...noNeedPermissionRouteNamesConfig]
 // 调试模式下把路由白名单列表添加进去
 // 绕过路由权限拦截
@@ -46,52 +46,52 @@ if (isDebug) {
 
 // 全局钩子，可以在这里做校验（登录鉴权）
 router.beforeEach(async (to, from, next) => {
+  // 开启顶部加载进度条
   Nprogress.start()
 
-  // 获取当前跳转的路由name
-  const routeName: RouteRecordName = to.name
-  // 不用校验的路由直接跳转即可
-  if (filterRoutes.includes(routeName)) {
-    next()
-    return
-  }
-
-  // 以下是需要校验的逻辑
-  // 获取权限
+  // 获取token
   const token = getToken() // 以token作为示例
-  // token不存在时，重定向到登录页
-  if (!token) {
-    next(`/login?redirect=${to.path}&params=${JSON.stringify(to.query ? to.query : to.params)}`)
-    // TODO 清除所有缓存
-    // system.clear()
-    return
-  }
 
-  // token存在的情况下可能会跳登录页也可能会跳别的页面，对这部分逻辑进行处理
-  // token存在的时候跳转登录页，重定向到首页（注意这部分逻辑优先级低于白名单）
-  if (to.path === '/login') {
-    next('/home')
-    return
-  }
-
-  // 为防止刷新页面导致数据丢失，这里去查找缓存中有没有菜单数据，如果没有数据，
-  // 无论此时是前端控制路由还是后端控制路由都说明数据丢失了，要重新获取数据并将数据存入缓存中
-  const routeStore = useRouteStore(pinia)
-  const { routesList } = storeToRefs(routeStore)
-  if (routesList.value.length === 0) {
-    if (isRequestRoutes) {
-      // 后端控制路由
-      await initBackendControlRoutes()
-      // 防止页面刷新时，普通路由带参数时，参数丢失。动态路由（xxx/:id/:name"）isDynamic 无需处理
-      next({ path: to.path, query: to.query })
+  // 有token的处理分支
+  if (token) {
+    // token存在的情况下可能会跳登录页也可能会跳别的页面，对这部分逻辑进行处理
+    // token存在的时候跳转登录页，重定向到首页
+    if (to.path === '/login') {
+      next('/home')
     } else {
-      // 前端控制路由
-      // 防止页面刷新时，普通路由带参数时，参数丢失。动态路由（xxx/:id/:name"）isDynamic 无需处理
-      await initFrontendControlRoutes()
-      next({ path: to.path, query: to.query })
+      // 为防止刷新页面导致数据丢失，这里去查找缓存中有没有菜单数据，如果没有数据，
+      // 无论此时是前端控制路由还是后端控制路由都说明数据丢失了，要重新获取数据
+      const routeStore = useRouteStore(pinia)
+      const { routesList } = storeToRefs(routeStore)
+      if (routesList.value.length === 0) {
+        if (isRequestRoutes) {
+          // 后端控制路由
+          await initBackendControlRoutes()
+          // 防止页面刷新时，普通路由带参数时，参数丢失。动态路由（xxx/:id/:name"）isDynamic 无需处理
+          next({ ...to })
+        } else {
+          // 前端控制路由
+          // 防止页面刷新时，普通路由带参数时，参数丢失。动态路由（xxx/:id/:name"）isDynamic 无需处理
+          await initFrontendControlRoutes()
+          next({ ...to })
+        }
+      } else {
+        next()
+      }
     }
   } else {
-    next()
+    // 无token的处理分支
+    // 获取当前跳转的路由name
+    const routeName: RouteRecordName = to.name
+    // 白名单路由直接跳转即可
+    if (filterRoutes.includes(routeName)) {
+      next()
+    } else {
+      // token不存在也不是白名单，则直接重定向到登录，并清除缓存
+      next(`/login?redirect=${to.path}&params=${JSON.stringify(to.query ? to.query : to.params)}`)
+      // TODO 清除所有缓存
+      // system.clear()
+    }
   }
 })
 
