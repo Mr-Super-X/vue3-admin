@@ -1,7 +1,7 @@
 import Nprogress from 'nprogress'
 import 'nprogress/nprogress.css'
 import whitelist from './whitelist'
-import noNeedPermissionRouteNamesConfig from './noNeedPermissionRouteNamesConfig'
+import noNeedPowerConfig from './noNeedPowerConfig'
 import pinia from '@store/index'
 import { createRouter, createWebHashHistory } from 'vue-router'
 import { useRouteStore } from '@store/modules/route'
@@ -37,7 +37,7 @@ export const router = createRouter({
 const isDebug = verifyENV('debug')
 
 // 白名单功能，默认不做校验的列表如下
-const filterRoutes: Array<string | RouteRecordName> = [...noNeedPermissionRouteNamesConfig]
+const filterRoutes: Array<string | RouteRecordName> = [...noNeedPowerConfig]
 // 调试模式下把路由白名单列表添加进去
 // 绕过路由权限拦截
 if (isDebug) {
