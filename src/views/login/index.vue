@@ -45,7 +45,7 @@
 <script lang="ts" setup name="login">
 import { computed, ref, onMounted } from 'vue'
 import { storeToRefs } from 'pinia'
-import { useThemeConfig } from '@/store/themeConfig'
+import { useThemeConfigStore } from '@/store/modules/themeConfig'
 import { NextLoading } from '@utils/loading'
 
 // 引入组件
@@ -54,8 +54,8 @@ import Mobile from '@views/login/components/mobile.vue'
 import Scan from '@views/login/components/scan.vue'
 
 // 定义变量内容
-const storesThemeConfig = useThemeConfig()
-const { themeConfig } = storeToRefs(storesThemeConfig)
+const themeConfigStore = useThemeConfigStore()
+const { themeConfig } = storeToRefs(themeConfigStore)
 
 // 获取布局配置信息
 const getThemeConfig = computed(() => {

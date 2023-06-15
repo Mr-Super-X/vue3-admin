@@ -1,5 +1,4 @@
 import { LAYOUT_ROUTE_NAME } from '@/layout/configs'
-import { createRouter, createWebHashHistory } from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router'
 import dynamicRoutes from './dynamicRoutes' // 引入动态路由
 
@@ -20,25 +19,36 @@ import Error from '@/views/error/index.vue'
  *      isKeepAlive：   是否缓存组件状态
  *      isAffix：       是否固定在 tagsView 栏上
  *      isIframe：      是否内嵌窗口，开启条件，`1、isIframe:true 2、isLink：链接地址不为空`
- *      roles：         当前路由权限标识，取角色管理。控制路由显示、隐藏。超级管理员：admin 普通角色：common
- *      icon：          菜单、tagsView 图标，阿里：加 `iconfont xxx`，fontawesome：加 `fa xxx`
+ *      icon：          菜单、tagsView 图标
  * }
  */
 
-// 扩展 RouteMeta 接口
-// ts特性：同名interface接口会被合并
-declare module 'vue-router' {
-  interface RouteMeta {
-    title?: string
-    isLink?: string
-    isHide?: boolean
-    isKeepAlive?: boolean
-    isAffix?: boolean
-    isIframe?: boolean
-    roles?: string[]
-    icon?: string
-  }
-}
+/**
+ * 404、401等路由
+ */
+export const notFoundAndNoPowerRoutes: Array<RouteRecordRaw> = [
+  // 匹配不到的路由重定向到Error
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: '/error',
+  },
+  {
+    path: '/error',
+    name: 'error',
+    component: Error,
+  },
+]
+
+/**
+ * 公共页面，如欢迎页
+ */
+export const commonRoutes: Array<RouteRecordRaw> = [
+  {
+    path: '/home',
+    name: 'home',
+    component: Home,
+  },
+]
 
 /**
  * 顶层layout路由
@@ -47,31 +57,25 @@ export const topRoutes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: LAYOUT_ROUTE_NAME,
+    redirect: '/home',
     component: Layout,
     /* beforeEnter(to, from, next) {
       // 进入layout之前要干点什么事情
     }, */
     children: [
-      // 匹配不到的路由重定向到Error
-      {
-        path: '/:pathMatch(.*)*',
-        redirect: '/error',
-      },
-      {
-        path: '/',
-        redirect: '/home',
-      },
-      {
-        path: '/home',
-        name: 'home',
-        component: Home,
-      },
-      {
-        path: '/error',
-        name: 'error',
-        component: Error,
-      },
-      ...dynamicRoutes, // 将所有动态路由模块注入到layout.children下
+      /**
+       * 所有动态路由模块将会以扁平结构（一维数组而非树结构）在适当的时机注入到layout.children下，也就是当前位置
+       * 原因是keep-alive只支持二级路由缓存（以<router-view>的组件嵌套个数计算）
+       * @link https://cn.vuejs.org/guide/built-ins/keep-alive.html
+       * @link https://cn.vuejs.org/api/built-in-components.html#keepalive
+       */
+      ...dynamicRoutes,
+
+      // 这里一般会默认配置一个不需要任何权限的公共页面，如欢迎页
+      ...commonRoutes,
+
+      // 404、401等错误页面也要放进去
+      ...notFoundAndNoPowerRoutes,
     ],
   },
 ]
@@ -86,10 +90,3 @@ export const fullScreenRoutes: Array<RouteRecordRaw> = [
     component: Login,
   },
 ]
-
-const router = createRouter({
-  history: createWebHashHistory(),
-  routes: [...fullScreenRoutes, ...topRoutes],
-})
-
-export default router

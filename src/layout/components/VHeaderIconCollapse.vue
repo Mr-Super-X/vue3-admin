@@ -23,27 +23,29 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { useAppStore } from '@store/modules/app'
+import { useThemeConfigStore } from '@store/modules/themeConfig'
+import { storeToRefs } from 'pinia'
 
 const visible = ref(false)
 
-const appStore = useAppStore()
+const themeConfigStore = useThemeConfigStore() // 布局配置store
+const { themeConfig } = storeToRefs(themeConfigStore)
 
-const isCollapse = computed(() => appStore.getIsCollapse)
+const isCollapse = computed(() => themeConfig.value.isCollapse)
 
 const toolTipContent = computed(() => (isCollapse.value ? '展开' : '收起'))
 
 function toggleClick() {
   const bool = !isCollapse.value
-  appStore.toggleAsideMenu(bool)
+  themeConfig.value.isCollapse = bool
 }
 </script>
 
 <style scoped lang="scss">
 .hamburger {
   vertical-align: middle;
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   margin-right: 8px;
   cursor: pointer;
 }

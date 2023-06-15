@@ -33,7 +33,7 @@ declare interface TagsViewRoutesState<T = any> {
 
 // 路由列表
 declare interface RoutesListState<T = any> {
-  routesList: T[]
+  routesTree: T[]
   isColumnsMenuHover: boolean
   isColumnsNavHover: boolean
 }
@@ -73,7 +73,7 @@ declare interface ThemeConfigState {
     isFooter: boolean
     isGrayscale: boolean
     isInvert: boolean
-    isIsDark: boolean
+    isDark: boolean
     isWartermark: boolean
     wartermarkText: string
     tagsStyle: string

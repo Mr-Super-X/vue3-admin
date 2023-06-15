@@ -1,0 +1,112 @@
+/* 主布局样式
+------------------------------- */
+#app {
+  .layout-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    .layout-container-view {
+      flex-direction: column;
+    }
+    .layout-pd {
+      padding: 15px;
+    }
+    .layout-flex {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .layout-aside {
+      background: var(--next-bg-menuBar);
+      box-shadow: 2px 0 6px rgb(0 21 41 / 1%);
+      height: inherit;
+      position: relative;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      .el-scrollbar__view {
+        overflow: hidden;
+      }
+    }
+    .layout-header {
+      padding: 0;
+      height: auto;
+    }
+    .layout-main {
+      padding: 15px; // 全局容器padding
+      overflow: hidden;
+      width: 100%;
+      background-color: var(--next-bg-main-color);
+      @extend .layout-flex;
+      // 内层 el-scrollbar样式，用于界面高度自适应（main.vue）
+      .layout-main-scroll {
+        @extend .layout-flex;
+        .layout-parent {
+          @extend .layout-flex;
+          position: relative;
+        }
+      }
+    }
+    // 用于界面高度自适应
+    .layout-padding {
+      @extend .layout-pd;
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      overflow: hidden;
+      @extend .layout-flex;
+      &-auto {
+        height: inherit;
+        @extend .layout-flex;
+      }
+      &-view {
+        background: var(--el-color-white);
+        width: 100%;
+        height: 100%;
+        border-radius: 4px;
+        border: 1px solid var(--el-border-color-light, #ebeef5);
+        overflow: hidden;
+      }
+    }
+    // 用于界面高度自适应，主视图区 main 的内边距，用于 iframe
+    .layout-padding-unset {
+      padding: 0;
+      &-view {
+        border-radius: 0;
+        border: none;
+      }
+    }
+    // 用于设置 iframe loading 时的高度（loading 垂直居中显示）
+    .layout-iframe {
+      .el-loading-parent--relative {
+        height: 100%;
+      }
+    }
+    .el-scrollbar {
+      width: 100%;
+    }
+    // pc端左侧导航展开样式
+    .layout-aside-pc-220 {
+      width: 220px;
+      transition: 0.3s ease-in;
+    }
+    // pc端左侧导航折叠样式
+    .layout-aside-pc-64 {
+      width: 64px;
+      transition: 0.3s ease-in;
+    }
+
+    .layout-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100px;
+      font-size: 20px;
+      font-weight: bold;
+      border-bottom: 1px solid #e9e9e9;
+    }
+  }
+}

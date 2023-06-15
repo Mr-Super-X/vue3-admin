@@ -32,10 +32,3 @@ body {
   background-color: #878987;
   border-radius: 5px;
 }
-
-/* 单行文本超出省略 */
-.text-ellipsis {
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-}

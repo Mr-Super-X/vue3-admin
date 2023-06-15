@@ -38,7 +38,7 @@ module.exports = defineConfig({
       // 文档：https://cli.vuejs.org/zh/guide/css.html#%E5%90%91%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8-loader-%E4%BC%A0%E9%80%92%E9%80%89%E9%A1%B9
       scss: {
         additionalData: `
-          @import "~@styles/scss/common.scss";
+          @use "~@styles/scss/common.scss" as *;
         `,
       },
     },
@@ -133,7 +133,9 @@ module.exports = defineConfig({
        */
       alias: {
         '@': resolve(__dirname, 'src'),
+        '@layout': resolve(__dirname, 'src/layout'),
         '@views': resolve(__dirname, 'src/views'),
+        '@router': resolve(__dirname, 'src/router'),
         '@img': resolve(__dirname, 'src/assets/images'),
         '@styles': resolve(__dirname, 'src/assets/styles'),
         '@components': resolve(__dirname, 'src/components'),
@@ -144,6 +146,7 @@ module.exports = defineConfig({
         '@constant': resolve(__dirname, 'src/constant'),
         '@plugins': resolve(__dirname, 'src/plugins'),
         '@theme': resolve(__dirname, 'src/theme'),
+        '@mock': resolve(__dirname, 'mock'),
       },
       /**
        * 配置省略文件名的后缀规则

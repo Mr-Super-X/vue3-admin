@@ -5,77 +5,45 @@
  * @Contact: 1303232158@qq.com
  * @Date: 2022-05-31 12:11:16
  * @LastEditors: Mr.Mikey
- * @LastEditTime: 2023-06-05 17:14:27
+ * @LastEditTime: 2023-06-15 10:44:48
  * @FilePath: \vue3-admin\src\layout\components\VAsideMenu.vue
 -->
 
 <template>
-  <div class="menu-container" :style="{ width: scrollbarWidth + 'px' }">
-    <el-scrollbar>
-      <el-menu
-        mode="vertical"
-        class="el-menu-vertical"
-        :default-active="$route.path"
-        :collapse="isCollapse"
-        :text-color="menuColor"
-        :background-color="menuBackground"
-        :active-text-color="menuColorActive"
-        :collapse-transition="false"
-        router
-      >
-        <v-aside-menu-item v-for="item in menu" :key="item.id" :item="item" />
-      </el-menu>
-    </el-scrollbar>
-  </div>
+  <el-menu
+    mode="vertical"
+    background-color="transparent"
+    :default-active="$route.path"
+    :collapse="isCollapse"
+    :unique-opened="getThemeConfig.isUniqueOpened"
+    :collapse-transition="false"
+    router
+  >
+    <v-aside-menu-item v-for="item in menuList" :key="item.id" :item="item" />
+  </el-menu>
 </template>
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { useAppStore } from '@store/modules/app'
-import { getMenu, postMenuTest } from '../apis'
-import type { IListItem } from '../types/index.d'
+import { useRouteStore } from '@store/modules/route'
+import { useThemeConfigStore } from '@store/modules/themeConfig'
+import { storeToRefs } from 'pinia'
+
+// 引入组件
 import VAsideMenuItem from './VAsideMenuItem.vue'
-import style from '@styles/scss/variables.scss'
 
-const appStore = useAppStore()
+// 定义变量内容
+const routeStore = useRouteStore()
+const themeConfigStore = useThemeConfigStore() // 布局配置store
+const { themeConfig } = storeToRefs(themeConfigStore)
+const menuList = ref([]) // 菜单
 
-const isCollapse = computed(() => appStore.getIsCollapse)
-const scrollbarWidth = computed(() => (isCollapse.value ? 54 : 210))
+// 将过滤后的菜单赋值
+menuList.value = routeStore.routesTree
 
-const menu = ref<IListItem[]>([])
-const menuColor = computed(() => style['menu-color'])
-const menuBackground = computed(() => style['menu-background'])
-const menuColorActive = computed(() => style['menu-color-active'])
-
-getMenu({}, { headers: {} }).then(data => {
-  console.log(data)
-  menu.value = data.list
+const isCollapse = computed(() => themeConfig.value.isCollapse)
+// 获取布局配置信息
+const getThemeConfig = computed(() => {
+  return themeConfig.value
 })
-
-// postMenuTest({}, { headers: { a: '1' } })
-//   .then(res => {
-//     return res?.data?.data
-//   })
-//   .then(data => {
-//     console.log('getMenuTest', data)
-//   })
 </script>
-
-<style scoped lang="scss">
-.menu-container {
-  overflow: hidden;
-  height: calc(100% - 100px);
-
-  .el-scrollbar__wrap {
-    height: 100%;
-  }
-
-  .el-menu-vertical:not(.el-menu--collapse) {
-    width: 100%;
-  }
-
-  .el-menu {
-    border-right: none;
-  }
-}
-</style>

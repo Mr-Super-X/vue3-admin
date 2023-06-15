@@ -30,3 +30,25 @@ export function getFilename(pathStr: string, ext = false): string {
     return pathStr.replace(/(.*\/)*([^.]+).*/gi, '$2')
   }
 }
+
+/**
+ * 对象深克隆
+ * @param obj 源对象
+ * @returns 克隆后的对象
+ */
+export function deepClone(obj: object | any[]) {
+  let newObj: object | any[]
+  try {
+    newObj = Array.isArray(obj) ? [] : {}
+  } catch (error) {
+    newObj = {}
+  }
+  for (let attr in obj) {
+    if (obj[attr] && typeof obj[attr] === 'object') {
+      newObj[attr] = deepClone(obj[attr])
+    } else {
+      newObj[attr] = obj[attr]
+    }
+  }
+  return newObj
+}

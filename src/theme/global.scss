@@ -1,0 +1,8 @@
+/* nprogress 进度条跟随主题颜色
+------------------------------- */
+#nprogress {
+	.bar {
+		background: var(--el-color-primary);
+		z-index: 9999;
+	}
+}

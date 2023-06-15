@@ -6,7 +6,7 @@ import { defineStore } from 'pinia'
  * 1、需要每次都清理 `window.localStorage` 浏览器永久缓存
  * 2、或者点击布局配置最底部 `一键恢复默认` 按钮即可看到效果
  */
-export const useThemeConfig = defineStore('themeConfig', {
+export const useThemeConfigStore = defineStore('themeConfig', {
   state: (): ThemeConfigState => ({
     themeConfig: {
       // 是否开启布局配置抽屉
@@ -16,9 +16,9 @@ export const useThemeConfig = defineStore('themeConfig', {
        * 全局主题
        */
       // 默认 primary 主题颜色
-      primary: '#409eff',
+      primary: '#0062F9',
       // 是否开启深色模式
-      isIsDark: false,
+      isDark: false,
 
       /**
        * 顶栏设置

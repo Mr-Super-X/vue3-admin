@@ -24,8 +24,14 @@
       "@/*": [
         "src/*"
       ],
+      "@layout/*": [
+        "src/layout/*"
+      ],
       "@views/*": [
         "src/views/*"
+      ],
+      "@router/*": [
+        "src/router/*"
       ],
       "@img/*": [
         "src/assets/images/*"
@@ -56,6 +62,9 @@
       ],
       "@theme/*": [
         "src/theme/*"
+      ],
+      "@mock/*": [
+        "mock/*"
       ]
       // 例如使用jq时不想使用默认版本，而需要手动指定版本，可进行如下配置
       // "jquery": ["node_modules/jquery/dist/jquery.min.js"]
@@ -75,6 +84,7 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
+    "mock/**/*.ts",
     "tests/**/*.tsx",
     // vue.config.js中AutoImport插件配置dts: true时需要确保该文件被include，否则ts会报错找不到模块
     "auto-imports.d.ts"
@@ -82,6 +92,5 @@
   // 排除的目录、文件
   "exclude": [
     "node_modules",
-    "src/store/modules", // pinia在目前的工程下IDE无法正常使用ts类型声明，因此先排除
   ]
 }

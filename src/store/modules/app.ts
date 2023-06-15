@@ -3,21 +3,11 @@ import { defineStore } from 'pinia'
 import { MODULE_ID } from '@/constant'
 
 // state 类似组件的data选项，函数形式返回对象
-const state = () => ({
-  isCollapse: false,
-})
+const state = () => ({})
 
-const getters = {
-  getIsCollapse(state) {
-    return state.isCollapse
-  },
-}
+const getters = {}
 
-const actions = {
-  toggleAsideMenu(val: boolean) {
-    this.isCollapse = val
-  },
-}
+const actions = {}
 
 // 传入2个参数，定义store并导出
 // 第一个参数唯一不可重复，string类型，作为仓库ID以区分仓库

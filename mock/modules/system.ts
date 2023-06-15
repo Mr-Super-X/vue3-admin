@@ -1,6 +1,6 @@
 import type { IMockItem } from '../index.d'
 
-export const mockList: Array<IMockItem> = [
+export const mockSystemList: Array<IMockItem> = [
   // 获取左侧菜单栏数据
   {
     url: '/system/menu',

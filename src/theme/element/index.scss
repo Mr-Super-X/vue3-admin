@@ -1,0 +1,14 @@
+/**
+ * 用于覆盖element-plus的样式
+ */
+
+/* el-menu 菜单重置
+------------------------------- */
+.el-menu {
+  border-right: none;
+
+  // 鼠标 hover 时颜色
+  .el-menu-hover-bg-color {
+    background-color: var(--next-bg-menuBarActiveColor);
+  }
+}

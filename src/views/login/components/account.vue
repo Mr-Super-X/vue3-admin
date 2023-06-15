@@ -60,17 +60,17 @@ import { useRoute, useRouter } from 'vue-router'
 // import { useI18n } from 'vue-i18n';
 // import Cookies from 'js-cookie';
 import { storeToRefs } from 'pinia'
-import { useThemeConfig } from '@store/themeConfig'
-// import { initFrontEndControlRoutes } from '/@/router/frontEnd';
-// import { initBackEndControlRoutes } from '/@/router/backEnd';
+import { useThemeConfigStore } from '@store/modules/themeConfig'
+import { initFrontendControlRoutes } from '@router/frontend'
+import { initBackendControlRoutes } from '@router/backend'
 // import { Session } from '/@/utils/storage';
 import { formatAxis } from '@utils/formatTime'
 import { NextLoading } from '@utils/loading'
 
 // 定义变量内容
 // const { t } = useI18n();
-const storesThemeConfig = useThemeConfig()
-const { themeConfig } = storeToRefs(storesThemeConfig)
+const themeConfigStore = useThemeConfigStore()
+const { themeConfig } = storeToRefs(themeConfigStore)
 const route = useRoute()
 const router = useRouter()
 const state = reactive({
@@ -98,14 +98,12 @@ const onSignIn = async () => {
   // Cookies.set('userName', state.ruleForm.userName);
   if (!themeConfig.value.isRequestRoutes) {
     // 前端控制路由，2、请注意执行顺序
-    // const isNoPower = await initFrontEndControlRoutes();
-    const isNoPower = false
+    const isNoPower = await initFrontendControlRoutes()
     signInSuccess(isNoPower)
   } else {
     // 模拟后端控制路由，isRequestRoutes 为 true，则开启后端控制路由
     // 添加完动态路由，再进行 router 跳转，否则可能报错 No match found for location with path "/"
-    // const isNoPower = await initBackEndControlRoutes();
-    const isNoPower = false
+    const isNoPower = await initBackendControlRoutes()
     // 执行完 initBackEndControlRoutes，再执行 signInSuccess
     signInSuccess(isNoPower)
   }
@@ -132,7 +130,7 @@ const signInSuccess = (isNoPower: boolean | undefined) => {
     const signInText = '欢迎回来'
     ElMessage.success(`${currentTimeInfo}，${signInText}`)
     // 添加 loading，防止第一次进入界面时出现短暂空白
-    // NextLoading.start();
+    NextLoading.start()
   }
   state.loading.signIn = false
 }
