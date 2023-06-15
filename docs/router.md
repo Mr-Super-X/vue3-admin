@@ -36,7 +36,10 @@ src/router
 
 在webpack中，借助了 `require.context` 这个api，vite中也有相应的plugin可以实现，如：vite-plugin-require-context 。
 
-自动引入路由功能放在了 **dynamicRoutes.ts** 中，会将 `src/views/modules/` 目录中所有的 **routes.ts** 文件引入，这一步是递归的（每一层目录只要配置了routes.ts均生效），因此每创建一个页面，都应该遵循**Domain Style工程范式**，专注于横向的功能拆分和扩展，视图结构遵循如下规范：
+自动引入路由功能放在了 **dynamicRoutes.ts** 中，会将 `src/views/modules/` 目录中所有的 **routes.ts** 文件引入，这一步是递归的（每一层目录只要配置了routes.ts均生效）。
+
+因此每创建一个页面，都应该遵循**Domain Style工程范式**，专注于横向的功能拆分和扩展，视图结构遵循如下规范：
+
 ```
 home                      # 首页文件夹
 ├─ components             # 首页UI组件文件夹
@@ -143,8 +146,7 @@ https://cn.vuejs.org/guide/built-ins/keep-alive.html
 
 
 ```
-views/modules/order
-
+order
 ├─ routes.ts               # 订单模块路由配置
 ├─ orderList               # 订单列表目录
 │  ├─ routes.ts            # 订单列表路由配置
@@ -221,3 +223,9 @@ export default [
   },
 ]
 ```
+
+## 路由白名单
+
+白名单功能被拆分为两个文件，**whitelist.ts** 和 **noNeedPowerConfig.ts**。
+
+目前whitelist配置只在debug模式下生效，会自动将动态路由全部加入白名单，方便调试的时候可以一键启动查看，可根据自己的需求进行修改，请谨慎修改**noNeedPowerConfig.ts**配置，它会对生产环境也生效。
