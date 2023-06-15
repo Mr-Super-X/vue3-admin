@@ -127,10 +127,12 @@ export default [
 
 #### 为什么是一维数组而不是树结构？
 
-原因是keep-alive只支持二级路由缓存（以<router-view>的组件嵌套个数计算）。
+原因是**任何时候都只能有一个活跃组件实例作为keep-alive的直接子节点**，而我们的系统将keep-alive组件放在layout视图的VRouterView组件中，这种二级路由缓存是没有问题的，而超过二级的中间路由层级再嵌套keep-alive缓存也没有太大意义（缓存二级路由意味着二级路由下的所有嵌套组件都将被缓存，对性能也有一定保障），这也是将layout.children下的动态路由设计为一维数组的主要原因。
 
-https://cn.vuejs.org/guide/built-ins/keep-alive.html
+> 由于keep-alive是通过组件的name作为key来进行缓存的，一旦层级嵌套过深复杂度也会随之提高，没有办法完全保证嵌套层级的组件name不重复。
+
 https://cn.vuejs.org/api/built-in-components.html#keepalive
+https://cn.vuejs.org/guide/built-ins/keep-alive.html
 
 
 #### 一维数组怎么渲染左侧树形菜单？
