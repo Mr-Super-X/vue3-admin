@@ -1,6 +1,6 @@
 # vue-router 说明
 
-## 目录文件说明
+## 目录文件
 
 ```
 src/router
@@ -17,7 +17,7 @@ src/router
 ```
 
 
-## 路由模块架构说明
+## 路由模块架构
 
 架构一个后台管理系统的路由，可简单分以下几条线路：
 
@@ -32,7 +32,7 @@ src/router
 - 对于第三点，功能被拆分为 **backend.ts** 和 **frontend.ts** 两个文件，系统默认使用前端控制路由的方式，如需修改为后端控制，请修改`store/modules/themeConfig.ts`中的**isRequestRoutes**为**true**
 
 
-## 自动注入路由功能说明
+## 自动注入路由功能
 
 在webpack中，借助了 `require.context` 这个api，vite中也有相应的plugin可以实现，如：vite-plugin-require-context 。
 

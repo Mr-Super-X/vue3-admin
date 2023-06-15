@@ -5,13 +5,13 @@
  * @Contact: 1303232158@qq.com
  * @Date: 2022-05-19 12:37:18
  * @LastEditors: Mr.Mikey
- * @LastEditTime: 2023-06-15 11:27:33
+ * @LastEditTime: 2023-06-15 17:31:50
  * @FilePath: \vue3-admin\src\layout\components\VAside.vue
 -->
 
 <template>
   <el-aside class="layout-aside" :class="setAsideCollapseClass">
-    <v-aside-logo />
+    <v-aside-logo v-if="themeConfig.isShowLogo" />
     <el-scrollbar class="menu-container flex-auto">
       <v-aside-menu />
     </el-scrollbar>
