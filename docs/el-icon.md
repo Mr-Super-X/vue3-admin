@@ -1,6 +1,6 @@
 # element-plus icons说明
 
-## 使用说明
+## 使用
 
 已接入unplugin-icons按需引入icon功能，如需使用element-plus自带的icon，在组件中直接使用即可，示例：
 
@@ -19,7 +19,7 @@ import { Edit } from '@element-plus/icons-vue'
 <el-button type="success" size="small" :icon="Edit" round>新增用户</el-button>
 ```
 
-## 接入说明
+## 接入
 
 安装依赖
 
