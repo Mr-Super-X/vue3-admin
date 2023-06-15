@@ -14,13 +14,13 @@
 import { computed } from 'vue'
 import { useSystemStore } from '@store/modules/system'
 import { storeToRefs } from 'pinia'
-import { useThemeConfig } from '@store/modules/themeConfig'
+import { useThemeConfigStore } from '@store/modules/themeConfig'
 
 // 定义变量
 const systemStore = useSystemStore()
 // 定义变量内容
-const storesThemeConfig = useThemeConfig()
-const { themeConfig } = storeToRefs(storesThemeConfig)
+const themeConfigStore = useThemeConfigStore()
+const { themeConfig } = storeToRefs(themeConfigStore)
 
 // 设置主界面切换动画
 const setTransitionName = computed(() => {

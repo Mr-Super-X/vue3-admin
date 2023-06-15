@@ -5,19 +5,36 @@
  * @Contact: 1303232158@qq.com
  * @Date: 2022-05-19 12:37:18
  * @LastEditors: Mr.Mikey
- * @LastEditTime: 2023-06-14 17:10:27
+ * @LastEditTime: 2023-06-15 10:58:41
  * @FilePath: \vue3-admin\src\layout\components\VAside.vue
 -->
 
 <template>
-  <div class="layout-aside layout-aside-pc-220">
+  <el-aside class="layout-aside" :class="setAsideCollapseClass">
     <v-aside-logo />
     <v-aside-menu />
-  </div>
+  </el-aside>
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
+import { useThemeConfigStore } from '@store/modules/themeConfig'
+import { storeToRefs } from 'pinia'
+
 // 引入组件
 import VAsideLogo from './VAsideLogo.vue'
 import VAsideMenu from './VAsideMenu.vue'
+
+// 定义变量内容
+const themeConfigStore = useThemeConfigStore() // 布局配置store
+const { themeConfig } = storeToRefs(themeConfigStore)
+
+// 设置菜单展开/收起时的宽度
+const setAsideCollapseClass = computed(() => {
+  const { isCollapse } = themeConfig.value
+  if (isCollapse) return ['layout-aside-pc-64']
+  else return ['layout-aside-pc-220']
+})
 </script>
+
+<style lang="scss" scoped></style>

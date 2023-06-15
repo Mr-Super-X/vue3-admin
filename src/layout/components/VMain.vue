@@ -5,13 +5,13 @@
  * @Contact: 1303232158@qq.com
  * @Date: 2022-05-20 13:17:47
  * @LastEditors: Mr.Mikey
- * @LastEditTime: 2023-06-13 09:21:03
+ * @LastEditTime: 2023-06-15 10:31:06
  * @FilePath: \vue3-admin\src\layout\components\VMain.vue
 -->
 
 <template>
-  <el-main class="main-container">
-    <el-scrollbar>
+  <el-main class="layout-main">
+    <el-scrollbar class="layout-main-scroll" wrap-class="layout-main-scroll" view-class="layout-main-scroll">
       <VRouterView />
     </el-scrollbar>
   </el-main>
@@ -30,18 +30,3 @@ onMounted(() => {
   NextLoading.done(500)
 })
 </script>
-
-<style scoped lang="scss">
-.main-container {
-  background-color: #f8f8f8;
-  overflow: hidden;
-
-  &.el-main {
-    padding: 0;
-  }
-
-  ::v-deep(.el-scrollbar__view) {
-    padding: 20px;
-  }
-}
-</style>

@@ -5,12 +5,12 @@
  * @Contact: 1303232158@qq.com
  * @Date: 2022-05-19 12:37:18
  * @LastEditors: Mr.Mikey
- * @LastEditTime: 2022-07-13 22:18:04
+ * @LastEditTime: 2023-06-15 10:35:28
  * @FilePath: \vue3-admin\src\layout\components\VHeader.vue
 -->
 
 <template>
-  <el-header class="header-container">
+  <el-header class="layout-header">
     <v-header-nav />
     <v-header-tags />
   </el-header>
@@ -20,14 +20,3 @@
 import VHeaderNav from './VHeaderNav.vue'
 import VHeaderTags from './VHeaderTags.vue'
 </script>
-
-<style scoped lang="scss">
-.header-container {
-  background-color: #fff;
-  position: relative;
-  z-index: 1000;
-  height: 80px;
-  padding: 0;
-  overflow: hidden;
-}
-</style>

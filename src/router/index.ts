@@ -5,9 +5,9 @@ import noNeedPermissionRouteNamesConfig from './noNeedPermissionRouteNamesConfig
 import pinia from '@store/index'
 import { createRouter, createWebHashHistory } from 'vue-router'
 import { useRouteStore } from '@store/modules/route'
-import { useThemeConfig } from '@store/modules/themeConfig'
+import { useThemeConfigStore } from '@store/modules/themeConfig'
 import { storeToRefs } from 'pinia'
-import { fullScreenRoutes, topRoutes, notFoundAndNoPowerRoutes } from './routerConfig'
+import { fullScreenRoutes, topRoutes } from './routerConfig'
 import { getToken, verifyENV } from '../utils/index'
 import { RouteRecordName } from 'vue-router'
 import { initFrontendControlRoutes } from './frontend'
@@ -19,8 +19,8 @@ import { initBackendControlRoutes } from './backend'
  * 2、后端控制路由时：isRequestRoutes 为 true
  * 相关方法已拆解到对应的 `backend.ts` 与 `frontend.ts`（它们互不影响，不需要同时改 2 个文件）
  */
-const storesThemeConfig = useThemeConfig(pinia)
-const { themeConfig } = storeToRefs(storesThemeConfig)
+const themeConfigStore = useThemeConfigStore(pinia)
+const { themeConfig } = storeToRefs(themeConfigStore)
 const { isRequestRoutes } = themeConfig.value
 
 /**

@@ -1,6 +1,7 @@
 <template>
   <!-- meta.isHide为true的数据不显示 -->
-  <div v-if="!item.meta.isHide" class="menu-item-container">
+  <!-- 破案了，这里不能用其他标签代替，否则会导致el-menu collapse属性为true时不能正确隐藏内容 -->
+  <template v-if="!item.meta.isHide">
     <el-sub-menu v-if="item?.children?.length" :index="item.path">
       <template #title>
         <el-icon>
@@ -16,7 +17,7 @@
         <span>{{ item.meta.title }}</span>
       </template>
     </el-menu-item>
-  </div>
+  </template>
 </template>
 
 <script setup lang="ts">

@@ -7,5 +7,6 @@
 @use './element/index.scss' as *;
 @use './transition.scss' as *;
 @use './mixin.scss' as *;
+@use './global.scss' as *;
 @import './app.scss';
 @import './dark.scss';

@@ -5,15 +5,15 @@
  * @Contact: 1303232158@qq.com
  * @Date: 2022-05-19 12:37:18
  * @LastEditors: Mr.Mikey
- * @LastEditTime: 2023-06-14 16:20:49
+ * @LastEditTime: 2023-06-15 10:59:43
  * @FilePath: \vue3-admin\src\layout\index.vue
 -->
 
 <template>
   <el-config-provider :size="config.size" :z-index="config.zIndex" :locale="config.locale">
-    <el-container class="layout">
+    <el-container class="layout-container">
       <v-aside />
-      <el-container class="layout-container">
+      <el-container class="layout-container-view h100">
         <v-header />
         <v-main />
       </el-container>
@@ -24,7 +24,7 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
 import { ElConfigProvider } from 'element-plus'
-import { useThemeConfig } from '@store/modules/themeConfig'
+import { useThemeConfigStore } from '@store/modules/themeConfig'
 import { storeToRefs } from 'pinia'
 import zhCn from 'element-plus/lib/locale/lang/zh-cn'
 // import en from "element-plus/lib/locale/lang/en";
@@ -40,8 +40,8 @@ const config = ref({
   zIndex: 3000,
   size: 'small',
 })
-const storesThemeConfig = useThemeConfig() // 布局配置store
-const { themeConfig } = storeToRefs(storesThemeConfig)
+const themeConfigStore = useThemeConfigStore() // 布局配置store
+const { themeConfig } = storeToRefs(themeConfigStore)
 
 // 获取布局配置信息
 const getThemeConfig = computed(() => {
@@ -51,7 +51,7 @@ const getThemeConfig = computed(() => {
 // 设置界面主题色
 const setThemeColor = () => {
   const html = document.documentElement as HTMLElement
-  if (getThemeConfig.value.isIsDark) html.setAttribute('data-theme', 'dark')
+  if (getThemeConfig.value.isDark) html.setAttribute('data-theme', 'dark')
   else html.setAttribute('data-theme', '')
 }
 
@@ -63,12 +63,6 @@ onMounted(() => {
 })
 </script>
 
-<style scoped lang="scss">
-.layout {
-  height: 100%;
-
-  &-container {
-    flex-direction: column;
-  }
-}
+<style lang="scss">
+@use './styles/index.scss' as *;
 </style>

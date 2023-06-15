@@ -60,7 +60,7 @@ import { useRoute, useRouter } from 'vue-router'
 // import { useI18n } from 'vue-i18n';
 // import Cookies from 'js-cookie';
 import { storeToRefs } from 'pinia'
-import { useThemeConfig } from '@store/modules/themeConfig'
+import { useThemeConfigStore } from '@store/modules/themeConfig'
 import { initFrontendControlRoutes } from '@router/frontend'
 import { initBackendControlRoutes } from '@router/backend'
 // import { Session } from '/@/utils/storage';
@@ -69,8 +69,8 @@ import { NextLoading } from '@utils/loading'
 
 // 定义变量内容
 // const { t } = useI18n();
-const storesThemeConfig = useThemeConfig()
-const { themeConfig } = storeToRefs(storesThemeConfig)
+const themeConfigStore = useThemeConfigStore()
+const { themeConfig } = storeToRefs(themeConfigStore)
 const route = useRoute()
 const router = useRouter()
 const state = reactive({
