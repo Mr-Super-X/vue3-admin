@@ -65,7 +65,7 @@ export const topRoutes: Array<RouteRecordRaw> = [
     children: [
       /**
        * 所有动态路由模块将会以扁平结构（一维数组而非树结构）在适当的时机注入到layout.children下，也就是当前位置
-       * 原因是keep-alive只支持二级路由缓存（以<router-view>的组件嵌套个数计算）
+       * 原因是现在的系统设计为keep-alive只支持二级路由缓存
        * @link https://cn.vuejs.org/guide/built-ins/keep-alive.html
        * @link https://cn.vuejs.org/api/built-in-components.html#keepalive
        */
