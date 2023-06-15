@@ -5,14 +5,16 @@
  * @Contact: 1303232158@qq.com
  * @Date: 2022-05-19 12:37:18
  * @LastEditors: Mr.Mikey
- * @LastEditTime: 2023-06-15 10:58:41
+ * @LastEditTime: 2023-06-15 11:27:33
  * @FilePath: \vue3-admin\src\layout\components\VAside.vue
 -->
 
 <template>
   <el-aside class="layout-aside" :class="setAsideCollapseClass">
     <v-aside-logo />
-    <v-aside-menu />
+    <el-scrollbar class="menu-container flex-auto">
+      <v-aside-menu />
+    </el-scrollbar>
   </el-aside>
 </template>
 
@@ -36,5 +38,3 @@ const setAsideCollapseClass = computed(() => {
   else return ['layout-aside-pc-220']
 })
 </script>
-
-<style lang="scss" scoped></style>

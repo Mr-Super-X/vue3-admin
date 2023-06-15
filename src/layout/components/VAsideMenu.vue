@@ -10,19 +10,17 @@
 -->
 
 <template>
-  <el-scrollbar class="menu-container flex-auto">
-    <el-menu
-      mode="vertical"
-      background-color="transparent"
-      :default-active="$route.path"
-      :collapse="isCollapse"
-      :unique-opened="getThemeConfig.isUniqueOpened"
-      :collapse-transition="false"
-      router
-    >
-      <v-aside-menu-item v-for="item in menuList" :key="item.id" :item="item" />
-    </el-menu>
-  </el-scrollbar>
+  <el-menu
+    mode="vertical"
+    background-color="transparent"
+    :default-active="$route.path"
+    :collapse="isCollapse"
+    :unique-opened="getThemeConfig.isUniqueOpened"
+    :collapse-transition="false"
+    router
+  >
+    <v-aside-menu-item v-for="item in menuList" :key="item.id" :item="item" />
+  </el-menu>
 </template>
 
 <script setup lang="ts">
