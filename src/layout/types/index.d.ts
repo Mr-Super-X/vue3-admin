@@ -1,7 +1,59 @@
-/**
- * 数组类型子项定义，用于解决template中报错类型“never”上不存在属性“xx”
- * 对于不确定子项是什么类型的（如接口请求回来的数据），可以使用该类型
- */
-export interface IListItem {
-  [key: string]: any
+// aside
+declare type AsideState = {
+  menuList: RouteRecordRaw[]
+  clientWidth: number
+}
+
+// columnsAside
+declare type ColumnsAsideState<T = any> = {
+  columnsAsideList: T[]
+  liIndex: number
+  liOldIndex: null | number
+  liHoverIndex: null | number
+  liOldPath: null | string
+  difference: number
+  routeSplit: string[]
+}
+
+// navBars breadcrumb
+declare type BreadcrumbState<T = any> = {
+  breadcrumbList: T[]
+  routeSplit: string[]
+  routeSplitFirst: string
+  routeSplitIndex: number
+}
+
+// navBars search
+declare type SearchState<T = any> = {
+  isShowSearch: boolean
+  menuQuery: string
+  tagsViewList: T[]
+}
+
+// navBars tagsView
+declare type TagsViewState<T = any> = {
+  routeActive: string | T
+  routePath: string | unknown
+  dropdown: {
+    x: string | number
+    y: string | number
+  }
+  sortable: T
+  tagsRefsIndex: number
+  tagsViewList: T[]
+  tagsViewRoutesList: T[]
+}
+
+// navBars parent
+declare type ParentViewState<T = any> = {
+  refreshRouterViewKey: string
+  iframeRefreshKey: string
+  keepAliveNameList: string[]
+  iframeList: T[]
+}
+
+// navBars link
+declare type LinkViewState = {
+  title: string
+  isLink: string
 }

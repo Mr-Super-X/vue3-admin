@@ -108,5 +108,26 @@
       font-weight: bold;
       border-bottom: 1px solid #e9e9e9;
     }
+
+    .layout-nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 50px;
+      padding: 0 20px;
+      background: var(--next-bg-topBar);
+      border-bottom: 1px solid var(--next-border-color-light);
+
+      .left-area,
+      .right-area {
+        display: flex;
+        align-items: center;
+        height: 100%;
+      }
+    }
+
+    .layout-navbars-breadcrumb {
+      padding-top: 2px;
+    }
   }
 }

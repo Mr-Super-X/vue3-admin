@@ -47,6 +47,10 @@ export const commonRoutes: Array<RouteRecordRaw> = [
     path: '/home',
     name: 'home',
     component: Home,
+    meta: {
+      title: '首页',
+      isHide: false,
+    },
   },
 ]
 
@@ -63,6 +67,12 @@ export const topRoutes: Array<RouteRecordRaw> = [
       // 进入layout之前要干点什么事情
     }, */
     children: [
+      // 这里一般会默认配置一个不需要任何权限的公共页面，如欢迎页
+      ...commonRoutes,
+
+      // 404、401等错误页面也要放进去
+      ...notFoundAndNoPowerRoutes,
+
       /**
        * 所有动态路由模块将会以扁平结构（一维数组而非树结构）在适当的时机注入到layout.children下，也就是当前位置
        * 原因是现在的系统设计为keep-alive只支持二级路由缓存
@@ -70,12 +80,6 @@ export const topRoutes: Array<RouteRecordRaw> = [
        * @link https://cn.vuejs.org/api/built-in-components.html#keepalive
        */
       ...dynamicRoutes,
-
-      // 这里一般会默认配置一个不需要任何权限的公共页面，如欢迎页
-      ...commonRoutes,
-
-      // 404、401等错误页面也要放进去
-      ...notFoundAndNoPowerRoutes,
     ],
   },
 ]

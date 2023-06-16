@@ -10,10 +10,9 @@ src/router
 │  ├─ frontend.ts          # 由前端控制路由的配置文件
 │  ├─ dynamicRoutes.ts     # 自动引入路由模块的配置文件
 │  ├─ index.ts             # 路由入口文件（拦截器、权限控制等）
-│  ├─ noNeedPowerConfig.ts # 不需要鉴权的路由name配置文件
+│  ├─ noNeedPowerConfig.ts # 不需要鉴权的路由name配置文件（所有环境均生效）
 │  ├─ routerConfig.ts      # 静态路由配置文件（layout、login、404、common等）
-│  ├─ whitelist.ts         # 白名单配置文件
-│  └─ common.ts            # 公共函数
+│  └─ whitelist.ts         # 白名单配置文件
 ```
 
 
@@ -140,7 +139,7 @@ https://cn.vuejs.org/guide/built-ins/keep-alive.html
 
 #### 一维数组怎么渲染左侧树形菜单？
 
-在 **backend.ts** 和 **frontend.ts** 两个文件中，会将最终得到的动态路由数据dynamicRoutes存入store中，存入的数据经过 **common.ts** 中的 **buildRoutesToTree** 方法处理成了树，**处理层级的规则是以路由的path来实现的，因此在routes.ts配置中，你必须以path来作为层级区分**。
+在 **backend.ts** 和 **frontend.ts** 两个文件中，会将最终得到的动态路由数据dynamicRoutes存入store中，存入的数据经过 **src/utils/common.ts** 中的 **buildRoutesToTree** 方法处理成了树，**处理层级的规则是以路由的path来实现的，因此在routes.ts配置中，你必须以path来作为层级区分**。
 
 假设现在有个订单模块，内部有订单列表、订单信息两个页面，那么目录结构应该如下：
 
