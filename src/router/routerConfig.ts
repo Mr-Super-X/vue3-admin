@@ -4,9 +4,9 @@ import dynamicRoutes from './dynamicRoutes' // 引入动态路由
 
 // 静态的视图组件直接引入，动态的可以查看dynamicRoutes.ts中通过requireContext自动加载
 import Layout from '../layout/index.vue'
-import Login from '@/views/login/index.vue'
-import Home from '@/views/home/index.vue'
-import Error from '@/views/error/index.vue'
+import Login from '@/views/login/routes'
+import Welcome from '@views/welcome/routes'
+import Error from '@/views/error/routes'
 
 /**
  * 建议：路由 path 路径与文件夹名称相同，找文件可浏览器地址找，方便定位文件位置
@@ -32,27 +32,13 @@ export const notFoundAndNoPowerRoutes: Array<RouteRecordRaw> = [
     path: '/:pathMatch(.*)*',
     redirect: '/error',
   },
-  {
-    path: '/error',
-    name: 'error',
-    component: Error,
-  },
+  ...Error,
 ]
 
 /**
  * 公共页面，如欢迎页
  */
-export const commonRoutes: Array<RouteRecordRaw> = [
-  {
-    path: '/home',
-    name: 'home',
-    component: Home,
-    meta: {
-      title: '首页',
-      isHide: false,
-    },
-  },
-]
+export const commonRoutes: Array<RouteRecordRaw> = [...Welcome]
 
 /**
  * 顶层layout路由
@@ -87,10 +73,4 @@ export const topRoutes: Array<RouteRecordRaw> = [
 /**
  * 全屏路由（此处定义的路由为全屏页面，不会嵌套在layout中）
  */
-export const fullScreenRoutes: Array<RouteRecordRaw> = [
-  {
-    path: '/login',
-    name: 'login',
-    component: Login,
-  },
-]
+export const fullScreenRoutes: Array<RouteRecordRaw> = [...Login]
