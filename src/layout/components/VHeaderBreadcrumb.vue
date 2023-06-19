@@ -6,12 +6,10 @@
         :key="!v.meta.tagsViewName ? v.meta.title : v.meta.tagsViewName"
       >
         <span v-if="k === state.breadcrumbList.length - 1" class="layout-navbars-breadcrumb-span">
-          <!-- <SvgIcon :name="v.meta.icon" class="layout-navbars-breadcrumb-iconfont" v-if="themeConfig.isBreadcrumbIcon" /> -->
           <div v-if="!v.meta.tagsViewName">{{ v.meta.title }}</div>
           <div v-else>{{ v.meta.tagsViewName }}</div>
         </span>
         <a v-else @click.prevent="onBreadcrumbClick(v)">
-          <!-- <SvgIcon :name="v.meta.icon" class="layout-navbars-breadcrumb-iconfont" v-if="themeConfig.isBreadcrumbIcon" /> -->
           {{ v.meta.title }}
         </a>
       </el-breadcrumb-item>
@@ -57,18 +55,12 @@ const getBreadcrumbList = arr => {
 // 当前路由字符串切割成数组，并删除第一项空内容
 const initRouteSplit = (path: string) => {
   if (!themeConfig.value.isBreadcrumb) return false
-  console.log(routeStore.routesTree)
   state.value.breadcrumbList = [routeStore.routesTree[0]]
-  console.log(state.value.breadcrumbList)
   state.value.routeSplit = path.split('/')
   state.value.routeSplit.shift()
   state.value.routeSplitFirst = `/${state.value.routeSplit[0]}`
   state.value.routeSplitIndex = 1
   getBreadcrumbList(routeStore.routesTree)
-  // if (route.name === 'root' || (route.name === 'error' && state.value.breadcrumbList.length > 1))
-  //   state.value.breadcrumbList.shift()
-  // if (state.value.breadcrumbList.length > 0)
-  //   state.value.breadcrumbList[state.value.breadcrumbList.length - 1].meta.tagsViewName = route.meta.title
 }
 
 // 面包屑点击时
