@@ -5,12 +5,12 @@
  * @Contact: 1303232158@qq.com
  * @Date: 2023-06-20 11:00:16
  * @LastEditors: Mr.Mikey
- * @LastEditTime: 2023-06-20 11:47:08
+ * @LastEditTime: 2023-06-20 14:26:46
  * @FilePath: \vue3-admin\src\components\common\VElementIcon.vue
 -->
 <template>
   <i class="el-icon" :style="setIconSvgStyle">
-    <component :is="getIconName" />
+    <component v-if="getIconName" :is="getIconName" />
   </i>
 </template>
 

@@ -29,23 +29,32 @@
       .el-scrollbar__view {
         overflow: hidden;
       }
+      .el-menu {
+        .v-local-svg-icon {
+          font-size: 14px;
+          width: 24px;
+          margin-right: 5px;
+          text-align: center;
+        }
+      }
     }
     .layout-header {
       padding: 0;
       height: auto;
     }
     .layout-main {
-      padding: 15px; // 全局容器padding
       overflow: hidden;
       width: 100%;
+      padding: 0;
       background-color: var(--next-bg-main-color);
       @extend .layout-flex;
       // 内层 el-scrollbar样式，用于界面高度自适应（main.vue）
       .layout-main-scroll {
         @extend .layout-flex;
-        .layout-parent {
+        .layout-router-view {
           @extend .layout-flex;
           position: relative;
+          padding: 15px; // 全局容器padding
         }
       }
     }

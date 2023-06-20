@@ -9,7 +9,7 @@
  * @FilePath: \vue3-admin\src\components\common\VLocalSvgIcon.vue
 -->
 <template>
-  <div class="v-svg-icon">
+  <div class="v-local-svg-icon">
     <!-- https?:|mailto:|tel:渲染div -->
     <div v-if="isExternals" :style="styleExternalIcon" class="local-svg-external-icon local-svg-icon" />
     <!-- svg格式渲染svg标签 -->
