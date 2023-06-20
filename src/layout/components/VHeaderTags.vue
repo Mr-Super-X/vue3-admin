@@ -1,5 +1,6 @@
 <template>
-  <div class="tabs-container">
+  <div class="layout-navbar-tags">
+    <el-scrollbar ref="scrollbarRef" @wheel.prevent="onHandleScroll"></el-scrollbar>
     <!-- <el-tabs v-model="editableTabsValue" type="card" editable class="demo-tabs" @edit="handleTabsEdit">
       <el-tab-pane v-for="item in editableTabs" :key="item.name" :label="item.title" :name="item.name">
         {{ item.content }}
@@ -8,69 +9,15 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from 'vue'
+<script lang="ts" setup>
+import { ref } from 'vue'
 
-export default defineComponent({
-  setup() {
-    let tabIndex = 2
-    const editableTabsValue = ref('2')
-    const editableTabs = ref([
-      {
-        title: 'Tab 1',
-        name: '1',
-        content: 'Tab 1 content',
-      },
-      {
-        title: 'Tab 2',
-        name: '2',
-        content: 'Tab 2 content',
-      },
-    ])
+// 定义变量内容
+const scrollbarRef = ref()
+const tagList = ref([])
 
-    const handleTabsEdit = (targetName: string, action: 'remove' | 'add') => {
-      if (action === 'add') {
-        const newTabName = `${++tabIndex}`
-        editableTabs.value.push({
-          title: 'New Tab',
-          name: newTabName,
-          content: 'New Tab content',
-        })
-        editableTabsValue.value = newTabName
-      } else if (action === 'remove') {
-        const tabs = editableTabs.value
-        let activeName = editableTabsValue.value
-        if (activeName === targetName) {
-          tabs.forEach((tab: any, index: number) => {
-            if (tab.name === targetName) {
-              const nextTab = tabs[index + 1] || tabs[index - 1]
-              if (nextTab) {
-                activeName = nextTab.name
-              }
-            }
-          })
-        }
-
-        editableTabsValue.value = activeName
-        editableTabs.value = tabs.filter((tab: any) => tab.name !== targetName)
-      }
-    }
-
-    return {
-      editableTabsValue,
-      editableTabs,
-      handleTabsEdit,
-    }
-  },
-})
-</script>
-
-<style scoped lang="scss">
-.tabs-container {
-  display: flex;
-  align-items: center;
-  height: 30px;
-  padding: 0 20px;
-  border-bottom: 1px solid #f1f1f1;
+// 鼠标滚轮滚动
+const onHandleScroll = (e: WheelEventType) => {
+  scrollbarRef.value.$refs.wrapRef.scrollLeft += e.wheelDelta / 4
 }
-</style>
+</script>

@@ -21,6 +21,13 @@
 如你不需要全局使用，请删除 `src/plugins/index.ts` 中 `elementPlusIconPlugin` 的相关配置，并将使用到的全局图标替换成按需使用方式或其它方式。
 
 
+**也可以使用VSvgIcon组件，该组件聚合了element-plus icon和local svg，用法与VElementIcon一致，如：**
+
+```html
+<v-svg-icon name="i-ep-Location" />
+```
+
+
 ## 按需
 
 ### 使用

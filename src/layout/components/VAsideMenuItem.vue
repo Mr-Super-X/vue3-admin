@@ -4,8 +4,7 @@
   <!-- 有子菜单的 -->
   <el-sub-menu v-if="item?.children?.length" :index="item.path">
     <template #title>
-      <v-local-svg-icon v-if="checkIsLocalIcon(item.meta.icon)" :name="getLocalIcon(item.meta.icon)" />
-      <v-element-icon v-else :name="item.meta.icon" />
+      <v-svg-icon :name="item.meta.icon" />
       <span>{{ item.meta.title }}</span>
     </template>
     <!-- 递归渲染子菜单 -->
@@ -14,8 +13,7 @@
 
   <!-- 无子菜单的 -->
   <el-menu-item v-else :index="item.path" :key="item.path">
-    <v-local-svg-icon v-if="checkIsLocalIcon(item.meta.icon)" :name="getLocalIcon(item.meta.icon)" />
-    <v-element-icon v-else :name="item.meta.icon" />
+    <v-svg-icon :name="item.meta.icon" />
     <template #title>
       <span>{{ item.meta.title }}</span>
     </template>
@@ -32,26 +30,6 @@ const props = defineProps({
     default: () => ({}),
   },
 })
-
-/**
- * 截取local svg name
- * @param icon string routes配置中的meta.icon
- */
-const getLocalIcon = (icon: string) => {
-  return icon.split(' ')[1]
-}
-
-/**
- * 检查是否本地icon
- * @param icon string routes配置中的meta.icon
- */
-const checkIsLocalIcon = (icon: string) => {
-  if (icon.startsWith('local')) {
-    return true
-  }
-
-  return false
-}
 </script>
 
 <style scoped></style>

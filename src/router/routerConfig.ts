@@ -19,7 +19,7 @@ import Error from '@/views/error/routes'
  *      isKeepAlive：   是否缓存组件状态
  *      isAffix：       是否固定在 tagsView 栏上
  *      isIframe：      是否内嵌窗口，开启条件，`1、isIframe:true 2、isLink：链接地址不为空`
- *      icon：          菜单、tagsView 图标
+ *      icon：          菜单、tagsView 图标，支持本地图标和element-plus icon，本地图标配置前缀为local-文件名，el-icon配置前缀为i-ep-图标名
  * }
  */
 

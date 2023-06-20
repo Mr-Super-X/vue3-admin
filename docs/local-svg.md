@@ -8,6 +8,12 @@
 <v-local-svg-icon name="fullscreen" />
 ```
 
+**也可以使用VSvgIcon组件，该组件聚合了element-plus icon和local svg，用法与VLocalSvgIcon稍有不同，需要在name上增加【local-】标识，如：**
+
+```html
+<v-svg-icon name="local-fullscreen" />
+```
+
 ## 接入
 
 安装依赖

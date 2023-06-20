@@ -5,15 +5,13 @@
  * @Contact: 1303232158@qq.com
  * @Date: 2022-07-14 00:31:13
  * @LastEditors: Mr.Mikey
- * @LastEditTime: 2023-06-19 18:09:50
+ * @LastEditTime: 2023-06-20 16:41:14
  * @FilePath: \vue3-admin\src\components\common\VLocalSvgIcon.vue
 -->
 <template>
   <div class="v-local-svg-icon">
-    <!-- https?:|mailto:|tel:渲染div -->
-    <div v-if="isExternals" :style="styleExternalIcon" class="local-svg-external-icon local-svg-icon" />
     <!-- svg格式渲染svg标签 -->
-    <svg v-else :class="svgClass" aria-hidden="true">
+    <svg :style="setIconSvgStyle" aria-hidden="true" class="local-svg-icon">
       <use :xlink:href="iconName" />
     </svg>
   </div>
@@ -21,33 +19,31 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { isExternal } from '@/utils/validate'
+
 const props = defineProps({
   // 对应assets/icons/svg目录下的文件名
   name: {
     type: String,
     required: true,
   },
-  className: {
+  // svg 大小
+  size: {
+    type: Number,
+    default: () => 14,
+  },
+  // svg 颜色
+  color: {
     type: String,
-    default: '',
   },
 })
 
-// 根据用户传入的iconClass判断文件扩展
-const isExternals = computed(() => isExternal(props.name))
+// 生成iconName
 const iconName = computed(() => `#icon-${props.name}`)
-const svgClass = computed(() => {
-  if (props.className) {
-    return 'local-svg-icon ' + props.className
-  } else {
-    return 'local-svg-icon'
-  }
+
+// 设置图标样式
+const setIconSvgStyle = computed(() => {
+  return `font-size: ${props.size}px;color: ${props.color};`
 })
-const styleExternalIcon = computed(() => ({
-  mask: `url(${props.name}) no-repeat 50% 50%`,
-  '-webkit-mask': `url(${props.name}) no-repeat 50% 50%`,
-}))
 </script>
 
 <style lang="scss" scoped>
