@@ -3,7 +3,7 @@ import { getFilename } from '@utils/index'
 /**
  * 功能：引入本地svg
  */
-const svgPlugin = {
+const localSvgPlugin = {
   install(vue: any, options: any) {
     if (options && options.imports && Array.isArray(options.imports) && options.imports.length > 0) {
       // 按需引入图标
@@ -22,4 +22,4 @@ const svgPlugin = {
   },
 }
 
-export default svgPlugin
+export default localSvgPlugin
