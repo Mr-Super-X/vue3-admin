@@ -234,8 +234,10 @@ yarn commit命令运行效果如下：
 
 ## 其他说明
 
-- [路由结构说明](/docs/router.md)
-- [el-icon说明](/docs/el-icon.md)
+- [路由模块说明](/docs/router.md)
+- [el-icon使用说明](/docs/el-icon.md)
+- [本地svg图标使用说明](/docs/local-svg.md)
+- [自动注册全局组件功能说明](/docs/auto-global-component.md)
 
 
 ## 浏览器支持
