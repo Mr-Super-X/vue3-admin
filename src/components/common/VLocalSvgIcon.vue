@@ -5,13 +5,13 @@
  * @Contact: 1303232158@qq.com
  * @Date: 2022-07-14 00:31:13
  * @LastEditors: Mr.Mikey
- * @LastEditTime: 2022-08-03 16:22:36
- * @FilePath: \vue3-admin\src\components\common\VSvgIcon.vue
+ * @LastEditTime: 2023-06-19 18:09:50
+ * @FilePath: \vue3-admin\src\components\common\VLocalSvgIcon.vue
 -->
 <template>
   <div class="v-svg-icon">
     <!-- https?:|mailto:|tel:渲染div -->
-    <div v-if="isExternals" :style="styleExternalIcon" class="svg-external-icon svg-icon" />
+    <div v-if="isExternals" :style="styleExternalIcon" class="local-svg-external-icon local-svg-icon" />
     <!-- svg格式渲染svg标签 -->
     <svg v-else :class="svgClass" aria-hidden="true">
       <use :xlink:href="iconName" />
@@ -39,9 +39,9 @@ const isExternals = computed(() => isExternal(props.iconClass))
 const iconName = computed(() => `#icon-${props.iconClass}`)
 const svgClass = computed(() => {
   if (props.className) {
-    return 'svg-icon ' + props.className
+    return 'local-svg-icon ' + props.className
   } else {
-    return 'svg-icon'
+    return 'local-svg-icon'
   }
 })
 const styleExternalIcon = computed(() => ({
@@ -51,7 +51,7 @@ const styleExternalIcon = computed(() => ({
 </script>
 
 <style lang="scss" scoped>
-.svg-icon {
+.local-svg-icon {
   width: 1em;
   height: 1em;
   vertical-align: -0.15em;
@@ -60,7 +60,7 @@ const styleExternalIcon = computed(() => ({
   outline: none;
 }
 
-.svg-external-icon {
+.local-svg-external-icon {
   background-color: currentColor;
   mask-size: cover !important;
   display: inline-block;

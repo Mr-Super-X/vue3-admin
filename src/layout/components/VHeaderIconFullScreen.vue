@@ -3,7 +3,7 @@
     <template #content>
       <span>{{ toolTipContent }}</span>
     </template>
-    <v-svg-icon
+    <v-local-svg-icon
       class="icon-fullscreen-box"
       :icon-class="iconClass"
       @click="handleToggle"

@@ -38,6 +38,6 @@ declare module '@vue/runtime-core' {
     IEpUser: typeof import('~icons/ep/user')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    VSvgIcon: typeof import('./src/components/common/VSvgIcon.vue')['default']
+    VLocalSvgIcon: typeof import('./src/components/common/VLocalSvgIcon.vue')['default']
   }
 }
