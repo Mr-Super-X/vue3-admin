@@ -86,6 +86,7 @@ npm run dev
   - 支持自动引入路由
 
 - 组件
+  - 支持自动注册全局组件
   - 支持自动引入ElementPlus Icon
   - 支持自动引入本地svg图标
 ```

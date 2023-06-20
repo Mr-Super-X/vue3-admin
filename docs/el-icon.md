@@ -2,7 +2,21 @@
 
 ## 全量
 
-为了方便使用，已从 @element-plus/icons-vue 中导入所有图标并进行全局注册，这一步是在 `src/plugins/elementPlusIconPlugin.ts` 中完成的。用法直接参考 [官方文档](https://element-plus.org/zh-CN/component/icon.html#%E4%BD%BF%E7%94%A8%E5%9B%BE%E6%A0%87) 即可。
+为了方便使用，已从 @element-plus/icons-vue 中导入所有图标并进行全局注册，这一步是在 `src/plugins/elementPlusIconPlugin.ts` 中完成的。已封装 `VElementIcon` 全局组件，用法示例：
+
+```html
+<v-element-icon name="i-ep-Location" />
+
+<!-- 或者 -->
+
+<el-icon>
+  <i-ep-Location />
+</el-icon>
+```
+
+> 注意前缀是 **【i-ep-】** 后面接上图标名称大写开头的驼峰单词，与官方文档保持一致
+
+官方文档：https://element-plus.org/zh-CN/component/icon.html#%E4%BD%BF%E7%94%A8%E5%9B%BE%E6%A0%87
 
 如你不需要全局使用，请删除 `src/plugins/index.ts` 中 `elementPlusIconPlugin` 的相关配置，并将使用到的全局图标替换成按需使用方式或其它方式。
 
