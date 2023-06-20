@@ -1,5 +1,5 @@
 <!--
- * @Description: svg组件，在src/assets/icons/svg文件夹下添加svg后调用该组件即可使用
+ * @Description: svg组件，在src/assets/icons/svg文件夹下添加.svg文件后调用该组件即可使用
  * @Tips: 亲，记得补全功能描述哦~  (ღ˘⌣˘ღ)
  * @Author: Mr.Mikey
  * @Contact: 1303232158@qq.com
@@ -24,7 +24,7 @@ import { computed } from 'vue'
 import { isExternal } from '@/utils/validate'
 const props = defineProps({
   // 对应assets/icons/svg目录下的文件名
-  iconClass: {
+  name: {
     type: String,
     required: true,
   },
@@ -35,8 +35,8 @@ const props = defineProps({
 })
 
 // 根据用户传入的iconClass判断文件扩展
-const isExternals = computed(() => isExternal(props.iconClass))
-const iconName = computed(() => `#icon-${props.iconClass}`)
+const isExternals = computed(() => isExternal(props.name))
+const iconName = computed(() => `#icon-${props.name}`)
 const svgClass = computed(() => {
   if (props.className) {
     return 'local-svg-icon ' + props.className
@@ -45,8 +45,8 @@ const svgClass = computed(() => {
   }
 })
 const styleExternalIcon = computed(() => ({
-  mask: `url(${props.iconClass}) no-repeat 50% 50%`,
-  '-webkit-mask': `url(${props.iconClass}) no-repeat 50% 50%`,
+  mask: `url(${props.name}) no-repeat 50% 50%`,
+  '-webkit-mask': `url(${props.name}) no-repeat 50% 50%`,
 }))
 </script>
 

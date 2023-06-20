@@ -1,3 +1,13 @@
+<!--
+ * @Description: element-plus icon组件，调用该组件传入i-ep-[icon名称]即可使用，如i-ep-Location
+ * @Tips: 亲，记得补全功能描述哦~  (ღ˘⌣˘ღ)
+ * @Author: Mr.Mikey
+ * @Contact: 1303232158@qq.com
+ * @Date: 2023-06-20 11:00:16
+ * @LastEditors: Mr.Mikey
+ * @LastEditTime: 2023-06-20 11:47:08
+ * @FilePath: \vue3-admin\src\components\common\VElementIcon.vue
+-->
 <template>
   <i class="el-icon" :style="setIconSvgStyle">
     <component :is="getIconName" />

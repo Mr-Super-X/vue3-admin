@@ -2,10 +2,10 @@
 
 ## 使用
 
-所有放在 `src/assets/icons/svg` 目录下的.svg文件均支持直接使用，已封装VLocalSvgIcon全局组件，传入 `icon-class` 即可，icon-class为文件名，如使用文件fullscreen.svg，示例如下：
+所有放在 `src/assets/icons/svg` 目录下的.svg文件均支持直接使用，已封装VLocalSvgIcon全局组件，传入 `name` 即可，name为文件名，如使用文件fullscreen.svg，示例如下：
 
 ```html
-<v-local-svg-icon icon-class="fullscreen" />
+<v-local-svg-icon name="fullscreen" />
 ```
 
 ## 接入
