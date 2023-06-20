@@ -11,7 +11,7 @@ export default [
       isHide: false,
       isAffix: false,
       isIframe: false,
-      icon: 'i-ep-ChatDotSquare',
+      icon: '',
     },
   },
 ]
