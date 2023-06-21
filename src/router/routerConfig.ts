@@ -6,7 +6,8 @@ import dynamicRoutes from './dynamicRoutes' // 引入动态路由
 import Layout from '../layout/index.vue'
 import Login from '@/views/login/routes'
 import Welcome from '@views/welcome/routes'
-import Error from '@/views/error/routes'
+import NotFound from '@/views/404/routes'
+import NotPower from '@/views/401/routes'
 
 /**
  * 建议：路由 path 路径与文件夹名称相同，找文件可浏览器地址找，方便定位文件位置
@@ -30,9 +31,10 @@ export const notFoundAndNoPowerRoutes: Array<RouteRecordRaw> = [
   // 匹配不到的路由重定向到Error
   {
     path: '/:pathMatch(.*)*',
-    redirect: '/error',
+    redirect: '/404',
   },
-  ...Error,
+  ...NotFound,
+  ...NotPower,
 ]
 
 /**
