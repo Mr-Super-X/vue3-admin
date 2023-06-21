@@ -9,7 +9,7 @@
  * @FilePath: \vue3-admin\src\layout\components\VHeaderNav.vue
 -->
 <template>
-  <div class="nav-container">
+  <div class="layout-nav-container">
     <div class="left-area">
       <v-header-icon-collapse />
       <v-header-breadcrumb />
@@ -27,21 +27,3 @@ import VHeaderIconCollapse from './VHeaderIconCollapse.vue'
 import VHeaderIconFullScreen from './VHeaderIconFullScreen.vue'
 import VHeaderUser from './VHeaderUser.vue'
 </script>
-
-<style scoped lang="scss">
-.nav-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 50px;
-  padding: 0 20px;
-  box-shadow: 0 1px 4px rgb(0 21 41 / 8%);
-
-  .left-area,
-  .right-area {
-    display: flex;
-    align-items: center;
-    height: 100%;
-  }
-}
-</style>

@@ -3,9 +3,9 @@
     <template #content>
       <span>{{ toolTipContent }}</span>
     </template>
-    <v-svg-icon
+    <v-local-svg-icon
       class="icon-fullscreen-box"
-      :icon-class="iconClass"
+      :name="iconName"
       @click="handleToggle"
       @mouseenter="visible = true"
       @mouseleave="visible = false"
@@ -21,7 +21,7 @@ import screenfull from 'screenfull'
 const visible = ref(false)
 const isFullscreen = ref(false)
 const toolTipContent = computed(() => (isFullscreen.value ? '退出全屏' : '全屏'))
-const iconClass = computed(() => (isFullscreen.value ? 'exit-fullscreen' : 'fullscreen'))
+const iconName = computed(() => (isFullscreen.value ? 'exit-fullscreen' : 'fullscreen'))
 
 const handleToggle = () => {
   if (!screenfull.isEnabled) {

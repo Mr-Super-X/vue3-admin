@@ -32,12 +32,13 @@ declare module '@vue/runtime-core' {
     ElTabs: typeof import('element-plus/es')['ElTabs']
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
     IEpIphone: typeof import('~icons/ep/iphone')['default']
-    IEpLocation: typeof import('~icons/ep/location')['default']
     IEpPosition: typeof import('~icons/ep/position')['default']
     IEpUnlock: typeof import('~icons/ep/unlock')['default']
     IEpUser: typeof import('~icons/ep/user')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    VElementIcon: typeof import('./src/components/common/VElementIcon.vue')['default']
+    VLocalSvgIcon: typeof import('./src/components/common/VLocalSvgIcon.vue')['default']
     VSvgIcon: typeof import('./src/components/common/VSvgIcon.vue')['default']
   }
 }

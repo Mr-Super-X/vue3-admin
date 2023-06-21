@@ -10,10 +10,9 @@ src/router
 │  ├─ frontend.ts          # 由前端控制路由的配置文件
 │  ├─ dynamicRoutes.ts     # 自动引入路由模块的配置文件
 │  ├─ index.ts             # 路由入口文件（拦截器、权限控制等）
-│  ├─ noNeedPowerConfig.ts # 不需要鉴权的路由name配置文件
+│  ├─ noNeedPowerConfig.ts # 不需要鉴权的路由name配置文件（所有环境均生效）
 │  ├─ routerConfig.ts      # 静态路由配置文件（layout、login、404、common等）
-│  ├─ whitelist.ts         # 白名单配置文件
-│  └─ common.ts            # 公共函数
+│  └─ whitelist.ts         # 白名单配置文件
 ```
 
 
@@ -36,7 +35,10 @@ src/router
 
 在webpack中，借助了 `require.context` 这个api，vite中也有相应的plugin可以实现，如：vite-plugin-require-context 。
 
-自动引入路由功能放在了 **dynamicRoutes.ts** 中，会将 `src/views/modules/` 目录中所有的 **routes.ts** 文件引入，这一步是递归的（每一层目录只要配置了routes.ts均生效），因此每创建一个页面，都应该遵循**Domain Style工程范式**，专注于横向的功能拆分和扩展，视图结构遵循如下规范：
+自动引入路由功能放在了 **dynamicRoutes.ts** 中，会将 `src/views/modules/` 目录中所有的 **routes.ts** 文件引入，这一步是递归的（每一层目录只要配置了routes.ts均生效）。
+
+因此每创建一个页面，都应该遵循**Domain Style工程范式**，专注于横向的功能拆分和扩展，视图结构遵循如下规范：
+
 ```
 home                      # 首页文件夹
 ├─ components             # 首页UI组件文件夹
@@ -137,14 +139,13 @@ https://cn.vuejs.org/guide/built-ins/keep-alive.html
 
 #### 一维数组怎么渲染左侧树形菜单？
 
-在 **backend.ts** 和 **frontend.ts** 两个文件中，会将最终得到的动态路由数据dynamicRoutes存入store中，存入的数据经过 **common.ts** 中的 **buildRoutesToTree** 方法处理成了树，**处理层级的规则是以路由的path来实现的，因此在routes.ts配置中，你必须以path来作为层级区分**。
+在 **backend.ts** 和 **frontend.ts** 两个文件中，会将最终得到的动态路由数据dynamicRoutes存入store中，存入的数据经过 **src/utils/common.ts** 中的 **buildRoutesToTree** 方法处理成了树，**处理层级的规则是以路由的path来实现的，因此在routes.ts配置中，你必须以path来作为层级区分**。
 
 假设现在有个订单模块，内部有订单列表、订单信息两个页面，那么目录结构应该如下：
 
 
 ```
-views/modules/order
-
+order
 ├─ routes.ts               # 订单模块路由配置
 ├─ orderList               # 订单列表目录
 │  ├─ routes.ts            # 订单列表路由配置
@@ -221,3 +222,9 @@ export default [
   },
 ]
 ```
+
+## 路由白名单
+
+白名单功能被拆分为两个文件，**whitelist.ts** 和 **noNeedPowerConfig.ts**。
+
+目前whitelist配置只在debug模式下生效，会自动将动态路由全部加入白名单，方便调试的时候可以一键启动查看，可根据自己的需求进行修改，请谨慎修改**noNeedPowerConfig.ts**配置，它会对生产环境也生效。

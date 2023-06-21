@@ -1,6 +1,36 @@
 # element-plus icons说明
 
-## 使用
+## 全量
+
+为了方便使用，已从 @element-plus/icons-vue 中导入所有图标并进行全局注册，这一步是在 `src/plugins/elementPlusIconPlugin.ts` 中完成的。已封装 `VElementIcon` 全局组件，用法示例：
+
+```html
+<v-element-icon name="i-ep-Location" />
+
+<!-- 或者 -->
+
+<el-icon>
+  <i-ep-Location />
+</el-icon>
+```
+
+> 注意前缀是 **【i-ep-】** 后面接上图标名称大写开头的驼峰单词，与官方文档保持一致
+
+官方文档：https://element-plus.org/zh-CN/component/icon.html#%E4%BD%BF%E7%94%A8%E5%9B%BE%E6%A0%87
+
+如你不需要全局使用，请删除 `src/plugins/index.ts` 中 `elementPlusIconPlugin` 的相关配置，并将使用到的全局图标替换成按需使用方式或其它方式。
+
+
+**也可以使用VSvgIcon组件，该组件聚合了element-plus icon和local svg，用法与VElementIcon一致，如：**
+
+```html
+<v-svg-icon name="i-ep-Location" />
+```
+
+
+## 按需
+
+### 使用
 
 已接入unplugin-icons按需引入icon功能，如需使用element-plus自带的icon，在组件中直接使用即可，示例：
 
@@ -19,7 +49,7 @@ import { Edit } from '@element-plus/icons-vue'
 <el-button type="success" size="small" :icon="Edit" round>新增用户</el-button>
 ```
 
-## 接入
+### 接入
 
 安装依赖
 

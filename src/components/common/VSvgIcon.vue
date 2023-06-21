@@ -1,68 +1,92 @@
 <!--
- * @Description: svg组件，在src/assets/icons/svg文件夹下添加svg后调用该组件即可使用
+ * @Description: 聚合svg组件，可使用本地图标、element-plus icon等
  * @Tips: 亲，记得补全功能描述哦~  (ღ˘⌣˘ღ)
  * @Author: Mr.Mikey
  * @Contact: 1303232158@qq.com
- * @Date: 2022-07-14 00:31:13
+ * @Date: 2023-06-20 16:42:53
  * @LastEditors: Mr.Mikey
- * @LastEditTime: 2022-08-03 16:22:36
+ * @LastEditTime: 2023-06-20 17:38:15
  * @FilePath: \vue3-admin\src\components\common\VSvgIcon.vue
 -->
 <template>
-  <div class="v-svg-icon">
-    <!-- https?:|mailto:|tel:渲染div -->
-    <div v-if="isExternals" :style="styleExternalIcon" class="svg-external-icon svg-icon" />
-    <!-- svg格式渲染svg标签 -->
-    <svg v-else :class="svgClass" aria-hidden="true">
-      <use :xlink:href="iconName" />
-    </svg>
-  </div>
+  <component :is="component.componentId" :name="component.name" v-bind="$attrs" />
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-import { isExternal } from '@/utils/validate'
+import { ref, watch } from 'vue'
+// import VLocalSvgIcon from './VLocalSvgIcon.vue'
+// import VElementIcon from './VElementIcon.vue'
+
 const props = defineProps({
-  // 对应assets/icons/svg目录下的文件名
-  iconClass: {
+  /**
+   * 示例：
+   * 本地图标请传name="local-文件名"
+   * element icon请传name="i-ep-icon名"
+   *
+   * 注：可查看docs目录下相关文件说明
+   */
+  name: {
     type: String,
     required: true,
   },
-  className: {
-    type: String,
-    default: '',
-  },
 })
 
-// 根据用户传入的iconClass判断文件扩展
-const isExternals = computed(() => isExternal(props.iconClass))
-const iconName = computed(() => `#icon-${props.iconClass}`)
-const svgClass = computed(() => {
-  if (props.className) {
-    return 'svg-icon ' + props.className
-  } else {
-    return 'svg-icon'
-  }
+// 定义变量内容
+
+// 组件配置
+const components = {
+  // 本地图标
+  'local-': {
+    componentId: 'VLocalSvgIcon',
+    name: getLocalIconName(props.name),
+  },
+  // element-plus icons
+  'i-ep-': {
+    componentId: 'VElementIcon',
+    name: props.name,
+  },
+  // 扩展其他类型可在此处进行配置
+}
+
+// 当前组件
+const component = ref({
+  componentId: 'VElementIcon', // 初始组件设为VElementIcon,
+  name: '', // 初始图标
 })
-const styleExternalIcon = computed(() => ({
-  mask: `url(${props.iconClass}) no-repeat 50% 50%`,
-  '-webkit-mask': `url(${props.iconClass}) no-repeat 50% 50%`,
-}))
+
+/**
+ * 截取local svg name
+ * @param icon string routes配置中的meta.icon
+ */
+function getLocalIconName(icon: string) {
+  return icon.split('local-')[1]
+}
+
+/**
+ * 查找相应组件配置
+ * @param name iconName
+ */
+function findComponent(name: string) {
+  // 查找对应的配置进行赋值
+  Object.keys(components).forEach(key => {
+    if (name.startsWith(key)) {
+      component.value = components[key]
+    }
+  })
+}
+
+/**
+ * 监听props.name，根据配置渲染相应的组件
+ */
+watch(
+  () => props.name,
+  name => {
+    findComponent(name)
+  },
+  {
+    immediate: true,
+  }
+)
 </script>
 
-<style lang="scss" scoped>
-.svg-icon {
-  width: 1em;
-  height: 1em;
-  vertical-align: -0.15em;
-  fill: currentColor;
-  overflow: hidden;
-  outline: none;
-}
-
-.svg-external-icon {
-  background-color: currentColor;
-  mask-size: cover !important;
-  display: inline-block;
-}
-</style>
+<style scoped></style>

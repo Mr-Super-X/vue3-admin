@@ -12,7 +12,7 @@ export default [
       isHide: false,
       isAffix: false,
       isIframe: false,
-      icon: '',
+      icon: 'i-ep-Goods',
     },
   },
 ]
