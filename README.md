@@ -266,6 +266,10 @@ yarn commit命令运行效果如下：
 
 ### 🌟 Star History [![Star History Chart](https://api.star-history.com/svg?repos=Mr-Super-X/vue3-admin&type=Date)](https://star-history.com/#Mr-Super-X/vue3-admin&Date)
 
+### 👨‍💻 Maintainers
+
+[@JP.Chen](https://github.com/Mr-Super-X)
+
 ### 💞 Contributors
 
 [![Contributors](https://contrib.rocks/image?repo=Mr-Super-X/vue3-admin)](https://github.com/Mr-Super-X/vue3-admin/graphs/contributors)
@@ -273,6 +277,6 @@ yarn commit命令运行效果如下：
 
 ## License
 
-[MIT](https://opensource.org/licenses/MIT)
+<!-- [MIT](https://opensource.org/licenses/MIT) -->
 
-Copyright (c) 2023, Mr.Mikey
+[MIT](LICENSE) © JP.Chen
