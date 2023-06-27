@@ -256,12 +256,14 @@ yarn commit命令运行效果如下：
 - <a href="https://gitee.com/lyt-top/vue-next-admin" target="_blank">@vue-next-admin</a>
 - <a href="https://github.com/PanJiaChen/vue-element-admin" target="_blank">@vue-element-admin</a>
 
-## 附上一份我自己总结的git命令指南
+### 附上一份我自己总结的git命令指南
 包含git日常使用的详细操作命令，有需要可以自取
 
 [git指南png文件](git_doc.png)
 
 [git指南xmind文件](git_doc.xmind)
+
+### 🌟 Star History [![Star History Chart](https://api.star-history.com/svg?repos=Mr-Super-X/vue3-admin&type=Date)](https://star-history.com/#Mr-Super-X/vue3-admin&Date)
 
 
 ## License
