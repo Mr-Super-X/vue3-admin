@@ -1,5 +1,6 @@
 <!-- [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) -->
 
+
 <p align="center">
   <!-- <a href="https://github.com/Mr-Super-X/vue3-admin/actions"><img allt="checks" src="https://badgen.net/github/checks/Mr-Super-X/vue3-admin"/></a> -->
   <a href="https://vercel.com/mr-super-x/vue3-admin/deployments?status=ready"><img src="https://img.shields.io/circleci/project/github/vuejs/vue/dev.svg?sanitize=true" alt="Build Status"></a>
@@ -21,21 +22,21 @@
   </a>
 </p>
 
-# vue3-admin
+#  vue3-admin
 
-## 简介
+## 🗨️ 简介
 
 [vue3-admin](https://vue3-admin-beta.vercel.app/#/home)是一个后台前端解决方案，基于[Vue3](https://v3.cn.vuejs.org/) + [Element-plus](https://element-plus.gitee.io/zh-CN/) + [Webpack5](https://www.webpackjs.com/concepts/) + [Typescript](https://www.tslang.cn/) + [Pinia](https://pinia.web3doc.top/) + [Axios](http://www.axios-js.com/zh-cn/docs/) + [Scss](https://www.sass.hk/)搭建。使用[EditorConfig](https://editorconfig.org) + [Prettier](https://www.prettier.cn/) + [ESLint](http://eslint.cn/)搭建项目中统一的代码风格，使用[commitizen](https://github.com/commitizen) + [lint-staged](https://github.com/okonet/lint-staged) + [commitlint](https://github.com/conventional-changelog/commitlint)统一代码提交规范，支持[release-it](https://github.com/release-it/release-it)自动化发布符合[Semantic Versioning](https://semver.org/)规范的版本，自动生成[changelog](https://github.com/release-it/release-it/blob/master/docs/changelog.md)文档等功能。
 
 
-## 在线预览
+## 💻 在线预览
 
-- [在线demo演示](https://vue3-admin-beta.vercel.app/#/home)
+- [在线demo演示](https://vue3-admin-beta.vercel.app/#/home) 🚫
 
 > Vercel被墙了，请克隆项目后启动查看
 
 
-## 开发
+## 💡 开发
 
 ```bash
 # 克隆项目
@@ -55,7 +56,7 @@ npm run dev
 ```
 
 
-## 功能
+## 🚀 功能
 
 ```
 - 多环境构建
@@ -91,7 +92,7 @@ npm run dev
   - 支持自动引入本地svg图标
 ```
 
-### 目录结构
+### 📝 目录结构
 
 ```
 vue3-admin
@@ -145,7 +146,7 @@ vue3-admin
 ```
 
 
-## 视图结构说明
+## 💬 视图结构说明
 
 1. 所有的视图都放在views目录中，对应的模块视图放在views/modules/模块文件夹
 2. ts类型在types目录中新建xxx.d.ts文件进行管理
@@ -168,7 +169,7 @@ home                      # 首页文件夹
 └─ scripts.ts             # 首页其他脚本函数配置
 ```
 
-## npm scripts说明（以下命令使用npm run或yarn均可）
+## 💬 npm scripts说明（以下命令使用npm run或yarn均可）
 ```bash
 # 启动项目
 yarn serve
@@ -233,7 +234,7 @@ yarn commit命令运行效果如下：
 ![img](https://github.com/Mr-Super-X/assets-resouece/blob/main/images/1653480834.jpg)
 
 
-## 其他说明
+## 📚 其他说明
 
 - [路由模块说明](/docs/router.md)
 - [el-icon使用说明](/docs/el-icon.md)
@@ -241,7 +242,7 @@ yarn commit命令运行效果如下：
 - [自动注册全局组件功能说明](/docs/auto-global-component.md)
 
 
-## 浏览器支持
+## 🌎 浏览器支持
 
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)</br>Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)</br>Safari |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -256,12 +257,18 @@ yarn commit命令运行效果如下：
 - <a href="https://gitee.com/lyt-top/vue-next-admin" target="_blank">@vue-next-admin</a>
 - <a href="https://github.com/PanJiaChen/vue-element-admin" target="_blank">@vue-element-admin</a>
 
-## 附上一份我自己总结的git命令指南
+### 📝 附上一份我自己总结的git命令指南
 包含git日常使用的详细操作命令，有需要可以自取
 
 [git指南png文件](git_doc.png)
 
 [git指南xmind文件](git_doc.xmind)
+
+### 🌟 Star History [![Star History Chart](https://api.star-history.com/svg?repos=Mr-Super-X/vue3-admin&type=Date)](https://star-history.com/#Mr-Super-X/vue3-admin&Date)
+
+### 💞 Contributors
+
+[![Contributors](https://contrib.rocks/image?repo=Mr-Super-X/vue3-admin)](https://github.com/Mr-Super-X/vue3-admin/graphs/contributors)
 
 
 ## License
