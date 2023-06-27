@@ -1,5 +1,4 @@
-<!-- [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) -->
-
+<p align="center"><a href="https://github.com/Mr-Super-X/vue3-admin" target="_blank" rel="noopener noreferrer"><img width="200" src="src/assets/images/logo.png" alt="vue3-admin-logo"></a></p>
 
 <p align="center">
   <!-- <a href="https://github.com/Mr-Super-X/vue3-admin/actions"><img allt="checks" src="https://badgen.net/github/checks/Mr-Super-X/vue3-admin"/></a> -->
