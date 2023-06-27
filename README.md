@@ -1,12 +1,5 @@
 <!-- [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) -->
 
-<p align="center">
- <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Pacifico&size=30&duration=2500&pause=500&center=true&vCenter=true&width=435&lines=Hi+there+%F0%9F%91%8B;I+am+Chen+%F0%9F%98%B8" alt="Typing SVG" /></a>
-</p>
-
-<p align="center">
-An frontend developer, who is currently learning frontend technology.
-</p>
 
 <p align="center">
   <!-- <a href="https://github.com/Mr-Super-X/vue3-admin/actions"><img allt="checks" src="https://badgen.net/github/checks/Mr-Super-X/vue3-admin"/></a> -->
@@ -63,7 +56,7 @@ npm run dev
 ```
 
 
-## 💡 功能
+## 🚀 功能
 
 ```
 - 多环境构建
@@ -99,7 +92,7 @@ npm run dev
   - 支持自动引入本地svg图标
 ```
 
-### 💡 目录结构
+### 📝 目录结构
 
 ```
 vue3-admin
