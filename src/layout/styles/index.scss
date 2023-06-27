@@ -110,12 +110,22 @@
 
     .layout-logo {
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100px;
-      font-size: 20px;
-      font-weight: bold;
       border-bottom: 1px solid var(--next-border-color-light);
+
+      img {
+        width: 50px;
+        margin-bottom: 5px;
+        cursor: pointer;
+      }
+      .title {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+      }
     }
 
     // 导航容器

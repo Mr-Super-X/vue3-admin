@@ -32,7 +32,6 @@ declare module '@vue/runtime-core' {
     ElTabs: typeof import('element-plus/es')['ElTabs']
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
     IEpIphone: typeof import('~icons/ep/iphone')['default']
-    IEpLocation: typeof import('~icons/ep/location')['default']
     IEpPosition: typeof import('~icons/ep/position')['default']
     IEpUnlock: typeof import('~icons/ep/unlock')['default']
     IEpUser: typeof import('~icons/ep/user')['default']
