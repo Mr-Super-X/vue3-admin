@@ -7,7 +7,7 @@ import { topRoutes, notFoundAndNoPowerRoutes, commonRoutes } from './routerConfi
 import { useRouteStore } from '@store/modules/route'
 import { deepClone } from '@/utils/common'
 import { get } from '@/request/methods'
-import { buildRoutesToTree } from '@utils/common'
+import { buildRoutesToTree } from '@utils/route'
 
 /**
  * 后端控制路由菜单

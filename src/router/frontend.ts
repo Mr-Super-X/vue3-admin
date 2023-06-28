@@ -1,7 +1,7 @@
 import dynamicRoutes from './dynamicRoutes' // 引入动态路由
 import pinia from '@store/index'
 import { useRouteStore } from '@store/modules/route'
-import { buildRoutesToTree } from '@utils/common'
+import { buildRoutesToTree } from '@utils/route'
 
 /**
  * 前端控制路由菜单

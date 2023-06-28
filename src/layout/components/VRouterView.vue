@@ -15,13 +15,12 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useSystemStore } from '@store/modules/system'
+import { useKeepAliveNamesStore } from '@store/modules/keepAliveNames'
 import { storeToRefs } from 'pinia'
 import { useThemeConfigStore } from '@store/modules/themeConfig'
 
-// 定义变量
-const systemStore = useSystemStore()
 // 定义变量内容
+const keepAliveNamesStore = useKeepAliveNamesStore()
 const themeConfigStore = useThemeConfigStore()
 const { themeConfig } = storeToRefs(themeConfigStore)
 
@@ -31,7 +30,7 @@ const setTransitionName = computed(() => {
 })
 
 // 获取组件缓存列表(name值)
-const keepAliveIncludes = computed(() => systemStore.keepAliveIncludes)
+const keepAliveIncludes = computed(() => keepAliveNamesStore.keepAliveNames)
 </script>
 
 <style scoped></style>
