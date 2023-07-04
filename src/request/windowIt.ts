@@ -15,6 +15,10 @@ function hash(params: any): string {
  * @param method string 请求方法（get/post/...） 非必传
  * @returns promise 返回值与直接调用axios的返回一致，包含config、data、headers、request、status、statusText等信息，
  * 查看axios响应结构文档：http://www.axios-js.com/zh-cn/docs/#%E5%93%8D%E5%BA%94%E7%BB%93%E6%9E%84
+ * @example
+ * const POST = windowIt(axios.post, 50, 'post')
+ *
+ * return POST(options)
  */
 function windowIt(f: any, time: number, method?: string) {
   let w: IWindowIt = {}
