@@ -21,7 +21,7 @@ export async function initBackendControlRoutes() {
   const result = await getRoutesAndResetRoutes()
   // 4、调用router.addRoute动态添加路由
   await setAddRoute(result)
-  // 5、将路由存入pinia routesList中，刷新页面时直接拿store中的数据来进行判断数据是否丢失，丢失后重新获取
+  // 5、将路由存入pinia中，刷新页面时直接拿store中的数据来进行判断数据是否丢失，丢失后重新获取
   await saveRoutesToStore(result)
 
   // 6、无权限时返回true

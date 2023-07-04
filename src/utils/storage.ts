@@ -63,6 +63,16 @@ export const Session = {
   // 移除全部临时缓存
   clear() {
     Cookies.remove('token')
+    clearCookies()
     window.sessionStorage.clear()
   },
+}
+
+/**
+ * 清除所有cookie
+ */
+export function clearCookies() {
+  document.cookie.split(';').forEach(c => {
+    document.cookie = c.replace(/^ +/, '').replace(/=.*/, '=;expires=' + new Date().toUTCString() + ';path=/')
+  })
 }

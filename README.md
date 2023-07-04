@@ -6,9 +6,12 @@
   <a href="https://github.com/Mr-Super-X/vue3-admin"><img alt="stars" src="https://badgen.net/github/stars/Mr-Super-X/vue3-admin"/></a>
   <a href="https://github.com/Mr-Super-X/vue3-admin"><img alt="forks" src="https://badgen.net/github/forks/Mr-Super-X/vue3-admin"/></a>
   <a href="./LICENSE"><img alt="MIT License" src="https://badgen.net/github/license/Mr-Super-X/vue3-admin"/></a>
+  <a href="https://www.codefactor.io/repository/github/mr-super-x/vue3-admin" rel="nofollow">
+    <img src="https://img.shields.io/codefactor/grade/github/mr-super-x/vue3-admin?label=%E4%BB%A3%E7%A0%81%E8%B4%A8%E9%87%8F" alt="">
+  </a>
   <a href="http://commitizen.github.io/cz-cli/"><img alt="Commitizen friendly" src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg"/></a>
   <a href="https://v3.vuejs.org/" target="_blank">
-    <img src="https://img.shields.io/badge/vue-vue3.x-blue" alt="vue">
+    <img src="https://img.shields.io/badge/vue-3.x-blue" alt="vue">
   </a>
   <a href="https://webpack.docschina.org/" target="_blank">
       <img src="https://img.shields.io/badge/webpack-5.x-blue" alt="webpack">

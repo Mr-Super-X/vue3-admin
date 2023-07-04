@@ -2,6 +2,7 @@ import dynamicRoutes from './dynamicRoutes' // 引入动态路由
 import pinia from '@store/index'
 import { useRouteStore } from '@store/modules/route'
 import { buildRoutesToTree } from '@utils/route'
+import { useTagsViewRoutesStore } from '@store/modules/tagsViewRoutes'
 
 /**
  * 前端控制路由菜单
@@ -9,7 +10,7 @@ import { buildRoutesToTree } from '@utils/route'
 export async function initFrontendControlRoutes() {
   // TODO 1、同步获取用户信息，将用户信息存入pinia
   // TODO 2、查看用户信息中是否有登录权限
-  // 3、将路由存入pinia routesList中，刷新页面时直接拿store中的数据来进行判断数据是否丢失，丢失后重新获取
+  // 3、将路由存入pinia中，刷新页面时直接拿store中的数据来进行判断数据是否丢失，丢失后重新获取
   await saveRoutesToStore()
 
   // 4、无权限时返回true
@@ -27,4 +28,9 @@ export async function saveRoutesToStore() {
   routeStore.setRoutesTree(routes)
   // 保存过滤掉meta.isHide为true的数据
   routeStore.setFilterHideRoutesTree(routes)
+
+  // 保存数据到tagsViewRoutes store中，渲染tags时需要
+  const tagsViewRoutesStore = useTagsViewRoutesStore(pinia)
+  const initTags = tagsViewRoutesStore.getInitTagsViewRoutes()
+  tagsViewRoutesStore.setTagsViewRoutes(initTags)
 }

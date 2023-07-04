@@ -22,6 +22,9 @@ export function verifyENV(env: string): boolean {
  * @param pathStr string 格式如：/src/components/Demo.vue
  * @param ext boolean 默认false，不带后缀，开启后返回带后缀的文件名
  * @returns string 返回Demo.vue | Demo
+ * @example
+ * getFilename('/src/components/Demo.vue')
+ * getFilename('/src/components/Demo.vue', true)
  */
 export function getFilename(pathStr: string, ext = false): string {
   if (ext) {

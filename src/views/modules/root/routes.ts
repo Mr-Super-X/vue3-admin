@@ -9,7 +9,7 @@ export default [
       title: '测试根模块', // 路由中文名称
       isLink: '',
       isHide: false,
-      isAffix: false,
+      isAffix: true,
       isIframe: false,
       icon: 'i-ep-Printer',
     },
