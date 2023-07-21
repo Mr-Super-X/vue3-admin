@@ -26,7 +26,9 @@
     "release:detail": "release-it --dry-run",
     "release:major": "release-it major",
     "release:minor": "release-it minor",
-    "release:patch": "release-it patch"
+    "release:patch": "release-it patch",
+    "check-node-version": "babel-node check-node-version.mjs",
+    "postinstall": "npm run check-node-version"
   },
   "dependencies": {
     "axios": "^1.4.0",
@@ -41,6 +43,7 @@
     "vue-router": "^4.2.2"
   },
   "devDependencies": {
+    "@babel/node": "^7.22.6",
     "@commitlint/cli": "^17.6.5",
     "@commitlint/config-conventional": "^17.6.5",
     "@iconify-json/ep": "^1.1.10",
@@ -80,6 +83,7 @@
     "release-it": "^15.10.3",
     "sass": "^1.62.1",
     "sass-loader": "^13.3.1",
+    "semver": "^7.5.4",
     "serve": "^14.2.0",
     "svg-sprite-loader": "^6.0.11",
     "ts-jest": "^29.1.0",

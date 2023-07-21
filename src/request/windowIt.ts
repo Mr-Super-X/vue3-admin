@@ -89,6 +89,7 @@ function windowIt(f: any, time: number, method?: string) {
               .finally(() => {
                 // 无论请求成功还是失败，完成后重置状态
                 flag = false
+                // 只要请求完成则清空缓存对象，这样才不会浪费内存
                 w = {}
               })
           })
