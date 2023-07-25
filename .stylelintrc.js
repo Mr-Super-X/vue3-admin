@@ -13,6 +13,7 @@ module.exports = {
     'keyframes-name-pattern': null, // 设置keyframes动画名选择器不遵循 kebab-case
     'custom-property-pattern': null, // 设置自定义属性如--next-bg-menuBar不遵循 kebab-case
     'at-rule-no-unknown': null, // 关闭使用@use引入文件的错误提示
-    'scss/at-extend-no-missing-placeholder': null, // 设置scss @extend继承错误提示
+    'scss/at-extend-no-missing-placeholder': null, // 关闭scss @extend继承错误提示
+    'media-query-no-invalid': null, // 关闭媒体查询没有默认值的错误提示
   },
 }
