@@ -171,15 +171,15 @@
       }
     }
 
-    // 面包屑
-    .layout-navbars-breadcrumb {
-      padding-top: 2px;
-    }
-
     // tags
     .layout-navbar-tags {
       height: 30px;
       border-bottom: 1px solid var(--next-border-color-light);
+    }
+
+    // 面包屑
+    .layout-navbars-breadcrumb {
+      padding-top: 2px;
     }
   }
 }
