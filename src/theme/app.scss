@@ -1,7 +1,7 @@
 /* 初始化样式
 ------------------------------- */
 :root {
-	--next-color-white: #ffffff;
+	--next-color-white: #fff;
 	--next-bg-main-color: #f8f8f8;
 	--next-bg-color: #f5f5ff;
 	--next-border-color-light: #f1f2f3;
@@ -10,8 +10,8 @@
 	--next-color-warning-lighter: #fdf6ec;
 	--next-color-danger-lighter: #fef0f0;
 	--next-color-dark-hover: #0000001a;
-	--next-color-menu-hover: rgba(0, 0, 0, 0.2);
-	--next-color-user-hover: rgba(0, 0, 0, 0.04);
+	--next-color-menu-hover: rgb(0 0 0 / 20%);
+	--next-color-user-hover: rgb(0 0 0 / 4%);
 	--next-color-setting-main: #e9eef3;
 	--next-color-setting-aside: #d3dce6;
 	--next-color-setting-header: #b3c0d1;
@@ -20,18 +20,18 @@
 html,
 body,
 #app {
-	margin: 0;
-	padding: 0;
+	position: relative;
 	width: 100%;
 	height: 100%;
-	font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimSun, sans-serif;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+	font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif;
+	font-size: 14px;
 	font-weight: 400;
+	background-color: var(--next-bg-main-color);
 	-webkit-font-smoothing: antialiased;
 	-webkit-tap-highlight-color: transparent;
-	background-color: var(--next-bg-main-color);
-	font-size: 14px;
-	overflow: hidden;
-	position: relative;
 }
 
 
@@ -40,26 +40,33 @@ body,
 .flex {
 	display: flex;
 }
+
 .flex-auto {
 	flex: 1;
 	overflow: hidden;
 }
+
 .flex-center {
 	@extend .flex;
+
 	flex-direction: column;
 	width: 100%;
 	overflow: hidden;
 }
+
 .flex-margin {
 	margin: auto;
 }
+
 .flex-warp {
 	display: flex;
 	flex-wrap: wrap;
 	align-content: flex-start;
 	margin: 0 -5px;
+
 	.flex-warp-item {
 		padding: 5px;
+
 		.flex-warp-item-box {
 			width: 100%;
 			height: 100%;
@@ -73,14 +80,17 @@ body,
 .cursor-default {
 	cursor: default;
 }
+
 // 帮助
 .cursor-help {
 	cursor: help;
 }
+
 // 手指
 .cursor-pointer {
 	cursor: pointer;
 }
+
 // 移动
 .cursor-move {
 	cursor: move;
@@ -91,15 +101,19 @@ body,
 .w100 {
 	width: 100%;
 }
+
 .h100 {
 	height: 100%;
 }
+
 .vh100 {
 	height: 100vh;
 }
+
 .max100vh {
 	max-height: 100vh;
 }
+
 .min100vh {
 	min-height: 100vh;
 }
@@ -109,15 +123,19 @@ body,
 .color-primary {
 	color: var(--el-color-primary);
 }
+
 .color-success {
 	color: var(--el-color-success);
 }
+
 .color-warning {
 	color: var(--el-color-warning);
 }
+
 .color-danger {
 	color: var(--el-color-danger);
 }
+
 .color-info {
 	color: var(--el-color-info);
 }

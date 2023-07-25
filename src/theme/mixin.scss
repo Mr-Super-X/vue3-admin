@@ -1,18 +1,18 @@
 /* 单行文本溢出省略
 ------------------------------- */
 @mixin singleline-text-ellipsis() {
-  text-overflow: ellipsis;
   overflow: hidden;
+  text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 /* 多行文本溢出省略
 ------------------------------- */
 @mixin multiline-text-ellipsis($line: 2) {
-  overflow: hidden;
-  word-break: break-all;
-  text-overflow: ellipsis;
   display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
   -webkit-line-clamp: $line;
   -webkit-box-orient: vertical;
 }
