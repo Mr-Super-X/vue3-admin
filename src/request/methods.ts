@@ -8,6 +8,17 @@ import { WINDOW_IT_TIME } from '@constant/index'
  * @param config object 配置对象，参考axios.config，文档链接：http://www.axios-js.com/zh-cn/docs/#%E8%AF%B7%E6%B1%82%E9%85%8D%E7%BD%AE
  * @returns promise 返回值与直接调用axios的返回一致，包含config、data、headers、request、status、statusText等信息，
  * 查看axios响应结构文档：http://www.axios-js.com/zh-cn/docs/#%E5%93%8D%E5%BA%94%E7%BB%93%E6%9E%84
+ * @example
+ * import { request } from '@/request/index'
+ *
+ * request({
+ *   url: '/api/demo',
+ *   method: 'post',
+ *   data: {}, // post请求传data
+ *   ...,
+ * }).then(res => {
+ *
+ * })
  */
 export const request = (config: AxiosRequestConfig) => {
   const options: AxiosRequestConfig = {
@@ -26,6 +37,12 @@ export const request = (config: AxiosRequestConfig) => {
  * @param config object 配置覆盖对象 非必传，参考axios.config，文档链接：http://www.axios-js.com/zh-cn/docs/#%E8%AF%B7%E6%B1%82%E9%85%8D%E7%BD%AE
  * @returns promise 返回值与直接调用axios的返回一致，包含config、data、headers、request、status、statusText等信息，
  * 查看axios响应结构文档：http://www.axios-js.com/zh-cn/docs/#%E5%93%8D%E5%BA%94%E7%BB%93%E6%9E%84
+ * @example
+ * import { get } from '@/request/index'
+ *
+ * get('/api/demo').then(res => {})
+ * get('/api/demo', params).then(res => {})
+ * get('/api/demo', params, config).then(res => {})
  */
 export const get = (url: string, params?: object, config?: AxiosRequestConfig) => {
   const method = 'get'
@@ -46,6 +63,12 @@ export const get = (url: string, params?: object, config?: AxiosRequestConfig) =
  * @param config object 配置覆盖对象 非必传，参考axios.config，文档链接：http://www.axios-js.com/zh-cn/docs/#%E8%AF%B7%E6%B1%82%E9%85%8D%E7%BD%AE
  * @returns promise 返回值与直接调用axios的返回一致，包含config、data、headers、request、status、statusText等信息，
  * 查看axios响应结构文档：http://www.axios-js.com/zh-cn/docs/#%E5%93%8D%E5%BA%94%E7%BB%93%E6%9E%84
+ * @example
+ * import { post } from '@/request/index'
+ *
+ * post('/api/demo').then(res => {})
+ * post('/api/demo', data).then(res => {})
+ * post('/api/demo', data, config).then(res => {})
  */
 export const post = (url: string, data?: object, config?: AxiosRequestConfig) => {
   const method = 'post'
@@ -66,6 +89,12 @@ export const post = (url: string, data?: object, config?: AxiosRequestConfig) =>
  * @param config object 配置覆盖对象 非必传，参考axios.config，文档链接：http://www.axios-js.com/zh-cn/docs/#%E8%AF%B7%E6%B1%82%E9%85%8D%E7%BD%AE
  * @returns promise 返回值与直接调用axios的返回一致，包含config、data、headers、request、status、statusText等信息，
  * 查看axios响应结构文档：http://www.axios-js.com/zh-cn/docs/#%E5%93%8D%E5%BA%94%E7%BB%93%E6%9E%84
+ * @example
+ * import { put } from '@/request/index'
+ *
+ * put('/api/demo').then(res => {})
+ * put('/api/demo', data).then(res => {})
+ * put('/api/demo', data, config).then(res => {})
  */
 export const put = (url: string, data?: object, config?: AxiosRequestConfig) => {
   const method = 'put'
@@ -81,11 +110,18 @@ export const put = (url: string, data?: object, config?: AxiosRequestConfig) => 
 
 /**
  * delete请求方法
+ * @description delete是系统关键字，因此用了deletes来重命名
  * @param url string 请求url 必传
  * @param params object 请求参数对象 非必传
  * @param config object 配置覆盖对象 非必传，参考axios.config，文档链接：http://www.axios-js.com/zh-cn/docs/#%E8%AF%B7%E6%B1%82%E9%85%8D%E7%BD%AE
  * @returns promise 返回值与直接调用axios的返回一致，包含config、data、headers、request、status、statusText等信息，
  * 查看axios响应结构文档：http://www.axios-js.com/zh-cn/docs/#%E5%93%8D%E5%BA%94%E7%BB%93%E6%9E%84
+ * @example
+ * import { deletes } from '@/request/index'
+ *
+ * deletes('/api/demo').then(res => {})
+ * deletes('/api/demo', params).then(res => {})
+ * deletes('/api/demo', params, config).then(res => {})
  */
 export const deletes = (url: string, params?: object, config?: AxiosRequestConfig) => {
   const method = 'delete'
@@ -106,6 +142,12 @@ export const deletes = (url: string, params?: object, config?: AxiosRequestConfi
  * @param config object 配置覆盖对象 非必传，参考axios.config，文档链接：http://www.axios-js.com/zh-cn/docs/#%E8%AF%B7%E6%B1%82%E9%85%8D%E7%BD%AE
  * @returns promise 返回值与直接调用axios的返回一致，包含config、data、headers、request、status、statusText等信息，
  * 查看axios响应结构文档：http://www.axios-js.com/zh-cn/docs/#%E5%93%8D%E5%BA%94%E7%BB%93%E6%9E%84
+ * @example
+ * import { head } from '@/request/index'
+ *
+ * head('/api/demo').then(res => {})
+ * head('/api/demo', params).then(res => {})
+ * head('/api/demo', params, config).then(res => {})
  */
 export const head = (url: string, params?: object, config?: AxiosRequestConfig) => {
   const method = 'head'
@@ -126,6 +168,12 @@ export const head = (url: string, params?: object, config?: AxiosRequestConfig) 
  * @param config object 配置覆盖对象 非必传，参考axios.config，文档链接：http://www.axios-js.com/zh-cn/docs/#%E8%AF%B7%E6%B1%82%E9%85%8D%E7%BD%AE
  * @returns promise 返回值与直接调用axios的返回一致，包含config、data、headers、request、status、statusText等信息，
  * 查看axios响应结构文档：http://www.axios-js.com/zh-cn/docs/#%E5%93%8D%E5%BA%94%E7%BB%93%E6%9E%84
+ * @example
+ * import { options } from '@/request/index'
+ *
+ * options('/api/demo').then(res => {})
+ * options('/api/demo', params).then(res => {})
+ * options('/api/demo', params, config).then(res => {})
  */
 export const options = (url: string, params?: object, config?: AxiosRequestConfig) => {
   const method = 'options'
@@ -146,6 +194,12 @@ export const options = (url: string, params?: object, config?: AxiosRequestConfi
  * @param config object 配置覆盖对象 非必传，参考axios.config，文档链接：http://www.axios-js.com/zh-cn/docs/#%E8%AF%B7%E6%B1%82%E9%85%8D%E7%BD%AE
  * @returns promise 返回值与直接调用axios的返回一致，包含config、data、headers、request、status、statusText等信息，
  * 查看axios响应结构文档：http://www.axios-js.com/zh-cn/docs/#%E5%93%8D%E5%BA%94%E7%BB%93%E6%9E%84
+ * @example
+ * import { patch } from '@/request/index'
+ *
+ * patch('/api/demo').then(res => {})
+ * patch('/api/demo', data).then(res => {})
+ * patch('/api/demo', data, config).then(res => {})
  */
 export const patch = (url: string, data?: object, config?: AxiosRequestConfig) => {
   const method = 'patch'

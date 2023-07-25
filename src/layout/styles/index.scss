@@ -6,102 +6,126 @@
     flex-direction: row;
     width: 100%;
     height: 100%;
+
     .layout-container-view {
       flex-direction: column;
     }
+
     .layout-pd {
       padding: 15px;
     }
+
     .layout-flex {
       display: flex;
-      flex-direction: column;
       flex: 1;
+      flex-direction: column;
     }
+
     .layout-aside {
-      background: var(--next-bg-menuBar);
-      box-shadow: 2px 0 6px rgb(0 21 41 / 1%);
-      height: inherit;
       position: relative;
       z-index: 1000;
       display: flex;
       flex-direction: column;
+      height: inherit;
       overflow-x: hidden;
+      background: var(--next-bg-menuBar);
+      box-shadow: 2px 0 6px rgb(0 21 41 / 1%);
+
       .el-scrollbar__view {
         overflow: hidden;
       }
+
       .el-menu {
         .v-local-svg-icon {
-          font-size: 14px;
           width: 24px;
           margin-right: 5px;
+          font-size: 14px;
           text-align: center;
         }
       }
     }
+
     .layout-header {
-      padding: 0;
       height: auto;
+      padding: 0;
     }
+
     .layout-main {
-      overflow: hidden;
       width: 100%;
       padding: 0;
+      overflow: hidden;
       background-color: var(--next-bg-main-color);
+
       @extend .layout-flex;
+
       // 内层 el-scrollbar样式，用于界面高度自适应（main.vue）
       .layout-main-scroll {
         @extend .layout-flex;
+
         .layout-router-view {
           @extend .layout-flex;
+
           position: relative;
           padding: 15px; // 全局容器padding
         }
       }
     }
+
     // 用于界面高度自适应
     .layout-padding {
       @extend .layout-pd;
+
       position: absolute;
-      left: 0;
       top: 0;
+      left: 0;
       height: 100%;
       overflow: hidden;
+
       @extend .layout-flex;
+
       &-auto {
         height: inherit;
+
         @extend .layout-flex;
       }
+
       &-view {
-        background: var(--el-color-white);
         width: 100%;
         height: 100%;
-        border-radius: 4px;
-        border: 1px solid var(--el-border-color-light, #ebeef5);
         overflow: hidden;
+        background: var(--el-color-white);
+        border: 1px solid var(--el-border-color-light, #ebeef5);
+        border-radius: 4px;
       }
     }
+
     // 用于界面高度自适应，主视图区 main 的内边距，用于 iframe
     .layout-padding-unset {
       padding: 0;
+
       &-view {
-        border-radius: 0;
         border: none;
+        border-radius: 0;
       }
     }
+
     // 用于设置 iframe loading 时的高度（loading 垂直居中显示）
     .layout-iframe {
       .el-loading-parent--relative {
         height: 100%;
       }
     }
+
     .el-scrollbar {
       width: 100%;
     }
+
     // pc端左侧导航展开样式
     .layout-aside-pc-220 {
       width: 220px;
       transition: 0.3s ease-in;
     }
+
     // pc端左侧导航折叠样式
     .layout-aside-pc-64 {
       width: 64px;
@@ -110,12 +134,23 @@
 
     .layout-logo {
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100px;
-      font-size: 20px;
-      font-weight: bold;
       border-bottom: 1px solid var(--next-border-color-light);
+
+      img {
+        width: 60px;
+        margin-bottom: 5px;
+        cursor: pointer;
+      }
+
+      .title {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+      }
     }
 
     // 导航容器
@@ -136,15 +171,15 @@
       }
     }
 
-    // 面包屑
-    .layout-navbars-breadcrumb {
-      padding-top: 2px;
-    }
-
     // tags
     .layout-navbar-tags {
       height: 30px;
       border-bottom: 1px solid var(--next-border-color-light);
+    }
+
+    // 面包屑
+    .layout-navbars-breadcrumb {
+      padding-top: 2px;
     }
   }
 }

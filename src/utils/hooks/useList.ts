@@ -3,32 +3,29 @@ import { PAGE_SIZE } from '@/constant/pagination'
 import { ElMessage } from 'element-plus'
 import type { OptionsType } from './useList.d'
 
-/* 
- * 使用方法：
- *
-	import { useList } from '/@/utils/hooks/useList'
-
-	const form = ref({ // 必须用ref定义
-		xxx: xxx
-	})
-
-	const {
-		loading,
-		page,
-		pageSize,
-		list,
-		total,
-		loadListData
-	} = useList(protectApi.getList, {
-		filterOption: form,
-	})
-*/
-
 /**
  * 获取列表通用hook
+ * @description 页面不复杂时使用该hook能极大提升效率
  * @param listRequestFn 请求列表的api方法
  * @param options 参数信息，参考OptionsType说明
  * @returns object
+ * @example
+ * import { useList } from '/@/utils/hooks/useList'
+ *
+ * const form = ref({ // 必须用ref定义
+ *	  xxx: xxx
+ * })
+ *
+ * const {
+ *	  loading,
+ *	  page,
+ *	  pageSize,
+ *	  list,
+ *	  total,
+ *	  loadListData
+ * } = useList(protectApi.getList, {
+ *	  filterOption: form,
+ * })
  */
 export const useList = <T extends (...args: any) => Promise<any>>(listRequestFn: T, options: OptionsType = {}) => {
   // 获取options参数

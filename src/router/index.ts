@@ -55,7 +55,7 @@ router.beforeEach(async (to, from, next) => {
   // 有token的处理分支
   if (token) {
     // token存在的情况下可能会跳登录页也可能会跳别的页面，对这部分逻辑进行处理
-    // token存在的时候跳转登录页，重定向到首页
+    // token存在的时候跳转登录页说明此时token未过期，重定向到首页即可
     if (to.path === '/login') {
       next('/home')
     } else {

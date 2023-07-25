@@ -12,6 +12,7 @@
 				height: 18% !important;
 			}
 		}
+
 		.login-right {
 			position: absolute;
 			top: 50%;
@@ -28,25 +29,31 @@
 		.login-left {
 			display: none;
 		}
+
 		.login-right {
 			width: 100% !important;
+
 			.login-right-warp {
 				width: 100% !important;
 				height: 100% !important;
 				border: none !important;
+
 				.login-right-warp-mian {
 					.el-form-item {
 						display: flex !important;
 					}
+
 					.login-right-warp-main-title {
 						font-size: 20px !important;
 					}
 				}
+
 				.login-right-warp-one {
 					&::after {
 						right: 0 !important;
 					}
 				}
+
 				.login-right-warp-two {
 					&::before {
 						bottom: 1px !important;

@@ -1,13 +1,8 @@
 // 引入store定义函数
 import { defineStore } from 'pinia'
-export interface IState {
-  keepAliveIncludes: string[]
-}
 
 // state 类似组件的data选项，函数形式返回对象
-const state = (): IState => ({
-  keepAliveIncludes: [],
-})
+const state = () => ({})
 
 const getters = {}
 

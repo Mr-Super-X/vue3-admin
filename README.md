@@ -1,4 +1,4 @@
-<p align="center"><a href="https://github.com/Mr-Super-X/vue3-admin" target="_blank" rel="noopener noreferrer"><img width="200" src="src/assets/images/logo.png" alt="vue3-admin-logo"></a></p>
+<p align="center"><a href="https://github.com/Mr-Super-X/vue3-admin" target="_blank" rel="noopener noreferrer"><img width="120" src="src/assets/images/logo.svg" alt="vue3-admin-logo"></a></p>
 
 <p align="center">
   <!-- <a href="https://github.com/Mr-Super-X/vue3-admin/actions"><img allt="checks" src="https://badgen.net/github/checks/Mr-Super-X/vue3-admin"/></a> -->
@@ -6,9 +6,12 @@
   <a href="https://github.com/Mr-Super-X/vue3-admin"><img alt="stars" src="https://badgen.net/github/stars/Mr-Super-X/vue3-admin"/></a>
   <a href="https://github.com/Mr-Super-X/vue3-admin"><img alt="forks" src="https://badgen.net/github/forks/Mr-Super-X/vue3-admin"/></a>
   <a href="./LICENSE"><img alt="MIT License" src="https://badgen.net/github/license/Mr-Super-X/vue3-admin"/></a>
+  <a href="https://www.codefactor.io/repository/github/mr-super-x/vue3-admin" rel="nofollow">
+    <img src="https://img.shields.io/codefactor/grade/github/mr-super-x/vue3-admin?label=%E4%BB%A3%E7%A0%81%E8%B4%A8%E9%87%8F" alt="">
+  </a>
   <a href="http://commitizen.github.io/cz-cli/"><img alt="Commitizen friendly" src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg"/></a>
   <a href="https://v3.vuejs.org/" target="_blank">
-    <img src="https://img.shields.io/badge/vue-vue3.x-blue" alt="vue">
+    <img src="https://img.shields.io/badge/vue-3.x-blue" alt="vue">
   </a>
   <a href="https://webpack.docschina.org/" target="_blank">
       <img src="https://img.shields.io/badge/webpack-5.x-blue" alt="webpack">
@@ -21,19 +24,17 @@
   </a>
 </p>
 
-#  vue3-admin
+# vue3-admin
 
 ## 🗨️ 简介
 
 [vue3-admin](https://vue3-admin-beta.vercel.app/#/home)是一个后台前端解决方案，基于[Vue3](https://v3.cn.vuejs.org/) + [Element-plus](https://element-plus.gitee.io/zh-CN/) + [Webpack5](https://www.webpackjs.com/concepts/) + [Typescript](https://www.tslang.cn/) + [Pinia](https://pinia.web3doc.top/) + [Axios](http://www.axios-js.com/zh-cn/docs/) + [Scss](https://www.sass.hk/)搭建。使用[EditorConfig](https://editorconfig.org) + [Prettier](https://www.prettier.cn/) + [ESLint](http://eslint.cn/)搭建项目中统一的代码风格，使用[commitizen](https://github.com/commitizen) + [lint-staged](https://github.com/okonet/lint-staged) + [commitlint](https://github.com/conventional-changelog/commitlint)统一代码提交规范，支持[release-it](https://github.com/release-it/release-it)自动化发布符合[Semantic Versioning](https://semver.org/)规范的版本，自动生成[changelog](https://github.com/release-it/release-it/blob/master/docs/changelog.md)文档等功能。
-
 
 ## 💻 在线预览
 
 - [在线demo演示](https://vue3-admin-beta.vercel.app/#/home) 🚫
 
 > Vercel被墙了，请克隆项目后启动查看
-
 
 ## 💡 开发
 
@@ -53,7 +54,6 @@ npm install
 # 启动服务
 npm run dev
 ```
-
 
 ## 🚀 功能
 
@@ -144,7 +144,6 @@ vue3-admin
 └─ yarn.lock               # 版本锁定文件
 ```
 
-
 ## 💬 视图结构说明
 
 1. 所有的视图都放在views目录中，对应的模块视图放在views/modules/模块文件夹
@@ -156,6 +155,7 @@ vue3-admin
 7. 当前页面的一些工具方法或脚本函数在scripts.ts中管理
 
 整体采用Domain Style工程范式，专注于横向的功能拆分和扩展，视图结构遵循如下规范：
+
 ```
 home                      # 首页文件夹
 ├─ components             # 首页UI组件文件夹
@@ -169,6 +169,7 @@ home                      # 首页文件夹
 ```
 
 ## 💬 npm scripts说明（以下命令使用npm run或yarn均可）
+
 ```bash
 # 启动项目
 yarn serve
@@ -232,14 +233,13 @@ yarn release:patch
 yarn commit命令运行效果如下：
 ![img](https://github.com/Mr-Super-X/assets-resouece/blob/main/images/1653480834.jpg)
 
-
 ## 📚 其他说明
 
 - [路由模块说明](/docs/router.md)
 - [el-icon使用说明](/docs/el-icon.md)
 - [本地svg图标使用说明](/docs/local-svg.md)
 - [自动注册全局组件功能说明](/docs/auto-global-component.md)
-
+- [stylelint接入说明](/docs/stylelint.md)
 
 ## 🌎 浏览器支持
 
@@ -257,6 +257,7 @@ yarn commit命令运行效果如下：
 - <a href="https://github.com/PanJiaChen/vue-element-admin" target="_blank">@vue-element-admin</a>
 
 ### 📝 附上一份我自己总结的git命令指南
+
 包含git日常使用的详细操作命令，有需要可以自取
 
 [git指南png文件](git_doc.png)
@@ -272,7 +273,6 @@ yarn commit命令运行效果如下：
 ### 💞 Contributors
 
 [![Contributors](https://contrib.rocks/image?repo=Mr-Super-X/vue3-admin)](https://github.com/Mr-Super-X/vue3-admin/graphs/contributors)
-
 
 ## License
 
