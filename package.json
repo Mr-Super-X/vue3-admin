@@ -21,6 +21,7 @@
     "lint": "vue-cli-service lint",
     "lint:fix": "vue-cli-service lint --fix",
     "stylelint": "stylelint",
+    "stylelint:fix": "stylelint src/**/*.{css,less,scss} --fix",
     "commit": "git add . && cz",
     "push": "git add . && cz && git push",
     "release": "release-it",
