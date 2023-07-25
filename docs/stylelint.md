@@ -18,7 +18,7 @@ module.exports = {
     'stylelint-config-prettier', // 配置stylelint和prettier兼容
     'stylelint-config-recess-order', // 配置stylelint css属性书写顺序插件
     'stylelint-config-standard-scss', // 配置stylelint scss插件
-    'stylelint-config-recommended-vue', // vue项目需要添加
+    'stylelint-config-recommended-vue', // 配置对vue文件的支持
   ],
   plugins: ['stylelint-less'], // 配置对less的支持
   rules: {
@@ -26,19 +26,20 @@ module.exports = {
     'keyframes-name-pattern': null, // 设置keyframes动画名选择器不遵循 kebab-case
     'custom-property-pattern': null, // 设置自定义属性如--next-bg-menuBar不遵循 kebab-case
     'at-rule-no-unknown': null, // 关闭使用@use引入文件的错误提示
-    'scss/at-extend-no-missing-placeholder': null, // 设置scss @extend继承错误提示
+    'scss/at-extend-no-missing-placeholder': null, // 关闭scss @extend继承错误提示
+    'media-query-no-invalid': null, // 关闭媒体查询没有默认值的错误提示
   },
 }
 ```
 
 - 设置保存自动修复
 
-一般希望在保存文件css文件后自动修复css中的不合理的地方，在vscode扩展商店中安装stylelint后，需要修改一下 .vscode/settings.json 文件。
+如果希望在保存文件css文件后自动修复css中的不合理的地方，在vscode扩展商店中安装stylelint后，需要修改一下 .vscode/settings.json 文件。
 
-因为要使用stylelint的规则格式化代码，不使用prettier来格式化css、less、scss文件了，删除掉 .vscode/settings.json中配置的使用prettier格式化css、less、scss的配置。
+因为要使用stylelint的规则格式化代码，需要去除prettier的相关配置，删除掉 .vscode/settings.json 中使用prettier格式化css、less、scss的配置。
 
 ```json
-  // 删除相关代码
+  // 删除相关配置，如果有
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -50,7 +51,7 @@ module.exports = {
   },
 ```
 
-在 .vscode/settins.json 新增stylelint保存文件格式化样式文件配置。
+在 .vscode/settins.json 新增保存文件自动使用stylelint格式化配置。
 
 ```json
 {
@@ -68,7 +69,7 @@ module.exports = {
 }
 ```
 
-在 .vscode/settings.json 文件中添加上面styleint保存后自动修复配置代码后，来到相应的css文件，按ctrl+s保存代码即可体验效果。
+以上配置完成后，可到相应的css、scss等文件中按ctrl+s保存代码即可体验效果。
 
 - 将stylelint加入lint-staged
 
