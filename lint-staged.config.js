@@ -10,5 +10,5 @@ module.exports = {
   // 对匹配的文件执行prettier格式化、eslint修复，再进行eslint检测，如果还有不通过的则需要自己手动修复
   '*.{js,jsx,vue,ts,tsx}': ['prettier --ignore-unknown --write', 'eslint --fix', 'npm run lint'],
   // 对src中的css,less,scss进行stylelint修复
-  'src/**/*.{css,less,scss}': ['npm run stylelint'],
+  'src/**/*.{css,less,scss}': ['stylelint --fix', 'npm run stylelint'],
 }

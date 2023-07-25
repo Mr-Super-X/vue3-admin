@@ -7,6 +7,7 @@ module.exports = {
     'stylelint-config-standard-scss', // 配置stylelint scss插件
     'stylelint-config-recommended-vue', // vue项目需要添加
   ],
+  plugins: ['stylelint-less'], // 配置对less的支持
   rules: {
     'selector-class-pattern': null, // 设置类名选择器不遵循 kebab-case
     'keyframes-name-pattern': null, // 设置keyframes动画名选择器不遵循 kebab-case
