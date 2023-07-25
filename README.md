@@ -28,7 +28,7 @@
 
 ## 🗨️ 简介
 
-[vue3-admin](https://vue3-admin-beta.vercel.app/#/home)是一个后台前端解决方案，基于[Vue3](https://v3.cn.vuejs.org/) + [Element-plus](https://element-plus.gitee.io/zh-CN/) + [Webpack5](https://www.webpackjs.com/concepts/) + [Typescript](https://www.tslang.cn/) + [Pinia](https://pinia.web3doc.top/) + [Axios](http://www.axios-js.com/zh-cn/docs/) + [Scss](https://www.sass.hk/)搭建。使用[EditorConfig](https://editorconfig.org) + [Prettier](https://www.prettier.cn/) + [ESLint](http://eslint.cn/)搭建项目中统一的代码风格，使用[commitizen](https://github.com/commitizen) + [lint-staged](https://github.com/okonet/lint-staged) + [commitlint](https://github.com/conventional-changelog/commitlint)统一代码提交规范，支持[release-it](https://github.com/release-it/release-it)自动化发布符合[Semantic Versioning](https://semver.org/)规范的版本，自动生成[changelog](https://github.com/release-it/release-it/blob/master/docs/changelog.md)文档等功能。
+[vue3-admin](https://vue3-admin-beta.vercel.app/#/home)是一个后台前端解决方案，基于[Vue3](https://v3.cn.vuejs.org/) + [Element-plus](https://element-plus.gitee.io/zh-CN/) + [Webpack5](https://www.webpackjs.com/concepts/) + [Typescript](https://www.tslang.cn/) + [Pinia](https://pinia.web3doc.top/) + [Axios](http://www.axios-js.com/zh-cn/docs/) + [Scss](https://www.sass.hk/)搭建。使用[EditorConfig](https://editorconfig.org) + [Prettier](https://www.prettier.cn/) + [ESLint](http://eslint.cn/) + [Stylelint](https://stylelint.io/)搭建项目中统一的代码风格，使用[commitizen](https://github.com/commitizen) + [lint-staged](https://github.com/okonet/lint-staged) + [commitlint](https://github.com/conventional-changelog/commitlint)统一代码提交规范，支持[release-it](https://github.com/release-it/release-it)自动化发布符合[Semantic Versioning](https://semver.org/)规范的版本，自动生成[changelog](https://github.com/release-it/release-it/blob/master/docs/changelog.md)文档等功能。
 
 ## 💻 在线预览
 
@@ -68,13 +68,15 @@ npm run dev
 - 全局功能
   - 支持githooks 已安装yorkie（https://github.com/yyx990803/yorkie）-尤大fork自husky，与husky功能类似
   - 支持pre-commit自动执行prettier统一代码格式
-  - 支持eslint，使用standard规范，支持pre-commit自动进行eslint修复
+  - 支持eslint，使用recommended规范，支持pre-commit自动进行eslint修复
+  - 支持stylelint，支持pre-commit自动进行stylelint修复
   - 支持lint-staged只对commit的文件做lint校验
   - 支持mock功能，运行npm run dev:mock命令即可进入mock模式
   - 支持commitizen，可在终端进行交互选择符合Angular规范的提交信息（已支持自定义汉化，可自行修改）
   - 支持commitlint，使用git commit命令也会触发commit校验
   - 支持release-it自动化发布符合Semantic Versioning规范的版本
   - 支持auto-changelog，自动生成changelog文档
+  - 支持editorconfig统一规范团队成员编辑器配置
 
 - 请求
   - 支持时间窗口内的重复请求过滤
