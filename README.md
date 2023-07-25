@@ -241,7 +241,8 @@ yarn commit命令运行效果如下：
 - [el-icon使用说明](/docs/el-icon.md)
 - [本地svg图标使用说明](/docs/local-svg.md)
 - [自动注册全局组件功能说明](/docs/auto-global-component.md)
-- [stylelint接入说明](/docs/stylelint.md)
+- [前端团队规范：stylelint接入说明](/docs/stylelint.md)
+- [前端团队规范：项目工程强制限制node版本](/docs/check-node-version.md)
 
 ## 🌎 浏览器支持
 
