@@ -19,9 +19,9 @@ body {
 ::-webkit-scrollbar-thumb {
   height: 50px;
   background-color: #b8b8b8;
+  filter: alpha(opacity=60);
   border-radius: 5px;
   outline-offset: -2px;
-  filter: alpha(opacity=60);
   -moz-opacity: 0.6;
   -khtml-opacity: 0.6;
   opacity: 0.6;

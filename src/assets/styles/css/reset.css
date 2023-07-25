@@ -1,22 +1,20 @@
-/*重置默认样式*/
+/* 重置默认样式 */
 * {
-    margin: 0;
-    padding: 0;
-    font-weight: normal;
-    font-style: normal;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-style: normal;
+    font-weight: normal;
+
     /* font-family: "Microsoft YaHei", serif; */
-    /*删除点击高亮*/
+
+    /* 删除点击高亮 */
     -webkit-tap-highlight-color: transparent;
 }
 
 html {
     height: 100%;
     background: #fff;
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
     text-size-adjust: 100%;
 }
 
@@ -33,14 +31,14 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-    margin: 0;
     padding: 0;
-    border: 0;
-    outline: 0;
-    font-weight: normal;
+    margin: 0;
     font-style: normal;
+    font-weight: normal;
     vertical-align: baseline;
     background: transparent;
+    border: 0;
+    outline: 0;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -58,34 +56,34 @@ blockquote, q {
     quotes: none;
 }
 
-blockquote:before, blockquote:after,
-q:before, q:after {
+blockquote::before, blockquote::after,
+q::before, q::after {
     content: '';
     content: none;
 }
 
 table {
-    border-collapse: collapse;
     border-spacing: 0;
+    border-collapse: collapse;
 }
 
 a {
-    text-decoration: none;
     color: initial;
+    text-decoration: none;
 }
 
 input, select, textarea, button {
+    background-color: transparent;
     border: none;
     outline: none;
-    background-color: transparent;
 }
 
-/*去除谷歌浏览器记住账号密码填充的黄色背景*/
+/* 去除谷歌浏览器记住账号密码填充的黄色背景 */
 input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+    color: rgb(0 0 0) !important;
     background-color: transparent !important;
     background-image: none !important;
-    color: rgb(0, 0, 0) !important;
-    -webkit-box-shadow: 0 0 0px 1000px #f9fafc inset;
+    box-shadow: 0 0 0 1000px #f9fafc inset;
 }
 
 select::-ms-expand {
@@ -102,9 +100,9 @@ input::-ms-reveal {
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
+    appearance: none;
 }
 
 input[type="number"] {
-    -moz-appearance: textfield;
+    appearance: textfield;
 }

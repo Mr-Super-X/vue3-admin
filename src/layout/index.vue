@@ -5,7 +5,7 @@
  * @Contact: 1303232158@qq.com
  * @Date: 2022-05-19 12:37:18
  * @LastEditors: Mr.Mikey
- * @LastEditTime: 2023-06-15 10:59:43
+ * @LastEditTime: 2023-07-25 11:36:28
  * @FilePath: \vue3-admin\src\layout\index.vue
 -->
 
@@ -26,7 +26,7 @@ import { ref, computed, onMounted } from 'vue'
 import { ElConfigProvider } from 'element-plus'
 import { useThemeConfigStore } from '@store/modules/themeConfig'
 import { storeToRefs } from 'pinia'
-import zhCn from 'element-plus/lib/locale/lang/zh-cn'
+// import zhCn from 'element-plus/lib/locale/lang/zh-cn'
 // import en from "element-plus/lib/locale/lang/en";
 
 // 引入组件
@@ -36,7 +36,7 @@ import VMain from './components/VMain.vue'
 
 // 定义变量内容
 const config = ref({
-  locale: zhCn,
+  // locale: zhCn,
   zIndex: 3000,
   size: 'small',
 })
