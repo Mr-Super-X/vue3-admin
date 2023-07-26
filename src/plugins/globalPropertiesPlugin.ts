@@ -7,7 +7,7 @@ import 'element-plus/theme-chalk/el-message.css'
 /**
  * 功能：使用app.config.globalProperties插件
  */
-const globalPropertiesPlugin = {
+const globalPropertiesPlugin: Installable = {
   install() {
     // vue3不再提供如vue.prototype.$message = ElMessage这种形式来调用
     // 使用app.config.globalProperties来代替
