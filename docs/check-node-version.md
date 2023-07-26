@@ -10,12 +10,11 @@
 
 安装依赖
 
-> npm i @babel/node semver -D --force
+> npm i semver -D --force
 
-- @babel/node 用于编译js文件
 - semver 用于检查是否符合[Semantic Versioning](https://semver.org/)规范
 
-项目根目录下创建check-node-version.mjs
+项目根目录下创建check-node-version.js
 
 ```javascript
 import semver from 'semver'
@@ -42,7 +41,7 @@ if (!semver.satisfies(process.version, version)) {
 {
    "name": "my package",
    "scripts": {
-     "check-node-version": "babel-node check-node-version.mjs",
+     "check-node-version": "node check-node-version.js",
      "postinstall": "npm run check-node-version"
    },
    "engines": {

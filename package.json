@@ -29,7 +29,7 @@
     "release:major": "release-it major",
     "release:minor": "release-it minor",
     "release:patch": "release-it patch",
-    "check-node-version": "babel-node check-node-version.mjs",
+    "check-node-version": "node check-node-version.js",
     "postinstall": "npm run check-node-version"
   },
   "dependencies": {
@@ -45,7 +45,6 @@
     "vue-router": "^4.2.2"
   },
   "devDependencies": {
-    "@babel/node": "^7.22.6",
     "@commitlint/cli": "^17.6.5",
     "@commitlint/config-conventional": "^17.6.5",
     "@iconify-json/ep": "^1.1.10",
