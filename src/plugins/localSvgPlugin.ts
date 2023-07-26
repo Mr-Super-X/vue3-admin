@@ -1,4 +1,5 @@
 import { getFilename } from '@utils/index'
+import type { Installable } from './plugin.d'
 
 /**
  * 功能：引入本地svg

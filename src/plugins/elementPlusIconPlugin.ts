@@ -1,5 +1,6 @@
 import { app } from '@/main'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+import type { Installable } from './plugin.d'
 
 /**
  * 功能：从 @element-plus/icons-vue 中导入所有图标并进行全局注册

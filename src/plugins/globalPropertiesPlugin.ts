@@ -3,6 +3,7 @@ import { app } from '@/main'
 // 因此手动引入使用
 import { ElMessage } from 'element-plus'
 import 'element-plus/theme-chalk/el-message.css'
+import type { Installable } from './plugin.d'
 
 /**
  * 功能：使用app.config.globalProperties插件
