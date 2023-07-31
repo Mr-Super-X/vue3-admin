@@ -14,7 +14,7 @@
 
 - semver 用于检查是否符合[Semantic Versioning](https://semver.org/)规范
 
-项目根目录下创建check-node-version.js
+项目根目录下创建check-node-version.mjs（使用了import导入依赖包，因此后缀要为.mjs才可以正确运行）
 
 ```javascript
 import semver from 'semver'
@@ -41,7 +41,7 @@ if (!semver.satisfies(process.version, version)) {
 {
    "name": "my package",
    "scripts": {
-     "check-node-version": "node check-node-version.js",
+     "check-node-version": "node check-node-version.mjs",
      "postinstall": "npm run check-node-version"
    },
    "engines": {
