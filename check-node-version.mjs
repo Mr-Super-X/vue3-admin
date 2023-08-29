@@ -1,11 +1,12 @@
 /**
  * @description 检查本地node版本是否符合项目node版本要求，不符合则拦截 install，支持npm yarn
+ * @tips 如遇到本地node版本过低运行失败，请手动安装@babel/node并修改代码"check-node-version": "babel-node check-node-version.mjs"
  *
  * 步骤：
- *  1. 安装依赖：npm i @babel/node semver -D
+ *  1. 安装依赖：npm i semver -D
  *  2. package.json script配置脚本
  *
- *      "check-node-version": "babel-node check-node-version.mjs",
+ *      "check-node-version": "node check-node-version.mjs",
  *      "postinstall": "npm run check-node-version"
  *
  *     增加engines，按需求修改
