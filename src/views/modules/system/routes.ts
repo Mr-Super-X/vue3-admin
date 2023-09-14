@@ -7,7 +7,7 @@ export default [
     redirect: '/system/menu',
     meta: {
       isKeepAlive: false, // 是否缓存组件
-      title: '系统管理', // 路由中文名称
+      title: 'messages.system', // 路由中文名称
       isLink: '',
       isHide: false,
       isAffix: false,

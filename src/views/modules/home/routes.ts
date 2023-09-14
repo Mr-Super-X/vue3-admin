@@ -1,3 +1,9 @@
+/*
+ * @LastDescription: Multi-Language Support
+ * @LastEditors: lllomh
+ * @LastContact: admin@lllomh.com
+ * @LastEditTime: 2023-09-14 13:12:32
+ */
 // 导出当前页面的路由配置
 export default [
   {
@@ -6,7 +12,7 @@ export default [
     component: () => import(/* webpackChunkName: "home" */ './index.vue'), // 按需引入组件，提高首屏加载速度
     meta: {
       isKeepAlive: false, // 是否缓存组件
-      title: '首页', // 路由中文名称
+      title: 'messages.home', // 路由中文名称
       isLink: '',
       isHide: false,
       isAffix: true,

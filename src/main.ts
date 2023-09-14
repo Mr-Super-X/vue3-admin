@@ -1,3 +1,9 @@
+/*
+ * @LastDescription: Multi-Language Support
+ * @LastEditors: lllomh
+ * @LastContact: admin@lllomh.com
+ * @LastEditTime: 2023-09-14 17:53:32
+ */
 import { createApp } from 'vue' // 创建vue实例函数
 import { verifyENV } from './utils' // 验证环境函数
 import App from './App.vue' // 入口vue组件
@@ -11,6 +17,7 @@ import 'normalize.css' // 保持各浏览器样式统一
 import '@styles/css/reset.css' // 重置样式
 import '@styles/css/common.css' // 引入公共样式
 import '@theme/index.scss' // 引入主题文件
+import i18n from '@/lang/i18n' //Import multilingualism package
 
 // 引入mockjs（其他环境下未使用的esmodule会被tree-shaking）
 import { mockXHR } from '../mock'
@@ -21,4 +28,4 @@ if (verifyENV('mock')) {
 
 export const app = createApp(App)
 
-app.use(pinia).use(router).use(plugins).use(directives).use(components).mount('#app')
+app.use(pinia).use(router).use(plugins).use(directives).use(components).use(i18n).mount('#app')

@@ -1,5 +1,11 @@
+<!--
+* @LastDescription: Multi-Language Support
+* @LastEditors: lllomh
+* @LastContact: admin@lllomh.com
+* @LastEditTime: 2023-09-14 18:02:23
+-->
 <template>
-  <div>订单信息</div>
+  <div>{{ $t('messages.orderInfo') }}</div>
 </template>
 
 <script lang="ts">
