@@ -1,5 +1,11 @@
+<!--
+* @LastDescription: Multi-Language Support
+* @LastEditors: lllomh
+* @LastContact: admin@lllomh.com
+* @LastEditTime: 2023-09-14 14:23:11
+-->
 <template>
-  <div>菜单配置</div>
+  <div>{{ $t('messages.systemMenu') }}</div>
 </template>
 
 <script setup lang="ts"></script>

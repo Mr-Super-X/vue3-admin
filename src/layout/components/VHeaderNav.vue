@@ -7,7 +7,13 @@
  * @LastEditors: Mr.Mikey
  * @LastEditTime: 2022-08-08 11:28:16
  * @FilePath: \vue3-admin\src\layout\components\VHeaderNav.vue
+ 
+* @LastDescription: Multi-Language Support
+* @LastEditors: lllomh
+* @LastContact: admin@lllomh.com
+* @LastEditTime: 2023-09-14 17:34:12
 -->
+
 <template>
   <div class="layout-nav-container">
     <div class="left-area">
@@ -15,6 +21,7 @@
       <v-header-breadcrumb />
     </div>
     <div class="right-area">
+      <v-header-lang />
       <v-header-icon-full-screen />
       <v-header-user />
     </div>
@@ -26,4 +33,5 @@ import VHeaderBreadcrumb from './VHeaderBreadcrumb.vue'
 import VHeaderIconCollapse from './VHeaderIconCollapse.vue'
 import VHeaderIconFullScreen from './VHeaderIconFullScreen.vue'
 import VHeaderUser from './VHeaderUser.vue'
+import VHeaderLang from './VHeaderLang.vue'
 </script>

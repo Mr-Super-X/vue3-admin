@@ -1,3 +1,9 @@
+<!--
+* @LastDescription: Multi-Language Support
+* @LastEditors: lllomh
+* @LastContact: admin@lllomh.com
+* @LastEditTime: 2023-09-14 16:56:12
+-->
 <template>
   <el-breadcrumb class="layout-navbars-breadcrumb" :separator-icon="ArrowRight">
     <transition-group name="breadcrumb">
@@ -6,11 +12,11 @@
         :key="!v.meta.tagsViewName ? v.meta.title : v.meta.tagsViewName"
       >
         <span v-if="k === state.breadcrumbList.length - 1" class="layout-navbars-breadcrumb-span">
-          <div v-if="!v.meta.tagsViewName">{{ v.meta.title }}</div>
+          <div v-if="!v.meta.tagsViewName">{{ $t(v.meta.title) }}</div>
           <div v-else>{{ v.meta.tagsViewName }}</div>
         </span>
         <a v-else @click.prevent="onBreadcrumbClick(v)">
-          {{ v.meta.title }}
+          {{ $t(v.meta.title) }}
         </a>
       </el-breadcrumb-item>
     </transition-group>

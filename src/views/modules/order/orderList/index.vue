@@ -1,5 +1,5 @@
 <template>
-  <div>订单列表</div>
+  <div>{{ $t('messages.orderList') }}</div>
 </template>
 
 <script setup lang="ts"></script>

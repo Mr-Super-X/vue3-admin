@@ -32,3 +32,31 @@ body {
   background-color: #878987;
   border-radius: 5px;
 }
+
+/* Styling for the language selection buttons */
+.language{
+  margin-right: 10px;
+}
+
+
+/* stylelint-disable-next-line no-descending-specificity */
+.el-select .el-input.is-focus .el-input__wrapper{
+  box-shadow:none!important;
+}
+/* stylelint-disable-next-line no-descending-specificity */
+.el-select .el-input__wrapper.is-focus{
+  box-shadow:none!important;
+}
+/* stylelint-disable-next-line no-descending-specificity */
+.el-select .el-input__wrapper{
+  background-color: transparent;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.language .el-input__wrapper{
+  outline: none;
+  box-shadow:none!important;
+}
+
+
+
